@@ -27,6 +27,8 @@ export default function LangSwitcher({ inside, className }: LangSwitcherProps) {
   const [isTopLineVisible, setIsTopLineVisible] = useState(false);
   const [isBottomLineVisible, setIsBottomLineVisible] = useState(false);
 
+  console.log(languages[currentLangSlug].name);
+
   const setLanguage = (langCode: SupportedLanguage) => {
     changeLang(langCode);
     setVisible(false);
