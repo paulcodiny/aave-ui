@@ -82,6 +82,7 @@ const staticStyles = css.global`
 
     &__button-text {
       padding-top: 2px;
+      overflow: hidden;
     }
 
     &__button-subLogo {
@@ -93,10 +94,7 @@ const staticStyles = css.global`
 
     &__buttonLogo-inner {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      margin-left: 8px;
-      margin-right: 8px;
 
       img {
         width: 67px;
@@ -264,15 +262,16 @@ const staticStyles = css.global`
     }
 
     &__kovan {
-      background: #7159ff;
+      background: #8f65ff;
       color: #ffffff;
-      position: relative;
-      margin: 0 5px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
       z-index: 10;
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      font-size: 7px;
+      font-size: 8px;
       display: flex;
       align-items: center;
       justify-content: center;

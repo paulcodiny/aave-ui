@@ -44,7 +44,7 @@ export default function TopPanelWrapper({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TopPanelWrapper {
-          background: transparent;
+          background: ${currentTheme.darkBlue.hex};
 
           &__button {
             color: ${currentTheme.white.hex};

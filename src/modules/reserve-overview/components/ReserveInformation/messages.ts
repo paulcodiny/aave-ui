@@ -22,7 +22,4 @@ export default defineMessages({
 
   provideLiquidity: 'Provide liquidity {here}',
   here: 'here',
-
-  yes: 'Yes',
-  no: 'No',
 });

@@ -78,9 +78,9 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   },
   [CustomMarket.proto_mumbai]: {
     chainId: ChainId.mumbai,
-    logo: logos.aavev2Logo,
-    activeLogo: logos.aavev2ActiveLogo,
-    subLogo: logos.avrora,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.polygon,
     aTokenPrefix: 'AM',
     enabledFeatures: {
       incentives: true,
@@ -94,11 +94,10 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     },
   },
   [CustomMarket.proto_matic]: {
-    localnet: true,
     chainId: ChainId.polygon,
-    logo: logos.aavev2Logo,
-    activeLogo: logos.aavev2ActiveLogo,
-    subLogo: logos.avrora,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.polygon,
     aTokenPrefix: 'AM',
     enabledFeatures: {
       liquiditySwap: true,
@@ -112,11 +111,10 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     },
   },
   [CustomMarket.proto_fuji]: {
-    testnet: true,
     chainId: ChainId.fuji,
-    logo: logos.aavev2Logo,
-    activeLogo: logos.aavev2ActiveLogo,
-    subLogo: logos.avrora,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.avalanche,
     aTokenPrefix: 'AAVA',
     enabledFeatures: {
       faucet: true,
@@ -131,8 +129,9 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   },
   [CustomMarket.proto_avalanche]: {
     chainId: ChainId.avalanche,
-    logo: logos.aavev2Logo,
-    activeLogo: logos.aavev2ActiveLogo,
+    logo: logos.aaveLogo,
+    activeLogo: logos.aaveActiveLogo,
+    subLogo: logos.avalanche,
     aTokenPrefix: 'AV',
     enabledFeatures: {
       liquiditySwap: true,

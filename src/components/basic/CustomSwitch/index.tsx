@@ -58,9 +58,6 @@ export default function CustomSwitch({
       />
 
       <style jsx={true} global={true}>{`
-        .Switcher__wrapper {
-          margin-left: 13px;
-        }
         .CustomSwitch {
           .Switcher__swiperDisabled {
             .react-switch-bg {

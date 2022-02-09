@@ -62,10 +62,10 @@ export function PieChart({
             {centerText && (
               <Text
                 verticalAnchor="middle"
-                fill="#131313"
+                fill="#ffffff"
                 textAnchor="middle"
                 width={60}
-                fontSize={10}
+                fontSize={12}
               >
                 {centerText}
               </Text>

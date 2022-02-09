@@ -13,11 +13,12 @@ import MenuLink from '../MenuLink';
 import MoreButton from '../MoreButton';
 import AddressInfo from '../AddressInfo';
 import MobileContent from '../MobileContent';
+import { LOGO } from '../../../ui-config';
 
 import staticStyles from './style';
 
 import navigation from '../navigation';
-import logo from '../../../images/logo.svg';
+
 import backIcon from '../../../images/mobileBackArrow.svg';
 
 interface MenuProps {
@@ -42,7 +43,7 @@ export default function Menu({ title }: MenuProps) {
     <header className="Menu">
       <div className="Menu__logo-inner">
         <Link className="Menu__logo-link" to="/markets" onClick={() => goToTop()}>
-          <img src={logo} alt="logo" />
+          <img src={LOGO} alt="Aave" />
         </Link>
       </div>
 
@@ -95,11 +96,8 @@ export default function Menu({ title }: MenuProps) {
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
-        .logo_test {
-          font-size: 22px;
-          color: white;
-        }
         .Menu {
+          background: ${currentTheme.headerBg.hex};
           &:after {
             background: ${topLineColor};
           }

@@ -20,7 +20,6 @@ export default function DashboardNoData() {
   const intl = useIntl();
   const { currentTheme, isCurrentThemeDark, sm } = useThemeContext();
   const { currentMarket, setCurrentMarket } = useProtocolDataContext();
-  const data = availableMarkets.slice(4); // TODO: dirty hack!
 
   return (
     <ContentWrapper className="DashboardNoData" withFullHeight={true} withBackButton={true}>
@@ -30,7 +29,7 @@ export default function DashboardNoData() {
       />
 
       <div className="DashboardNoData__markets">
-        {data.map((market) => {
+        {availableMarkets.map((market) => {
           const marketData = marketsData[market];
           return (
             <MarketSelectButton
@@ -42,8 +41,6 @@ export default function DashboardNoData() {
               key={market}
               hoverColored={!isCurrentThemeDark}
               isDark={!isCurrentThemeDark}
-              testnet={marketData.testnet}
-              localnet={marketData.localnet}
             />
           );
         })}

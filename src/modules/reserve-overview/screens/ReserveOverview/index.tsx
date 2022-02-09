@@ -1,7 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { useHistory } from 'react-router-dom';
 
 import routeParamValidationHOC, {
   ValidationWrapperComponentProps,
@@ -19,13 +18,11 @@ import BorrowAPR from '../../components/Graphs/BorrowAPR';
 import DepositAPY from '../../components/Graphs/DepositAPY';
 import UtilisationRate from '../../components/Graphs/UtilisationRate';
 import Link from '../../../../components/basic/Link';
-import { TokenIcon } from '../../../../helpers/config/assets-config';
 
 import messages from './messages';
 import staticStyles from './style';
 
 import linkIcon from '../../../../images/blueLinkIcon.svg';
-import arrowLeft from '../../../../images/arrowLeft.svg';
 import { getAssetInfo } from '../../../../helpers/config/assets-config';
 import { useReserveRatesHistory } from '../../../../libs/pool-data-provider/hooks/use-reserve-rates-history';
 
@@ -68,7 +65,6 @@ function ReserveOverview({
   });
 
   const isReserveHistoryGraphsVisible = !!RATES_HISTORY_ENDPOINT;
-  const history = useHistory();
 
   return (
     <ScreenWrapper
@@ -101,20 +97,8 @@ function ReserveOverview({
             />
           )}
         </div>
-        <p className="back" onClick={history.goBack}>
-          Back
-        </p>
-        <div style={{ margin: '10px auto 40px 0' }} className="flex-row">
-          <TokenIcon
-            className="TokenIconWithFullNameCustom"
-            tokenFullName={asset.shortSymbol || asset.name}
-            tokenSymbol={currencySymbol}
-            height={29}
-            width={29}
-          />
-        </div>
 
-        {/* {sm && poolLink && (
+        {sm && poolLink && (
           <div className="ReserveOverview__poolLink-inner">
             <p>
               {intl.formatMessage(messages.provideLiquidity, {
@@ -132,11 +116,11 @@ function ReserveOverview({
             </p>
             <img src={linkIcon} alt="" />
           </div>
-        )} */}
+        )}
 
-        {/* {poolReserve.borrowingEnabled && isReserveHistoryGraphsVisible && (
+        {poolReserve.borrowingEnabled && isReserveHistoryGraphsVisible && (
           <Charts poolReserve={poolReserve} />
-        )} */}
+        )}
 
         <div className="ReserveOverview__content-wrapper">
           <ReserveInformation
@@ -146,7 +130,7 @@ function ReserveOverview({
           />
 
           <div className="ReserveOverview__information ReserveOverview__user-information">
-            <h3 className="ReserveOverview__information-title-custom">
+            <h3 className="ReserveOverview__information-title">
               {intl.formatMessage(messages.userCaption)}
             </h3>
 
@@ -180,46 +164,8 @@ function ReserveOverview({
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
-        .TokenIconWithFullNameCustom {
-          p {
-            font-family: Montserrat;
-            font-size: 24px;
-            font-weight: bold;
-            font-stretch: normal;
-            font-style: normal;
-            line-height: normal;
-            letter-spacing: normal;
-            color: #131313;
-          }
-        }
-        .ReserveOverview__information-title-custom {
-          font-family: Montserrat;
-          font-size: 18px;
-          font-weight: bold;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #131313;
-          margin-bottom: 10px;
-        }
-        .back {
-          font-family: Roboto;
-          font-size: 14px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: 1.21;
-          letter-spacing: normal;
-          color: #131313;
-          cursor: pointer;
-          margin-bottom: 10px;
-          &:before {
-            content: url(${arrowLeft});
-            margin-right: 5px;
-          }
-        }
         .ReserveOverview {
+          &__information-title,
           &__poolLink-inner {
             color: ${currentTheme.textDarkBlue.hex};
           }

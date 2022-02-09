@@ -38,10 +38,6 @@ const navigation: Navigation[] = [
     title: messages.borrow,
   },
   {
-    link: '/manage-radiant',
-    title: messages.manage,
-  },
-  {
     link: '/asset-swap',
     title: messages.swap,
     isVisible: isFeatureEnabled.liquiditySwap,
@@ -52,8 +48,9 @@ const navigation: Navigation[] = [
     isVisible: () => !!stakeConfig,
   },
   {
-    link: '/podl',
-    title: messages.podl,
+    link: '/governance',
+    title: messages.governance,
+    isVisible: () => !!governanceConfig,
   },
 ];
 
