@@ -27,8 +27,6 @@ export default function LangSwitcher({ inside, className }: LangSwitcherProps) {
   const [isTopLineVisible, setIsTopLineVisible] = useState(false);
   const [isBottomLineVisible, setIsBottomLineVisible] = useState(false);
 
-  console.log(languages[currentLangSlug].name);
-
   const setLanguage = (langCode: SupportedLanguage) => {
     changeLang(langCode);
     setVisible(false);
@@ -66,10 +64,7 @@ export default function LangSwitcher({ inside, className }: LangSwitcherProps) {
           onClick={() => setVisible(!visible)}
           type="button"
         >
-          <div className="flag_wrapper">
-            <img src={languages[currentLangSlug].icon} alt="" />
-          </div>
-          <p className="lang_name">{intl.formatMessage(languages[currentLangSlug].name)}</p>
+          <img src={languages[currentLangSlug].icon} alt="" />
         </button>
       }
     >
@@ -112,6 +107,12 @@ export default function LangSwitcher({ inside, className }: LangSwitcherProps) {
       <style jsx={true} global={true}>{`
         .LangSwitcher {
           &__button {
+            border-color: ${currentTheme.white.hex};
+            background: ${currentTheme.white.hex};
+            &:hover {
+              border-color: ${currentTheme.primary.hex};
+              background: ${currentTheme.primary.hex};
+            }
           }
 
           &__content {
