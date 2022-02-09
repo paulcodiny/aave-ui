@@ -47,7 +47,7 @@ export default function TableItemWrapper({
             : currentTheme.whiteElement.hex};
           color: ${currentTheme.darkBlue.hex};
           &:hover {
-            box-shadow: 0 0 9px 0 #7159ff;
+            box-shadow: 0 0 9px 0 ${currentTheme.primary.hex};
           }
           &:active {
             border-color: ${currentTheme.primary.hex};
