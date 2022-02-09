@@ -9,8 +9,6 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow-x: auto;
-    overflow-y: hidden;
     width: calc(100% + 30px);
     margin: 0 0 0 -15px;
     position: relative;
@@ -31,13 +29,11 @@ const staticStyles = css.global`
     &__content {
       display: flex;
       flex-direction: column;
-      overflow-x: hidden;
-      overflow-y: auto;
       flex: auto;
-      height: 1px;
       min-height: 250px;
       padding-top: 100px;
-      margin-top: -100px;
+      margin-top: -112px;
+      z-index: 2;
       @include respond-to(sm) {
         height: auto;
       }
@@ -55,17 +51,28 @@ const staticStyles = css.global`
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 5px;
-      padding: 0 45px;
+      margin: 0 15px;
+      height: 48px;
+      padding: 0 20px 10px 20px;
+
+      border-radius: 5px;
+      -webkit-backdrop-filter: blur(10px);
+      backdrop-filter: blur(10px);
+      border: solid 1px rgba(255, 255, 255, 0.2);
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) -6%,
+        rgba(255, 255, 255, 0.3) 59%
+      );
+
       @include respond-to(xl) {
-        padding: 0 35px;
+        margin: 0 15px;
       }
       @include respond-to(lg) {
-        padding: 0 25px;
+        margin: 0 15px;
       }
       @include respond-to(sm) {
-        padding: 0 15px;
-        margin-bottom: 0;
+        margin: 0 5px;
       }
     }
   }

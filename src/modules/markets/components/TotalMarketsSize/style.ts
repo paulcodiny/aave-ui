@@ -43,7 +43,7 @@ const staticStyles = css`
       white-space: nowrap;
       font-size: 30px;
       @include respond-to(xl) {
-        font-size: 20px;
+        font-size: 30px;
       }
       @include respond-to(md) {
         font-size: $regular;

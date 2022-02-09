@@ -11,7 +11,7 @@ const staticStyles = css.global`
     &:hover {
       .MenuLink__title {
         i {
-          width: 80%;
+          width: 100%;
         }
       }
     }
@@ -87,7 +87,7 @@ const staticStyles = css.global`
           opacity: 1;
         }
         i {
-          width: 80% !important;
+          width: 100% !important;
         }
       }
     }

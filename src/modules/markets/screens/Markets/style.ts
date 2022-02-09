@@ -9,7 +9,7 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     flex: 1;
-    margin-top: 50px !important;
+    margin-top: 60px !important;
     @include respond-to(sm) {
       margin-top: 0 !important;
     }
@@ -21,7 +21,7 @@ const staticStyles = css.global`
       width: 100%;
       padding: 10px 30px;
       @include respond-to(xl) {
-        padding: 12px 20px;
+        padding: 22px 20px;
       }
       @include respond-to(lg) {
         padding: 15px 20px;
@@ -77,9 +77,9 @@ const staticStyles = css.global`
     }
 
     &__price-switcher {
-      margin-top: 30px;
+      margin-top: 40px;
       @include respond-to(xl) {
-        margin-top: 20px;
+        margin-top: 40px;
       }
       @include respond-to(sm) {
         display: none;

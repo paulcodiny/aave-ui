@@ -45,7 +45,8 @@ const staticStyles = css.global`
       width: 120px;
       height: 32px;
       border: 1px solid transparent;
-      border-radius: 1px;
+      border-radius: 2px;
+      padding-right: 25px;
       @include respond-to(sm) {
         width: 180px;
         height: 54px;
@@ -98,7 +99,7 @@ const staticStyles = css.global`
 
       img {
         width: 67px;
-        max-height: 14px;
+        max-height: 24px;
         margin: 0 auto;
         @include respond-to(sm) {
           width: 125px;
@@ -262,16 +263,15 @@ const staticStyles = css.global`
     }
 
     &__kovan {
-      background: #8f65ff;
+      background: #7159ff;
       color: #ffffff;
-      position: absolute;
       top: 2px;
       right: 2px;
       z-index: 10;
-      width: 10px;
-      height: 10px;
+      width: 15px;
+      height: 15px;
       border-radius: 50%;
-      font-size: 8px;
+      font-size: 10px;
       display: flex;
       align-items: center;
       justify-content: center;

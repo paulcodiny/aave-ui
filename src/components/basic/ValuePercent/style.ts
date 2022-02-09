@@ -11,7 +11,7 @@ const staticStyles = css`
     align-items: center;
 
     &__value {
-      font-weight: 600;
+      font-weight: 400;
       font-size: $large;
       @include respond-to(xl) {
         font-size: $regular;

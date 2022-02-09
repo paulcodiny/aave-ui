@@ -10,7 +10,7 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 1600px;
+    max-width: 1225px;
     margin: 0 auto;
     position: relative;
     z-index: 2;

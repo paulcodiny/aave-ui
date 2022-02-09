@@ -68,7 +68,6 @@ export default function MarketTable({
                 setSortName={setSortName}
                 setSortDesc={setSortDesc}
                 sortKey={column.sortKey}
-                withSorting={true}
                 title={intl.formatMessage(column.title)}
                 size="small"
               />
@@ -82,7 +81,6 @@ export default function MarketTable({
                 setSortName={setSortName}
                 setSortDesc={setSortDesc}
                 sortKey={column.sortKey}
-                withSorting={true}
                 title={intl.formatMessage(messages.borrowAPY)}
                 subTitle={intl.formatMessage(column.title)}
                 size="small"

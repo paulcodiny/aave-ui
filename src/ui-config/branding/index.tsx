@@ -11,7 +11,7 @@ import {
 } from './DashboardLeftTopLine';
 import { UnlockWalletExtraText as UnlockWalletExtraTextUI } from './UnlockWalletExtraText';
 
-import logo from './images/aaveLogo.svg';
+import logo from './images/radiantLogo.svg';
 
 export const LOGO = logo;
 

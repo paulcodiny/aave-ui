@@ -1,10 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
-import { DarkModeSwitcher } from '@aave/aave-ui-kit';
 
 import LangSwitcher from '../basic/LangSwitcher';
+import UserInfo from '../UserInfo';
 
 import staticStyles from './style';
+import aurora from '../../images/radiant/aurora.png';
 
 interface FooterProps {
   inside?: boolean;
@@ -12,13 +13,19 @@ interface FooterProps {
 
 export default function Footer({ inside }: FooterProps) {
   return (
-    <footer className={classNames('Footer', { Footer__inside: inside })}>
-      <DarkModeSwitcher />
-      <LangSwitcher />
+    <>
+      <div className="Markets__powered_by">
+        <p>powered by</p>
+        <img src={aurora} alt="aurora" />
+      </div>
+      <footer className={classNames('Footer', { Footer__inside: inside })}>
+        <UserInfo />
+        <LangSwitcher />
 
-      <style jsx={true} global={true}>
-        {staticStyles}
-      </style>
-    </footer>
+        <style jsx={true} global={true}>
+          {staticStyles}
+        </style>
+      </footer>
+    </>
   );
 }

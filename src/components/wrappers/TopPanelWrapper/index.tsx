@@ -44,7 +44,15 @@ export default function TopPanelWrapper({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TopPanelWrapper {
-          background: ${currentTheme.darkBlue.hex};
+          border-radius: 5px;
+          -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+          border: solid 1px rgba(255, 255, 255, 0.1);
+          background-image: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) -6%,
+            rgba(255, 255, 255, 0.4) 59%
+          );
 
           &__button {
             color: ${currentTheme.white.hex};
