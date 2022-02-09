@@ -19,12 +19,11 @@ interface SelectMarketPanelProps {
 export default function SelectMarketPanel({ isCollapse }: SelectMarketPanelProps) {
   const { currentTheme } = useThemeContext();
   const { currentMarket, setCurrentMarket } = useProtocolDataContext();
-  const data = availableMarkets.slice(4); // TODO: dirty hack!
 
   return (
     <div className={classNames('SelectMarketPanel', { SelectMarketPanel__collapse: isCollapse })}>
       <div className="SelectMarketPanel__markets">
-        {data.map((market) => {
+        {availableMarkets.map((market) => {
           const marketData = marketsData[market];
           return (
             <MarketSelectButton
@@ -35,8 +34,6 @@ export default function SelectMarketPanel({ isCollapse }: SelectMarketPanelProps
               subLogo={marketData.subLogo}
               disabled={market === currentMarket}
               key={market}
-              testnet={marketData.testnet}
-              localnet={marketData.localnet}
             />
           );
         })}
