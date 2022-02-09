@@ -100,9 +100,9 @@ function ReserveOverview({
             />
           )}
         </div>
-        <p className="back" onClick={history.goBack}>
+        <span className="back" onClick={history.goBack}>
           Back
-        </p>
+        </span>
 
         {sm && poolLink && (
           <div className="ReserveOverview__poolLink-inner">
@@ -136,7 +136,7 @@ function ReserveOverview({
           />
 
           <div className="ReserveOverview__information ReserveOverview__user-information">
-            <h3 className="ReserveOverview__information-title-custom">
+            <h3 className="ReserveOverview__information-title">
               {intl.formatMessage(messages.userCaption)}
             </h3>
 
@@ -170,17 +170,6 @@ function ReserveOverview({
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
-        .ReserveOverview__information-title-custom {
-          font-family: Montserrat;
-          font-size: 18px;
-          font-weight: bold;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #131313;
-          margin-bottom: 10px;
-        }
         .back {
           font-family: Roboto;
           font-size: 14px;
@@ -191,13 +180,13 @@ function ReserveOverview({
           letter-spacing: normal;
           color: #131313;
           cursor: pointer;
-          margin-bottom: 10px;
           &:before {
             content: url(${arrowLeft});
             margin-right: 5px;
           }
         }
         .ReserveOverview {
+          &__information-title,
           &__poolLink-inner {
             color: ${currentTheme.textDarkBlue.hex};
           }
