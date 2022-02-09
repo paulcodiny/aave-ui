@@ -82,6 +82,7 @@ const staticStyles = css.global`
 
     &__button-text {
       padding-top: 2px;
+      overflow: hidden;
     }
 
     &__button-subLogo {
