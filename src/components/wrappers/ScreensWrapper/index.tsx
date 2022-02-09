@@ -12,7 +12,6 @@ import staticStyles from './style';
 
 import background from '../../../images/background.svg';
 import backgroundDark from '../../../images/backgroundDark.svg';
-import sun from '../../../images/eggLeft.png';
 
 export interface ScreensWrapperProps {
   children: ReactNode;
@@ -70,7 +69,11 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
 
       <Footer inside={true} />
 
-      <img className="ScreensWrapper__background" src={sun} alt="" />
+      <img
+        className="ScreensWrapper__background"
+        src={isCurrentThemeDark ? backgroundDark : background}
+        alt=""
+      />
 
       <style jsx={true} global={true}>
         {staticStyles}
@@ -79,12 +82,12 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
         @import 'src/_mixins/screen-size';
 
         .ScreensWrapper {
-          background: #f5f6fa;
+          background: ${currentTheme.mainBg.hex};
 
           &__top-contentWrapper {
             background: rgb(72, 72, 74) !important;
             &:after {
-              background: transparent !important;
+              background: rgb(72, 72, 74) !important;
             }
           }
         }
