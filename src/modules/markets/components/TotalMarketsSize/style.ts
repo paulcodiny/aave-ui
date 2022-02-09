@@ -25,10 +25,6 @@ const staticStyles = css`
     }
     p {
       font-size: $large;
-      color: #131313;
-      font-family: Montserrat;
-      font-size: 16px;
-      font-weight: bold;
       margin-bottom: 5px;
       @include respond-to(xl) {
         font-size: $regular;
@@ -44,14 +40,6 @@ const staticStyles = css`
       }
     }
     h2 {
-      font-family: Montserrat;
-      font-size: 30px;
-      font-weight: 600;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      color: #131313;
       white-space: nowrap;
       font-size: 30px;
       @include respond-to(xl) {
