@@ -41,7 +41,10 @@ import messages from './messages';
 import staticStyles from './style';
 import { ChainId } from '@aave/contract-helpers';
 import { PageTitle } from '../../../../components/PageTitle';
+import { BlockTitle } from '../../../../components/BlockTitle';
 import { Content } from '../../../../components/content-wrapper';
+import styled from 'styled-components';
+import CircleCompositionBar from '../../../../components/compositionBars/CircleCompositionBar';
 
 export default function Dashboard() {
   const intl = useIntl();
@@ -188,7 +191,7 @@ export default function Dashboard() {
       }
     }
   });
-
+  //console.log(user?.totalLiquidityUSD)
   return (
     <>
       <Content className="flex-column w100">
@@ -228,7 +231,7 @@ export default function Dashboard() {
 
           <DepositBorrowTopPanel />
 
-          {/* {user && !!depositedPositions.length && !isBorrow && (
+          {user && !!depositedPositions.length && !isBorrow && (
             <MobileTopPanelWrapper
               visible={isDepositMobileInfoVisible}
               setVisible={setDepositMobileInfoVisible}
@@ -263,9 +266,9 @@ export default function Dashboard() {
             >
               <DepositCompositionBar user={user} />
             </MobileTopPanelWrapper>
-          )} */}
+          )}
 
-          {/* {user && !!borrowedPositions.length && isBorrow && (
+          {user && !!borrowedPositions.length && isBorrow && (
             <MobileTopPanelWrapper
               visible={isBorrowMobileInfoVisible}
               setVisible={setBorrowMobileInfoVisible}
@@ -378,7 +381,7 @@ export default function Dashboard() {
               <BorrowCompositionBar />
               <CollateralCompositionBar />
             </MobileTopPanelWrapper>
-          )} */}
+          )}
 
           {sm && <IncentiveWrapper />}
 
