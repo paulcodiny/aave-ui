@@ -126,7 +126,7 @@ export default function AddressInfo() {
       <style jsx={true} global={true}>{`
         .AddressInfo {
           &__button {
-            background: transparent !important;
+            background: ${currentTheme.darkBlue.hex};
             color: ${currentTheme.white.hex};
             &:hover {
               border-color: ${currentTheme.white.hex};
