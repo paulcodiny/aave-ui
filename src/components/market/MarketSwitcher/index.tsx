@@ -5,8 +5,7 @@ import { rgba, useThemeContext, DropdownWrapper } from '@aave/aave-ui-kit';
 
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import GradientText from '../../basic/GradientText';
-import avrora from '../../../images/avrora.png';
-import arrowDown from '../../../images/arrow-down.svg';
+
 import messages from './messages';
 import staticStyles from './style';
 import {
@@ -79,35 +78,31 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
           >
             <div className="MarketSwitcher__button-content">
               <div className="MarketSwitcher__button-text">
-                <div className="market_switcher_box">
-                  <img src={avrora} alt="avrora logo" />
-                  <div
-                    className={classNames('MarketSwitcher__buttonLogo-inner', {
-                      MarketSwitcher__buttonLogoInnerWithSubLogo: !!currentMarketData.subLogo,
-                    })}
-                  >
-                    {/* <img
+                <div
+                  className={classNames('MarketSwitcher__buttonLogo-inner', {
+                    MarketSwitcher__buttonLogoInnerWithSubLogo: !!currentMarketData.subLogo,
+                  })}
+                >
+                  <img
                     src={
                       !!currentMarketData.activeLogo
                         ? currentMarketData.activeLogo
                         : currentMarketData.logo
                     }
                     alt=""
-                  /> */}
-                    <p className="aurora">Aurora</p>
-                    <p className="market">{intl.formatMessage(messages.market)}</p>
-                  </div>
-                  <img src={arrowDown} alt="arrow" />
+                  />
                 </div>
+
+                <p>{intl.formatMessage(messages.market)}</p>
               </div>
 
-              {/* {!!currentMarketData.subLogo && (
+              {!!currentMarketData.subLogo && (
                 <img
                   className="MarketSwitcher__button-subLogo"
                   src={currentMarketData.subLogo}
                   alt=""
                 />
-              )} */}
+              )}
             </div>
 
             {selectedMarketTestnetMark && (
@@ -118,7 +113,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
       }
     >
       <div className="MarketSwitcher__content">
-        {/* <p className="MarketSwitcher__title">ff{intl.formatMessage(messages.changeMarket)}</p> */}
+        <p className="MarketSwitcher__title">{intl.formatMessage(messages.changeMarket)}</p>
         {availableMarkets.map((market) => {
           const marketData = marketsData[market];
           const config = getNetworkConfig(marketData.chainId);
@@ -166,35 +161,6 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
         {staticStyles}
       </style>
       <style jsx={true} global={true}>{`
-        .market_switcher_box {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: center;
-        }
-        .market {
-          opacity: 0.5;
-          font-family: Montserrat;
-          font-size: 10px;
-          font-weight: normal;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #fff;
-        }
-        .aurora {
-          font-family: Montserrat;
-          text-align: center;
-          margin: 0 auto;
-          font-size: 12px;
-          font-weight: bold !important;
-          font-stretch: normal;
-          font-style: normal;
-          line-height: normal;
-          letter-spacing: normal;
-          color: #fff;
-        }
         .MarketSwitcher {
           &__text-button {
             color: ${currentTheme.primary.hex};
@@ -202,18 +168,14 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
 
           &__button-content {
             color: ${currentTheme.white.hex};
-            background: transparent;
+            background: ${currentTheme.darkBlue.hex};
             &:hover {
-              border: none;
-              background-color: #ffffff10;
-              border-radius: 2px;
+              border-color: ${currentTheme.white.hex};
             }
           }
           &__buttonActive {
             .MarketSwitcher__button-content {
-              border: none;
-              background-color: #ffffff10;
-              border-radius: 2px;
+              border-color: ${currentTheme.white.hex};
             }
           }
           &__firstClickButton {
