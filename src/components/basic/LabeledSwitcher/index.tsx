@@ -60,9 +60,8 @@ export default function LabeledSwitcher({
           }
 
           &__inner {
-            background: #7159ff;
-            border-color: #7159ff;
-            border-radius: 4px;
+            background: #ff8225;
+            border-color: #ff8225;
           }
 
           button {
