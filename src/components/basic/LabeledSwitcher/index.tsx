@@ -58,9 +58,6 @@ export default function LabeledSwitcher({
               background: ${currentTheme.white.hex};
             }
           }
-          &__pointer {
-            padding: 2px 1px !important;
-          }
 
           &__inner {
             background: #7159ff;
