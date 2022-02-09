@@ -13,6 +13,11 @@ const staticStyles = css.global`
   @include font-face('roboto-font', '${PUBLIC_URL}/fonts/RobotoMedium/RobotoMedium', 500);
   @include font-face('roboto-font', '${PUBLIC_URL}/fonts/RobotoBold/RobotoBold', 600);
 
+  @include font-face('montserrat', '${PUBLIC_URL}/fonts/Montserrat/Montserrat-Regular');
+  @include font-face('montserrat', '${PUBLIC_URL}/fonts/Montserrat/Montserrat-Light', 300);
+  @include font-face('montserrat', '${PUBLIC_URL}/fonts/Montserrat/Montserrat-Medium', 500);
+  @include font-face('montserrat', '${PUBLIC_URL}/fonts/Montserrat/Montserrat-Bold', 600);
+
   * {
     padding: 0;
     margin: 0;
@@ -27,11 +32,10 @@ const staticStyles = css.global`
     -webkit-text-size-adjust: none;
     position: relative;
     height: 100%;
-    overflow: hidden !important;
   }
 
   body {
-    font-family: 'roboto-font', sans-serif;
+    font-family: 'montserrat', sans-serif;
     font-size: $regular;
     min-width: 365px;
   }
@@ -53,9 +57,9 @@ const staticStyles = css.global`
     box-shadow: none;
     outline: none;
     opacity: 1;
-    font-family: 'roboto-font', sans-serif;
+    font-family: 'montserrat', sans-serif;
     &::placeholder {
-      font-family: 'roboto-font', sans-serif;
+      font-family: 'montserrat', sans-serif;
     }
   }
 
@@ -127,7 +131,7 @@ const staticStyles = css.global`
     outline: none;
     cursor: pointer;
     transition: $transition;
-    font-family: 'roboto-font', sans-serif;
+    font-family: 'montserrat', sans-serif;
     &:disabled {
       cursor: default;
     }
@@ -148,7 +152,6 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     flex: 1;
-    overflow: hidden;
   }
 
   ul {
@@ -184,7 +187,6 @@ const staticStyles = css.global`
   .Body__filters-open,
   .Body__mobileMenu-open {
     #PrivateWrapper__content-wrapper {
-      overflow: hidden;
     }
   }
 

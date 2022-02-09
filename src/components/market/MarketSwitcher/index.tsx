@@ -57,6 +57,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
 
   return (
     <DropdownWrapper
+      withArrow={true}
       className={classNames('MarketSwitcher', className)}
       horizontalPosition={sm ? 'center' : 'right'}
       verticalPosition={toTop ? 'top' : 'bottom'}
@@ -93,7 +94,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
                   />
                 </div>
 
-                <p>{intl.formatMessage(messages.market)}</p>
+                {/*<p>{intl.formatMessage(messages.market)}</p>*/}
               </div>
 
               {!!currentMarketData.subLogo && (
@@ -103,11 +104,11 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
                   alt=""
                 />
               )}
-            </div>
 
-            {selectedMarketTestnetMark && (
-              <span className="MarketSwitcher__kovan">{selectedMarketTestnetMark}</span>
-            )}
+              {selectedMarketTestnetMark && (
+                <span className="MarketSwitcher__kovan">{selectedMarketTestnetMark}</span>
+              )}
+            </div>
           </button>
         )
       }

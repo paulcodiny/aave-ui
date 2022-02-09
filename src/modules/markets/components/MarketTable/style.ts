@@ -8,7 +8,7 @@ const staticStyles = css.global`
   .MarketTable {
     margin-top: 45px !important;
     @include respond-to(xl) {
-      margin-top: 35px !important;
+      margin-top: 15px !important;
     }
     @include respond-to(sm) {
       display: none !important;

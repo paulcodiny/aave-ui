@@ -22,7 +22,7 @@ const staticStyles = css.global`
       position: relative;
       z-index: 2;
       font-size: $large;
-      font-weight: 600;
+      font-weight: 400;
       white-space: nowrap;
       @include respond-to(xl) {
         font-size: $regular;

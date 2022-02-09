@@ -10,6 +10,7 @@ import { BottomDisclaimer, TopDisclaimer } from '../../../ui-config';
 import messages from './messages';
 import staticStyles from './style';
 
+import radiantBackground from '../../../images/radiant/background.jpg';
 import background from '../../../images/background.svg';
 import backgroundDark from '../../../images/backgroundDark.svg';
 
@@ -69,12 +70,6 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
 
       <Footer inside={true} />
 
-      <img
-        className="ScreensWrapper__background"
-        src={isCurrentThemeDark ? backgroundDark : background}
-        alt=""
-      />
-
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
@@ -87,7 +82,8 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
           &__top-contentWrapper {
             background: ${currentTheme.headerBg.hex};
             &:after {
-              background: ${currentTheme.headerBg.hex};
+              background: url('${radiantBackground}');
+              background-size: cover;
             }
           }
         }

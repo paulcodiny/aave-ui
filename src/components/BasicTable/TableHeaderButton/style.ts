@@ -30,6 +30,7 @@ const staticStyles = css`
 
     span {
       font-size: $medium;
+      align-self: flex-end;
       @include respond-to(xl) {
         font-size: $extraSmall;
       }

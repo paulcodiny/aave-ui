@@ -55,12 +55,12 @@ const staticStyles = css.global`
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-          width: 80px;
-          max-height: 15px;
+          width: 88px;
+          max-height: 23px;
         }
         @include respond-to(sm) {
           width: 100px;
-          max-height: 20px;
+          max-height: 23px;
         }
       }
     }
@@ -87,12 +87,11 @@ const staticStyles = css.global`
       border-width: 1px;
       border-style: solid;
       border-color: transparent;
-      box-shadow: $boxShadow;
       transition: $transition;
       box-sizing: unset;
       @include respond-to(xl) {
         width: 125px;
-        height: 40px;
+        height: 50px;
       }
       @include respond-to(sm) {
         width: 150px;
@@ -120,20 +119,14 @@ const staticStyles = css.global`
     }
 
     .MarketSelectButton__marketText {
-      font-size: 11px;
-      letter-spacing: 7px;
-      left: 4px;
+      font-size: $extraSmall;
       position: relative;
       font-weight: 300;
       @include respond-to(xl) {
         font-size: $extraSmall;
-        letter-spacing: 4px;
-        left: 2px;
       }
       @include respond-to(sm) {
-        font-size: 11px;
-        letter-spacing: 7px;
-        left: 4px;
+        font-size: $extraSmall;
       }
     }
 

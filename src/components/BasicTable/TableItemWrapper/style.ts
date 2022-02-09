@@ -7,11 +7,11 @@ const staticStyles = css`
 
   .TableItemWrapper {
     width: 100%;
-    margin-bottom: 10px;
+    margin-bottom: 15px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-radius: $borderRadius;
+    border-radius: 5px;
     box-shadow: $boxShadow;
     transition-property: box-shadow;
     transition-duration: 0.2s;
