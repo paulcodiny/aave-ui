@@ -85,9 +85,9 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
           background: ${currentTheme.mainBg.hex};
 
           &__top-contentWrapper {
-            background: rgb(72, 72, 74) !important;
+            background: ${currentTheme.headerBg.hex};
             &:after {
-              background: rgb(72, 72, 74) !important;
+              background: ${currentTheme.headerBg.hex};
             }
           }
         }

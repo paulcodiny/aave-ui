@@ -87,7 +87,7 @@ export default function Menu({ title }: MenuProps) {
         </div>
 
         <div className="Menu__buttons-inner">
-          {/* <MarketSwitcher /> */}
+          <MarketSwitcher />
           <AddressInfo />
         </div>
       </div>
@@ -97,6 +97,7 @@ export default function Menu({ title }: MenuProps) {
       </style>
       <style jsx={true} global={true}>{`
         .Menu {
+          background: ${currentTheme.headerBg.hex};
           &:after {
             background: ${topLineColor};
           }
