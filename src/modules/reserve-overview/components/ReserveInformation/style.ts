@@ -164,6 +164,14 @@ const staticStyles = css.global`
       }
     }
 
+    .GradientLine__vertical {
+      margin: 0 10px;
+    }
+
+    .GradientLine__horizontal {
+      margin: 20px 0;
+    }
+
     &__bottom-info {
       display: flex;
       flex-wrap: wrap;

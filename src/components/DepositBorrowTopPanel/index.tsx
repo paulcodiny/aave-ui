@@ -141,12 +141,12 @@ export default function DepositBorrowTopPanel() {
                         : messages.depositInformation
                     )}
                   </i>
-                  <GradientLine height={2} />
+                  <GradientLine size={2} />
                 </p>
                 {!!depositCompositionData.length && (
                   <p>
                     <i>{intl.formatMessage(messages.borrowInformation)}</i>{' '}
-                    <GradientLine height={2} />
+                    <GradientLine size={2} />
                   </p>
                 )}
               </>
@@ -156,7 +156,7 @@ export default function DepositBorrowTopPanel() {
                   DepositBorrowTopPanel__topPanelCaptionFull: !user,
                 })}
               >
-                <i>{intl.formatMessage(messages.connectWallet)}</i> <GradientLine height={2} />
+                <i>{intl.formatMessage(messages.connectWallet)}</i> <GradientLine size={2} />
               </p>
             )}
           </div>

@@ -371,7 +371,7 @@ export default function CurrencyOverview({
         {title && <p className="CurrencyOverview__caption-title" />}
       </div>
 
-      <GradientLine height={sm ? 1 : 2} />
+      <GradientLine size={sm ? 1 : 2} />
 
       <div className="CurrencyOverview__content">
         <div className="CurrencyOverview__content-left">

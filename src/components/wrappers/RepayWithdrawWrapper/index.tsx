@@ -24,7 +24,7 @@ export default function RepayWithdrawWrapper({
       <div className="RepayWithdrawWrapper__caption">
         <p>{title}</p>
       </div>
-      {!sm && <GradientLine height={2} />}
+      {!sm && <GradientLine size={2} />}
 
       <div className="RepayWithdrawWrapper__content">{children}</div>
 

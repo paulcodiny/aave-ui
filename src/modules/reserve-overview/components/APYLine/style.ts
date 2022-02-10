@@ -8,7 +8,7 @@ const staticStyles = css.global`
   .Row.APYLine {
     margin-bottom: 8px;
     @include respond-to(lg) {
-      margin-bottom: 4px;
+
     }
     @include respond-to(md) {
       margin-bottom: 8px;
@@ -18,12 +18,13 @@ const staticStyles = css.global`
     }
     &.Row .Row__title,
     .APYLine__percent .ValuePercent__value {
-      font-size: $regular;
+      font-size: $small;
+      font-family: 'roboto-font';
       @include respond-to(xl) {
-        font-size: $small;
+
       }
       @include respond-to(lg) {
-        font-size: $extraSmall;
+
       }
       @include respond-to(md) {
         font-size: $small;
@@ -31,6 +32,9 @@ const staticStyles = css.global`
       @include respond-to(sm) {
         font-size: $regular;
       }
+    }
+    .APYLine__percent .ValuePercent__value {
+      font-weight: 600;
     }
   }
 `;

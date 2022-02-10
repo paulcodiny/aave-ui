@@ -12,7 +12,7 @@ const staticStyles = css.global`
 
       p {
         opacity: 0.5;
-        font-family: 'roboto';
+        font-family: 'roboto-font';
         font-size: 10px;
         color: #000;
       }

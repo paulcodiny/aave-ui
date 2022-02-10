@@ -10,6 +10,32 @@ const staticStyles = css.global`
     @include respond-to(sm) {
       margin-top: 0 !important;
     }
+
+    &__navigation {
+
+    }
+
+    &__back-button {
+      font-size: $medium;
+      padding-left: 10px;
+      position: relative;
+      color: #131313;
+
+      &:before {
+        content: '';
+        border: solid #131313;
+        border-width: 0 1px 1px 0;
+        display: inline-block;
+        padding: 3px;
+
+        position: absolute;
+        top: 5px;
+        left: 0;
+
+        transform: rotate(135deg);
+      }
+    }
+
     &__content {
       padding-bottom: 10px;
     }
