@@ -18,7 +18,6 @@ export default function DesktopPageTitle({ title, subTitle }: DesktopPageTitlePr
       <h2>
         <div>{title}</div> <span className="DesktopPageTitle__subTitle">{subTitle}</span>
       </h2>
-      <GradientLine size={2} />
 
       <style jsx={true} global={true}>
         {staticStyles}
@@ -26,7 +25,7 @@ export default function DesktopPageTitle({ title, subTitle }: DesktopPageTitlePr
       <style jsx={true}>{`
         .DesktopPageTitle {
           h2 {
-            color: ${currentTheme.white.hex};
+            color: ${currentTheme.darkBlue.hex};
           }
         }
       `}</style>

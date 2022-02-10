@@ -8,7 +8,6 @@ const staticStyles = css.global`
   .Row.APYLine {
     margin-bottom: 8px;
     @include respond-to(lg) {
-
     }
     @include respond-to(md) {
       margin-bottom: 8px;
@@ -21,10 +20,8 @@ const staticStyles = css.global`
       font-size: $small;
       font-family: 'roboto-font';
       @include respond-to(xl) {
-
       }
       @include respond-to(lg) {
-
       }
       @include respond-to(md) {
         font-size: $small;

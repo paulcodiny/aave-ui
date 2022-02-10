@@ -6,8 +6,6 @@ const staticStyles = css`
   @import 'src/_mixins/screen-size';
 
   .ContentWrapperWithTopLine {
-    box-shadow: $boxShadow;
-
     &__withDropdown {
       .ContentWrapperWithTopLine__top-line {
         cursor: pointer;
@@ -21,8 +19,9 @@ const staticStyles = css`
     }
 
     &__top-line {
-      padding: 15px 20px;
-      font-size: $regular;
+      padding: 15px 0;
+      font-size: $large;
+      font-weight: bold;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -30,15 +29,10 @@ const staticStyles = css`
       border-top-right-radius: 2px;
       min-height: 49px;
       @include respond-to(xl) {
-        padding: 10px 15px;
-        font-size: $small;
-        min-height: 34px;
       }
       @include respond-to(lg) {
-        padding: 10px;
       }
       @include respond-to(md) {
-        padding: 10px 15px;
       }
       @include respond-to(sm) {
         padding: 10px;
@@ -57,8 +51,14 @@ const staticStyles = css`
     }
 
     &__content {
-      border-bottom-left-radius: 2px;
-      border-bottom-right-radius: 2px;
+      border-radius: $borderRadius;
+      backdrop-filter: blur(10px);
+      border: solid 1px rgba(255, 255, 255, 0.35);
+      background-image: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0) -6%,
+        rgba(255, 255, 255, 0.25) 58%
+      );
     }
   }
 `;
