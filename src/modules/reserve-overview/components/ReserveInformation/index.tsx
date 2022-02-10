@@ -23,6 +23,7 @@ import staticStyles from './style';
 import linkIcon from '../../../../images/blueLinkIcon.svg';
 import { getLPTokenPoolLink } from '../../../../helpers/lp-tokens';
 import { ComputedReserveData } from '../../../../libs/pool-data-provider';
+import GradientLine from "../../../../components/basic/GradientLine";
 
 interface ReserveInformationProps {
   symbol: string;
@@ -171,6 +172,8 @@ export default function ReserveInformation({
               />
             </APYCard>
 
+            <GradientLine size={1} direction="vertical" />
+
             <APYCard title={intl.formatMessage(messages.stableBorrowing)}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
@@ -198,6 +201,8 @@ export default function ReserveInformation({
               />
             </APYCard>
 
+            <GradientLine size={1} direction="vertical" />
+
             <APYCard title={intl.formatMessage(messages.variableBorrowing)}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
@@ -216,6 +221,8 @@ export default function ReserveInformation({
               />
             </APYCard>
           </div>
+
+          <GradientLine size={1} />
 
           <div className="ReserveInformation__bottom-info">
             <PercentBlock

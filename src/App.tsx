@@ -35,12 +35,10 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     flex: auto;
-    overflow: hidden;
     &__content {
       display: flex;
       flex-direction: column;
       flex: 1;
-      overflow: hidden;
       position: relative;
     }
   }

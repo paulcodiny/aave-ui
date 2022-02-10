@@ -1,29 +1,27 @@
 import React from 'react';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import classNames from 'classnames';
 
 interface GradientLineProps {
-  height?: number;
+  size?: number;
+  direction?: 'horizontal' | 'vertical';
 }
 
-export default function GradientLine({ height }: GradientLineProps) {
-  const { currentTheme } = useThemeContext();
-
-  const gradientBackground = gradient(
-    90,
-    `${currentTheme.secondary.rgb}, 1`,
-    0,
-    `${currentTheme.primary.rgb}, 1`,
-    100
-  );
-
+export default function GradientLine({ size, direction = 'horizontal' }: GradientLineProps) {
   return (
-    <span className="GradientLine">
+    <span className={classNames('GradientLine', `GradientLine__${direction}`)}>
       <style jsx={true}>{`
         .GradientLine {
-          width: 100%;
-          height: ${height || 1}px;
           display: block;
-          background: ${gradientBackground};
+          background-color: #e2e2e2;
+
+          &__horizontal {
+            width: 100%;
+            height: ${size || 1}px;
+          }
+
+          &__vertical {
+            width: ${size || 1}px;
+          }
         }
       `}</style>
     </span>

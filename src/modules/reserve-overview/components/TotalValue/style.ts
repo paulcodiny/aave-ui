@@ -7,12 +7,11 @@ const staticStyles = css.global`
 
   .TotalValue {
     display: flex;
-    min-width: 350px;
     @include respond-to(xl) {
-      min-width: 300px;
+
     }
     @include respond-to(lg) {
-      min-width: 190px;
+
     }
     @include respond-to(md) {
       min-width: 200px;

@@ -18,7 +18,7 @@ export default function DesktopPageTitle({ title, subTitle }: DesktopPageTitlePr
       <h2>
         <div>{title}</div> <span className="DesktopPageTitle__subTitle">{subTitle}</span>
       </h2>
-      <GradientLine height={2} />
+      <GradientLine size={2} />
 
       <style jsx={true} global={true}>
         {staticStyles}

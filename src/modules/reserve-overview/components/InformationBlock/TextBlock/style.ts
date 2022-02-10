@@ -7,15 +7,16 @@ const staticStyles = css`
 
   .TextBlock {
     font-weight: 600;
-    font-size: $regular;
+    font-size: $large;
+    margin-top: 5px;
     @include respond-to(xl) {
-      font-size: $small;
+
     }
     @include respond-to(lg) {
-      font-size: $extraSmall;
+
     }
     @include respond-to(md) {
-      font-size: $small;
+
     }
     @include respond-to(sm) {
       font-size: $regular;

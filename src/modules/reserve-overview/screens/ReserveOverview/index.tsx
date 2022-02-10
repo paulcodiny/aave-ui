@@ -66,6 +66,9 @@ function ReserveOverview({
 
   const isReserveHistoryGraphsVisible = !!RATES_HISTORY_ENDPOINT;
 
+  // todo:pavlik get the information about the current market (name, logo)
+  // todo:pavlik make the back button work
+
   return (
     <ScreenWrapper
       pageTitle={intl.formatMessage(messages.pageTitle, { currencySymbol: asset.formattedName })}
@@ -76,6 +79,9 @@ function ReserveOverview({
       className="ReserveOverview"
       withMobileGrayBg={true}
     >
+      <div className="ReserveOverview__navigation">
+        <button className="ReserveOverview__back-button">Back</button>
+      </div>
       <div className="ReserveOverview__content">
         <div className="ReserveOverview__mobileUserInformation-wrapper">
           {user ? (

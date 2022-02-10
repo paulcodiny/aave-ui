@@ -17,16 +17,16 @@ const staticStyles = css.global`
 
     &__inner {
       position: relative;
-      width: 270px;
+      width: 160px;
       z-index: 2;
       @include respond-to(xl) {
-        width: 220px;
+
       }
       @include respond-to(lg) {
-        width: 180px;
+
       }
       @include respond-to(md) {
-        width: 220px;
+
       }
       @include respond-to(sm) {
         width: 270px;
@@ -35,15 +35,13 @@ const staticStyles = css.global`
 
       > div {
         &:first-of-type {
-          min-height: 205.75px !important;
-          height: 205.75px !important;
+          min-height: 164.083px !important;
+          height: 164.083px !important;
           @include respond-to(xl) {
-            min-height: 164.083px !important;
-            height: 164.083px !important;
+
           }
           @include respond-to(lg) {
-            min-height: 130.75px !important;
-            height: 130.75px !important;
+
           }
           @include respond-to(md) {
             min-height: 164.083px !important;

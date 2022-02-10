@@ -25,10 +25,10 @@ export default function TextBlock({ condition, title }: TextBlockProps) {
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TextBlock {
-          color: ${currentTheme.red.hex};
+          color: #000000;;
         }
         .TextBlockYes {
-          color: ${currentTheme.green.hex};
+          color: #000000;
         }
       `}</style>
     </BlockWrapper>
