@@ -33,7 +33,7 @@ export default function TotalMarketsSize({ value }: TotalMarketsSizeProps) {
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TotalMarketsSize {
-          color: ${currentTheme.white.hex};
+          color: #131313;
         }
       `}</style>
     </div>

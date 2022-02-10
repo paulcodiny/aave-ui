@@ -31,6 +31,7 @@ interface ValueProps {
   color?: 'dark' | 'white' | 'primary';
   isSmallValueCenterEllipsis?: boolean;
   onWhiteBackground?: boolean;
+  leftSided?: boolean;
 }
 
 export default function Value({
@@ -53,6 +54,7 @@ export default function Value({
   color = 'dark',
   isSmallValueCenterEllipsis,
   onWhiteBackground,
+  leftSided = false,
 }: ValueProps) {
   const { currentTheme, xl } = useThemeContext();
   const intl = useIntl();
@@ -76,6 +78,7 @@ export default function Value({
         Value__withSmallDecimals: withSmallDecimals,
         Value__withSmallDecimalsEllipsis: withSmallDecimals && isSmallValueCenterEllipsis,
         Value__onWhiteBackground: onWhiteBackground,
+        Value__leftSided: leftSided,
       })}
     >
       <div className="Value__line">

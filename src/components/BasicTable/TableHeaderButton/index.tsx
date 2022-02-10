@@ -78,9 +78,9 @@ export default function TableHeaderButton({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TableHeaderButton {
-          color: ${currentTheme.white.hex};
+          color: #131313;
           span {
-            color: ${currentTheme.white.hex};
+            color: #131313;
           }
 
           &__withSort {

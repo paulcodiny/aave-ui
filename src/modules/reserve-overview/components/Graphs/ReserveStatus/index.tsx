@@ -39,6 +39,7 @@ export default function ReserveStatusGraph({
         <ParentSize>
           {(parent) => (
             <PieChart
+              disableBackground={true}
               width={parent.width}
               height={parent.height}
               slices={[
@@ -50,7 +51,7 @@ export default function ReserveStatusGraph({
                 {
                   value: +totalBorrows,
                   label: intl.formatMessage(messages.totalBorrowed),
-                  color: currentTheme.red.hex,
+                  color: currentTheme.purple.hex,
                 },
               ]}
             />

@@ -10,7 +10,6 @@ const staticStyles = css.global`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    text-align: center;
     @include respond-to(sm) {
       width: 48%;
       margin-bottom: 30px;
@@ -22,12 +21,10 @@ const staticStyles = css.global`
     &__title-inner {
       .TextWithModal__text,
       p {
-        font-size: $regular;
+        font-size: $small;
         @include respond-to(xl) {
-          font-size: $small;
         }
         @include respond-to(lg) {
-          font-size: $extraSmall;
         }
         @include respond-to(md) {
           font-size: $small;

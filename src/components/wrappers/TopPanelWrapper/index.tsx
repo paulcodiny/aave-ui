@@ -47,7 +47,7 @@ export default function TopPanelWrapper({
           border-radius: 5px;
           -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
-          border: solid 1px rgba(255, 255, 255, 0.1);
+          border: solid 1px rgba(255, 255, 255, 0.5);
           background-image: linear-gradient(
             to bottom,
             rgba(255, 255, 255, 0) -6%,

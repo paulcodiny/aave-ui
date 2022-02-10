@@ -7,15 +7,14 @@ import staticStyles from './style';
 
 interface APYCardProps {
   title: string;
-  color?: 'orange' | 'primary' | 'secondary';
   children?: ReactNode;
 }
 
-export default function APYCard({ title, color = 'orange', children }: APYCardProps) {
+export default function APYCard({ title, children }: APYCardProps) {
   const { currentTheme } = useThemeContext();
 
   return (
-    <div className={classNames('APYCard', `APYCard__${color}`)}>
+    <div className={classNames('APYCard')}>
       <div className="APYCard__title">
         <p>{title}</p>
       </div>
@@ -26,28 +25,7 @@ export default function APYCard({ title, color = 'orange', children }: APYCardPr
         .APYCard {
           .APYCard__title {
             p {
-              color: ${currentTheme.white.hex};
-            }
-          }
-
-          &__orange {
-            border-color: ${currentTheme.darkOrange.hex};
-            .APYCard__title {
-              background: ${currentTheme.darkOrange.hex};
-            }
-          }
-
-          &__primary {
-            border-color: ${currentTheme.primary.hex};
-            .APYCard__title {
-              background: ${currentTheme.primary.hex};
-            }
-          }
-
-          &__secondary {
-            border-color: ${currentTheme.secondary.hex};
-            .APYCard__title {
-              background: ${currentTheme.secondary.hex};
+              color: #131313;
             }
           }
         }

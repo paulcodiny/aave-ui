@@ -8,7 +8,14 @@ const staticStyles = css.global`
   .ContentWrapper {
     position: relative;
     border-radius: $borderRadius;
-    box-shadow: $boxShadow;
+    backdrop-filter: blur(10px);
+    border: solid 1px rgba(255, 255, 255, 0.35);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) -6%,
+      rgba(255, 255, 255, 0.25) 58%
+    );
+
     &__fullHeight {
       width: 100%;
       display: flex;
