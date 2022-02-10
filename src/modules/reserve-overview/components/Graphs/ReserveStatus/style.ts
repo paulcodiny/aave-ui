@@ -20,13 +20,10 @@ const staticStyles = css.global`
       width: 160px;
       z-index: 2;
       @include respond-to(xl) {
-
       }
       @include respond-to(lg) {
-
       }
       @include respond-to(md) {
-
       }
       @include respond-to(sm) {
         width: 270px;
@@ -38,10 +35,8 @@ const staticStyles = css.global`
           min-height: 164.083px !important;
           height: 164.083px !important;
           @include respond-to(xl) {
-
           }
           @include respond-to(lg) {
-
           }
           @include respond-to(md) {
             min-height: 164.083px !important;

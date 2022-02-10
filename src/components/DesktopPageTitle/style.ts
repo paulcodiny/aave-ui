@@ -21,18 +21,16 @@ const staticStyles = css.global`
       display: none;
     }
     h2 {
-      font-weight: 400;
+      font-weight: 600;
       line-height: 1;
       margin-bottom: 10px;
-      font-size: $large;
+      font-size: $extraExtraLarge;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
       @include respond-to(xl) {
-        font-size: $regular;
       }
       @include respond-to(lg) {
-        font-size: $medium;
       }
       @include respond-to(md) {
         font-size: $regular;

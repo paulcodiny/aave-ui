@@ -25,7 +25,7 @@ export default function TextBlock({ condition, title }: TextBlockProps) {
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .TextBlock {
-          color: #000000;;
+          color: #000000;
         }
         .TextBlockYes {
           color: #000000;

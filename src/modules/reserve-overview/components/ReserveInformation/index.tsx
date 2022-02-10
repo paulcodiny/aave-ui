@@ -23,7 +23,7 @@ import staticStyles from './style';
 import linkIcon from '../../../../images/blueLinkIcon.svg';
 import { getLPTokenPoolLink } from '../../../../helpers/lp-tokens';
 import { ComputedReserveData } from '../../../../libs/pool-data-provider';
-import GradientLine from "../../../../components/basic/GradientLine";
+import GradientLine from '../../../../components/basic/GradientLine';
 
 interface ReserveInformationProps {
   symbol: string;

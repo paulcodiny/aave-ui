@@ -10,13 +10,10 @@ const staticStyles = css`
     font-size: $large;
     margin-top: 5px;
     @include respond-to(xl) {
-
     }
     @include respond-to(lg) {
-
     }
     @include respond-to(md) {
-
     }
     @include respond-to(sm) {
       font-size: $regular;

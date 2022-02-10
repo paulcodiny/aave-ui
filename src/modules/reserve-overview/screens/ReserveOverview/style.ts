@@ -12,7 +12,6 @@ const staticStyles = css.global`
     }
 
     &__navigation {
-
     }
 
     &__back-button {

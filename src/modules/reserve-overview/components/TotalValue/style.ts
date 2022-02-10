@@ -8,10 +8,8 @@ const staticStyles = css.global`
   .TotalValue {
     display: flex;
     @include respond-to(xl) {
-
     }
     @include respond-to(lg) {
-
     }
     @include respond-to(md) {
       min-width: 200px;

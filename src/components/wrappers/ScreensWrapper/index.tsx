@@ -43,9 +43,7 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
   const { currentTheme, isCurrentThemeDark } = useThemeContext();
 
   const [title, setTitle] = useState(intl.formatMessage(messages.pageTitle));
-  const [isTopPanelSmall, setTopPanelSmall] = useState(
-    localStorage.getItem('isTopPanelSmall') === 'true' || false
-  );
+  const [isTopPanelSmall, setTopPanelSmall] = useState(false);
 
   return (
     <div
@@ -81,9 +79,10 @@ export default function ScreensWrapper({ children }: ScreensWrapperProps) {
 
           &__top-contentWrapper {
             background: ${currentTheme.headerBg.hex};
+
             &:after {
-              background: url('${radiantBackground}');
-              background-size: cover;
+              background: url('${radiantBackground}') no-repeat;
+              background-size: contain;
             }
           }
         }

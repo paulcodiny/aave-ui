@@ -79,14 +79,10 @@ export default function ContentWrapperWithTopLine({
       <style jsx={true}>{`
         .ContentWrapperWithTopLine {
           &__top-line {
-            color: ${currentTheme.white.hex};
-            background: ${isCurrentThemeDark
-              ? currentTheme.headerBg.hex
-              : currentTheme.darkBlue.hex};
+            color: ${currentTheme.darkBlue.hex};
           }
 
           &__content {
-            background: ${currentTheme.whiteElement.hex};
           }
         }
       `}</style>

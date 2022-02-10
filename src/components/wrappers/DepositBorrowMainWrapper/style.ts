@@ -31,15 +31,12 @@ const staticStyles = css.global`
       }
 
       .ContentWrapperWithTopLine__content {
-        padding: 30px;
+        padding: 30px 35px;
         @include respond-to(xl) {
-          padding: 20px;
         }
         @include respond-to(lg) {
-          padding: 20px 15px;
         }
         @include respond-to(md) {
-          padding: 20px 10px;
         }
       }
     }

@@ -42,21 +42,9 @@ export default function ScreenWrapper({
   } = useProtocolDataContext();
   const location = useLocation();
   const { setTitle } = useHeaderTitle();
-  const { setTopPanelSmall } = useWithDesktopTitle();
 
   useEffect(() => {
     pageTitle && setTitle(pageTitle);
-    // eslint-disable-next-line no-lone-blocks
-    {
-      console.log({ isTitleOnDesktop, isTopLineSmall });
-      if (isTitleOnDesktop || isTopLineSmall) {
-        setTopPanelSmall(true);
-        localStorage.setItem('isTopPanelSmall', 'true');
-      } else {
-        setTopPanelSmall(false);
-        localStorage.setItem('isTopPanelSmall', 'false');
-      }
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLangSlug, location.pathname]);
 
