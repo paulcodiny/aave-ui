@@ -34,11 +34,6 @@ const staticStyles = css.global`
           align-items: center;
         }
       }
-      .Value .Value__value {
-        &:after {
-          left: 0;
-        }
-      }
     }
     &__red {
       justify-content: flex-end;
@@ -49,7 +44,6 @@ const staticStyles = css.global`
         align-items: flex-end;
       }
       .TotalValue__title {
-        flex-direction: row-reverse;
         @include respond-to(sm) {
           flex-direction: row;
         }
@@ -66,14 +60,8 @@ const staticStyles = css.global`
         }
       }
       .Value {
-        align-items: flex-end;
         @include respond-to(sm) {
           align-items: center;
-        }
-      }
-      .Value .Value__value {
-        &:after {
-          right: 0;
         }
       }
     }
@@ -93,10 +81,8 @@ const staticStyles = css.global`
       align-items: center;
       font-weight: 300;
       @include respond-to(xl) {
-        font-size: $small;
       }
       @include respond-to(lg) {
-        font-size: $extraSmall;
       }
       @include respond-to(md) {
         font-size: $small;
@@ -106,22 +92,16 @@ const staticStyles = css.global`
         font-weight: 400;
       }
       i {
+        border-radius: 2px;
         display: block;
-        width: 10px;
-        height: 10px;
-        margin-left: 5px;
+        width: 12px;
+        height: 12px;
+        margin-right: 10px;
         @include respond-to(xl) {
-          width: 8px;
-          height: 8px;
-          margin-left: 3px;
         }
         @include respond-to(lg) {
-          width: 6px;
-          height: 6px;
         }
         @include respond-to(md) {
-          width: 8px;
-          height: 8px;
         }
         @include respond-to(sm) {
           margin-left: 5px;
@@ -131,46 +111,28 @@ const staticStyles = css.global`
 
     .Value .Value__value {
       position: relative;
+      margin-top: 16px;
       margin-bottom: 6px;
       padding-bottom: 6px;
-      font-size: 30px;
+      font-size: 28px;
+      font-weight: 600;
       @include respond-to(xl) {
-        font-size: 20px;
       }
       @include respond-to(lg) {
-        font-size: $medium;
-        margin-bottom: 4px;
-        padding-bottom: 4px;
       }
       @include respond-to(md) {
-        font-size: 20px;
-        margin-bottom: 6px;
-        padding-bottom: 6px;
       }
       @include respond-to(sm) {
         font-size: 30px;
       }
-      &:after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        opacity: 0.2;
-        width: 40px;
-        height: 1px;
-        @include respond-to(sm) {
-          right: auto !important;
-          left: 50% !important;
-          transform: translateX(-50%);
-        }
-      }
     }
 
     .Value .SubValue {
+      color: #7f7f7f;
       font-size: $regular;
       font-weight: 300;
       white-space: nowrap;
       @include respond-to(xl) {
-        font-size: $extraSmall;
       }
       @include respond-to(sm) {
         font-size: $medium;

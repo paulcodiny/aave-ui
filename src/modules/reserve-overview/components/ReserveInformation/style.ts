@@ -29,11 +29,10 @@ const staticStyles = css.global`
     }
 
     &__title {
-      font-weight: 400;
+      font-weight: 600;
       font-size: $large;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       @include respond-to(xl) {
-        font-size: $small;
       }
       @include respond-to(sm) {
         font-size: $regular;
@@ -47,13 +46,11 @@ const staticStyles = css.global`
     }
 
     &__content {
-      padding: 20px;
+      padding: 30px 35px;
       flex: 1;
       @include respond-to(xl) {
-        padding: 10px;
       }
       @include respond-to(lg) {
-        padding: 10px 5px;
       }
       @include respond-to(md) {
         padding: 20px 30px;
@@ -100,10 +97,9 @@ const staticStyles = css.global`
       width: 100%;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       margin-bottom: 20px;
       @include respond-to(xl) {
-        margin-bottom: 10px;
       }
       @include respond-to(md) {
         margin-bottom: 15px;
@@ -115,13 +111,11 @@ const staticStyles = css.global`
 
     &__middle-info {
       display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+
+      margin-bottom: 35px;
       @include respond-to(xl) {
-        margin-bottom: 20px;
       }
       @include respond-to(lg) {
-        display: none;
       }
       @include respond-to(md) {
         display: flex;
@@ -132,24 +126,12 @@ const staticStyles = css.global`
     }
 
     &__line {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 5px 10px;
-      border-radius: $borderRadius;
-      margin: 0 15px;
-      font-size: $regular;
-      min-width: 300px;
+      font-size: $small;
+      min-width: 160px;
       @include respond-to(xl) {
-        min-width: 200px;
-        font-size: $small;
       }
       .BlockWrapper {
         width: 100%;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
       }
       strong {
         margin-left: 5px;
@@ -157,22 +139,21 @@ const staticStyles = css.global`
       }
       .TokenIcon__dollar,
       .Value .Value__value {
-        font-size: $regular;
+        font-size: $large;
+        margin-top: 5px;
+        font-weight: 600;
         @include respond-to(xl) {
-          font-size: $small;
         }
       }
     }
 
     &__APY-info {
       display: flex;
-      justify-content: center;
-      margin-bottom: 20px;
+      justify-content: space-between;
+      margin-bottom: 35px;
       @include respond-to(xl) {
-        margin-bottom: 25px;
       }
       @include respond-to(lg) {
-        margin-bottom: 15px;
       }
       @include respond-to(md) {
         margin-bottom: 20px;
@@ -188,16 +169,12 @@ const staticStyles = css.global`
       flex-wrap: wrap;
       align-items: flex-start;
       justify-content: space-between;
-      max-width: 900px;
       margin: 0 auto;
       @include respond-to(xl) {
-        max-width: 750px;
       }
       @include respond-to(lg) {
-        max-width: 600px;
       }
       @include respond-to(md) {
-        max-width: 750px;
       }
       @include respond-to(sm) {
         max-width: 100%;

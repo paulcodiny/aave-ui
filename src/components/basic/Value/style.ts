@@ -17,6 +17,9 @@ const staticStyles = css.global`
     &__subValue--line {
       margin-top: 2px;
     }
+    &__leftSided {
+      align-items: flex-start;
+    }
 
     &__value {
       position: relative;

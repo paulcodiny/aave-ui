@@ -48,6 +48,7 @@ export default function ScreenWrapper({
     pageTitle && setTitle(pageTitle);
     // eslint-disable-next-line no-lone-blocks
     {
+      console.log({ isTitleOnDesktop, isTopLineSmall });
       if (isTitleOnDesktop || isTopLineSmall) {
         setTopPanelSmall(true);
         localStorage.setItem('isTopPanelSmall', 'true');

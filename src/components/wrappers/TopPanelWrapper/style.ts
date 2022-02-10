@@ -8,7 +8,6 @@ const staticStyles = css`
   .TopPanelWrapper {
     width: 100%;
     border-radius: $borderRadius;
-    box-shadow: $boxShadow;
     position: relative;
     @include respond-to(sm) {
       display: none;

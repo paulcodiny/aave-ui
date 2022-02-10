@@ -45,12 +45,11 @@ const staticStyles = css.global`
     }
 
     &__information-title {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       font-size: $large;
-      font-weight: 400;
+      font-weight: 600;
       width: 100%;
       @include respond-to(xl) {
-        font-size: $small;
       }
     }
 

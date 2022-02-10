@@ -111,40 +111,24 @@ export default function ReserveInformation({
             </div>
           )}
 
-          <div className="ReserveInformation__top-info">
-            <div className="ReserveInformation__line">
-              <p>{intl.formatMessage(messages.reserveSize)}</p>
-              <strong>
-                <Value
-                  value={Number(reserveOverviewData.totalLiquidityInUsd)}
-                  maximumValueDecimals={2}
-                  minimumValueDecimals={2}
-                  symbol="USD"
-                  tokenIcon={true}
-                  withoutSymbol={true}
-                />
-              </strong>
-            </div>
-          </div>
-
           <div className="ReserveInformation__graph-inner">
             <TotalValue
-              color="red"
+              color="purple"
               title={intl.formatMessage(messages.totalBorrowed)}
               value={reserveOverviewData.totalBorrows}
               subValue={reserveOverviewData.totalBorrowsInUsd}
               borrowingEnabled={reserveOverviewData.borrowingEnabled}
-            />
-            <ReserveStatusGraph
-              symbol={symbol}
-              totalBorrows={reserveOverviewData.totalBorrows}
-              availableLiquidity={reserveOverviewData.availableLiquidity}
             />
             <TotalValue
               title={intl.formatMessage(messages.availableLiquidity)}
               value={reserveOverviewData.availableLiquidity}
               subValue={reserveOverviewData.availableLiquidityInUsd}
               borrowingEnabled={reserveOverviewData.borrowingEnabled}
+            />
+            <ReserveStatusGraph
+              symbol={symbol}
+              totalBorrows={reserveOverviewData.totalBorrows}
+              availableLiquidity={reserveOverviewData.availableLiquidity}
             />
           </div>
 
@@ -159,6 +143,7 @@ export default function ReserveInformation({
                   symbol="USD"
                   tokenIcon={true}
                   withoutSymbol={true}
+                  leftSided={true}
                 />
               </strong>
             </div>
@@ -186,7 +171,7 @@ export default function ReserveInformation({
               />
             </APYCard>
 
-            <APYCard title={intl.formatMessage(messages.stableBorrowing)} color="primary">
+            <APYCard title={intl.formatMessage(messages.stableBorrowing)}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
                 value={reserveOverviewData.stableAPY}
@@ -213,7 +198,7 @@ export default function ReserveInformation({
               />
             </APYCard>
 
-            <APYCard title={intl.formatMessage(messages.variableBorrowing)} color="secondary">
+            <APYCard title={intl.formatMessage(messages.variableBorrowing)}>
               <APYLine
                 title={intl.formatMessage(messages.borrowAPY)}
                 value={reserveOverviewData.variableAPY}
@@ -278,7 +263,6 @@ export default function ReserveInformation({
 
           &__line {
             color: ${currentTheme.textDarkBlue.hex};
-            border: 1px solid ${currentTheme.textDarkBlue.hex};
           }
         }
       `}</style>

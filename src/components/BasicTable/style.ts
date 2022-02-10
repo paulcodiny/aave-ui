@@ -54,16 +54,7 @@ const staticStyles = css.global`
       margin: 0 15px;
       height: 48px;
       padding: 0 20px 10px 20px;
-
-      border-radius: 5px;
-      -webkit-backdrop-filter: blur(10px);
-      backdrop-filter: blur(10px);
-      border: solid 1px rgba(255, 255, 255, 0.2);
-      background-image: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0) -6%,
-        rgba(255, 255, 255, 0.3) 59%
-      );
+      border-radius: $borderRadius;
 
       @include respond-to(xl) {
         margin: 0 15px;

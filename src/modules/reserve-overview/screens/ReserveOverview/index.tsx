@@ -69,11 +69,9 @@ function ReserveOverview({
   return (
     <ScreenWrapper
       pageTitle={intl.formatMessage(messages.pageTitle, { currencySymbol: asset.formattedName })}
+      // @todo:pavlik ensure this property does not mess up the size of top panel
       isTitleOnDesktop={
         (!sm && !poolReserve.borrowingEnabled) || (!sm && !isReserveHistoryGraphsVisible)
-      }
-      isTopLineSmall={
-        !(!sm && !poolReserve.borrowingEnabled) || (!sm && !isReserveHistoryGraphsVisible)
       }
       className="ReserveOverview"
       withMobileGrayBg={true}

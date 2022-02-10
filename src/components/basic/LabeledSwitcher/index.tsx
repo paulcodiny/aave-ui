@@ -61,12 +61,6 @@ export default function LabeledSwitcher({
             border-color: #7159ff;
           }
 
-          button {
-            span {
-              background: ${currentTheme.white.hex};
-            }
-          }
-
           button.LabeledSwitch__buttonActive {
             span {
               color: #fff;

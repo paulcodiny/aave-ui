@@ -10,7 +10,7 @@ import { BottomDisclaimer, TopDisclaimer } from '../../../ui-config';
 import messages from './messages';
 import staticStyles from './style';
 
-import radiantBackground from '../../../images/radiant/background.jpg';
+import radiantBackground from '../../../images/radiant/background-2.png';
 import background from '../../../images/background.svg';
 import backgroundDark from '../../../images/backgroundDark.svg';
 

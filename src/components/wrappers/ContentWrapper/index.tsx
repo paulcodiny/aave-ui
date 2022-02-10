@@ -48,7 +48,6 @@ export default function ContentWrapper({
       <style jsx={true}>{`
         .ContentWrapper {
           color: ${currentTheme.darkBlue.hex};
-          background: ${currentTheme.whiteElement.hex};
 
           &__back-button {
             color: ${currentTheme.textDarkBlue.hex};

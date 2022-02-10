@@ -7,12 +7,12 @@ const staticStyles = css.global`
 
   .PercentBlock__no-value,
   .PercentBlock__value .ValuePercent__value {
-    font-size: $regular;
+    font-size: $large;
+    margin-top: 5px;
+    font-weight: 600;
     @include respond-to(xl) {
-      font-size: $small;
     }
     @include respond-to(lg) {
-      font-size: $extraSmall;
     }
     @include respond-to(md) {
       font-size: $small;

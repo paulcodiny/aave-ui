@@ -7,7 +7,7 @@ import Value from '../../../../components/basic/Value';
 import staticStyles from './style';
 
 interface TotalValueProps {
-  color?: 'green' | 'red';
+  color?: 'green' | 'mint' | 'red' | 'purple';
   title: string;
   value: number | string;
   subValue: number | string;
@@ -27,7 +27,7 @@ export default function TotalValue({
     <div className={classNames('TotalValue', `TotalValue__${color}`)}>
       <div className="TotalValue__inner">
         <span className="TotalValue__title">
-          {title} <i />
+          <i /> {title}
         </span>
         <strong>
           {borrowingEnabled || color === 'red' ? (
@@ -39,6 +39,7 @@ export default function TotalValue({
               maximumSubValueDecimals={2}
               minimumSubValueDecimals={2}
               subSymbol="USD"
+              leftSided={true}
             />
           ) : (
             <>—</>
@@ -74,6 +75,13 @@ export default function TotalValue({
             .TotalValue__title {
               i {
                 background: ${currentTheme.red.hex};
+              }
+            }
+          }
+          &__purple {
+            .TotalValue__title {
+              i {
+                background: ${currentTheme.purple.hex};
               }
             }
           }

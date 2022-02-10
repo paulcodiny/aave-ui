@@ -16,8 +16,6 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       flex: 1;
-      overflow: auto;
-      overflow-x: hidden;
       position: relative;
       z-index: 2;
     }
@@ -32,7 +30,7 @@ const staticStyles = css.global`
         position: absolute;
         top: 0;
         left: 0;
-        height: 360px;
+        height: 900px;
         width: 100%;
         transition-property: height;
         transition-duration: 0.1s;
