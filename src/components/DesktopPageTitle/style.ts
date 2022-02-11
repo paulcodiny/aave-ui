@@ -33,13 +33,11 @@ const staticStyles = css.global`
       @include respond-to(lg) {
       }
       @include respond-to(md) {
-        font-size: $regular;
       }
 
       .DesktopPageTitle__subTitle {
         font-size: $regular;
         @include respond-to(xl) {
-          font-size: $small;
         }
         .Link {
           display: inline-flex;

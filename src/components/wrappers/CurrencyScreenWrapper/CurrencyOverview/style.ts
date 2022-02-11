@@ -104,16 +104,27 @@ const staticStyles = css.global`
     }
 
     &__content {
-      padding: 20px;
+      padding: 30px 35px;
       display: flex;
       justify-content: space-between;
       transition: $transition;
       @include respond-to(xl) {
-        padding: 15px 20px;
       }
       @include respond-to(sm) {
         padding: 20px 10px 30px;
         flex-direction: column;
+      }
+
+      .GradientLine__vertical {
+        margin: 0 30px;
+      }
+
+      .ValuePercent__value,
+      .ValuePercent__value span,
+      .Value__token-icon,
+      .Value__value,
+      .Value__symbol {
+        font-weight: 600 !important;
       }
     }
 
@@ -121,15 +132,11 @@ const staticStyles = css.global`
       display: flex;
       justify-content: space-between;
       flex: 1;
-      margin-right: 80px;
       @include respond-to(xl) {
-        margin-right: 50px;
       }
       @include respond-to(lg) {
-        margin-right: 30px;
       }
       @include respond-to(md) {
-        margin-right: 0;
       }
       @include respond-to(sm) {
         display: block;
@@ -137,24 +144,21 @@ const staticStyles = css.global`
     }
 
     &__inner {
-      width: 360px;
+      width: 33%;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       @include respond-to(xl) {
-        width: 45%;
       }
-      @include respond-to(lg) {
-        width: 48%;
+      @include respond-to(sm) {
+        width: 100%;
       }
     }
     &__row {
       margin-bottom: 15px;
+      font-weight: 600;
       @include respond-to(xl) {
-        margin-bottom: 12px;
       }
       @include respond-to(sm) {
-        margin-bottom: 15px;
       }
       &:last-of-type {
         margin-bottom: 0;
@@ -164,11 +168,12 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       align-items: flex-end;
+      font-weight: 600;
       .CurrencyOverview__thirtyDays {
         .ValuePercent__value {
           font-size: $small;
+          font-weight: 600;
           @include respond-to(xl) {
-            font-size: $extraSmall;
           }
         }
       }
@@ -176,12 +181,11 @@ const staticStyles = css.global`
 
     &__usageAsCollateral,
     &__no-data {
-      font-size: $large;
+      font-size: $regular;
+      font-weight: 600;
       @include respond-to(xl) {
-        font-size: $regular;
       }
       @include respond-to(lg) {
-        font-size: $medium;
       }
       @include respond-to(md) {
         font-size: $regular;
@@ -192,17 +196,13 @@ const staticStyles = css.global`
     }
 
     &__content-right {
-      width: 710px;
       border-radius: $borderRadius;
       padding: 0 2px;
       @include respond-to(xl) {
-        width: 640px;
       }
       @include respond-to(lg) {
-        width: 480px;
       }
       @include respond-to(md) {
-        display: none;
       }
       @include respond-to(sm) {
         margin-top: 35px;

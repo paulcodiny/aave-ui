@@ -27,13 +27,12 @@ export default function LabeledSwitcher({
   fontSize,
   disabled,
   white,
-  darkOnDarkMode,
 }: LabeledSwitcherProps) {
-  const { currentTheme, xl, lg, md, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
-  const baseWidth = xl && !md ? 200 : 240;
-  const baseHeight = xl && !md ? (lg ? 26 : 40) : 36;
-  const baseFontSize = xl && !md ? (lg ? 10 : 14) : 14;
+  const baseWidth = 240;
+  const baseHeight = 36;
+  const baseFontSize = 14;
 
   return (
     <>

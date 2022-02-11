@@ -16,6 +16,10 @@ import { GraphLegendDot } from '../../graphs/GraphLegend';
 import { InterestRateSeries } from '../../graphs/types';
 
 import messages from './messages';
+import Link from '../../basic/Link';
+import { getAssetInfo, TokenIcon } from '../../../helpers/config/assets-config';
+import DesktopPageTitle from '../../DesktopPageTitle';
+import ContentWrapperWithTopLine from '../ContentWrapperWithTopLine';
 
 interface CurrencyScreenWrapperProps
   extends Pick<
@@ -49,36 +53,32 @@ export default function CurrencyScreenWrapper({
   children,
 }: CurrencyScreenWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, sm } = useThemeContext();
-
-  const [isCollapse, setIsCollapse] = useState(
-    localStorage.getItem(isCollapseLocalStorageName) === 'true'
-  );
+  const { currentTheme } = useThemeContext();
+  const isCollapse = false;
+  const asset = getAssetInfo(currencySymbol);
 
   return (
     <ScreenWrapper
       pageTitle={intl.formatMessage(type === 'deposit' ? messages.deposit : messages.borrow)}
       className="CurrencyScreenWrapper"
-    >
-      {!sm && (
-        <div className="CurrencyScreenWrapper__top-info">
-          <TopInfoPanel
-            poolReserve={poolReserve}
-            currencySymbol={currencySymbol}
-            walletBalance={walletBalance}
-            userReserve={userReserve}
-            user={user}
-            type={type}
-          />
+      isTitleOnDesktop
+      titleComponent={
+        <div className="CurrencyScreenWrapper__token-title">
+          <TokenIcon tokenSymbol={currencySymbol} height={20} width={20} />
+          <p>{intl.formatMessage(messages.caption, { symbol: asset && asset.name })}</p>
         </div>
-      )}
+      }
+    >
+      {/*{title && <p className="CurrencyOverview__caption-title">{title}</p>}*/}
+      {/*<div className="CurrencyOverview__caption">*/}
+      {/*  <div className="CurrencyOverview__captionLink">*/}
+      {/*    <TokenIcon tokenSymbol={currencySymbol} height={20} width={20} />*/}
+      {/*    <p>{intl.formatMessage(messages.caption, { symbol: asset && asset.name })}</p>*/}
+      {/*  </div>*/}
+      {/*  {title && <p className="CurrencyOverview__caption-title">{title}</p>}*/}
+      {/*</div>*/}
 
-      <TopPanelWrapper
-        isCollapse={isCollapse}
-        setIsCollapse={() =>
-          toggleLocalStorageClick(isCollapse, setIsCollapse, isCollapseLocalStorageName)
-        }
-      >
+      <ContentWrapperWithTopLine title={title}>
         <CurrencyOverview
           title={title}
           poolReserve={poolReserve}
@@ -88,8 +88,17 @@ export default function CurrencyScreenWrapper({
           dots={dots}
           series={series}
           isCollapse={isCollapse}
-        />
-      </TopPanelWrapper>
+        >
+          <TopInfoPanel
+            poolReserve={poolReserve}
+            currencySymbol={currencySymbol}
+            walletBalance={walletBalance}
+            userReserve={userReserve}
+            user={user}
+            type={type}
+          />
+        </CurrencyOverview>
+      </ContentWrapperWithTopLine>
 
       <div className="CurrencyScreenWrapper__mobileInner">
         <TopInfoPanel
