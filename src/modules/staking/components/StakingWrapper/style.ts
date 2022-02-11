@@ -75,6 +75,10 @@ const staticStyles = css.global`
         padding: 30px 15px 20px;
         display: none;
       }
+
+      .GradientLine {
+        margin: 20px 0;
+      }
     }
     &__contentRightActive {
       @include respond-to(sm) {
@@ -256,10 +260,6 @@ const staticStyles = css.global`
       @include respond-to(md) {
         font-size: $regular;
       }
-    }
-
-    .GradientLine {
-      margin: 20px 0;
     }
   }
 `;
