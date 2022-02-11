@@ -52,21 +52,19 @@ const staticStyles = css.global`
     &__inner {
       position: relative;
       z-index: 2;
-      padding: 30px 10px 20px;
-      width: 180px;
-      min-height: 183px;
+      width: 140px;
+      min-height: 143px;
+      padding: 20px 10px 12px;
       border-radius: $borderRadius;
       display: flex;
       flex-direction: column;
       flex: 1;
+
       @include respond-to(xl) {
-        width: 145px;
-        min-height: 156px;
+
       }
       @include respond-to(lg) {
-        width: 140px;
-        min-height: 143px;
-        padding: 20px 10px 12px;
+
       }
       @include respond-to(sm) {
         width: 150px;
