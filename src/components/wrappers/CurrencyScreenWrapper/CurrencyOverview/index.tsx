@@ -24,7 +24,6 @@ import { getAssetInfo, TokenIcon } from '../../../../helpers/config/assets-confi
 
 import messages from './messages';
 import staticStyles from './style';
-import TopInfoPanel from '../TopInfoPanel';
 
 interface CurrencyOverviewProps
   extends Pick<ValidationWrapperComponentProps, 'poolReserve' | 'currencySymbol'> {
@@ -200,7 +199,6 @@ export default function CurrencyOverview({
                   symbol="USD"
                   value={overviewData.priceInUsd}
                   maximumValueDecimals={2}
-                  updateCondition={false}
                 />
               </Row>
             )}
@@ -213,7 +211,7 @@ export default function CurrencyOverview({
               {overviewData.baseLTVasCollateral === 0 ? (
                 <span className="CurrencyOverview__no-data">—</span>
               ) : (
-                <ValuePercent value={overviewData.baseLTVasCollateral} updateCondition={false} />
+                <ValuePercent value={overviewData.baseLTVasCollateral} />
               )}
             </Row>
 
@@ -321,9 +319,6 @@ export default function CurrencyOverview({
         CurrencyOverview__collapsed: isCollapse,
       })}
     >
-      {/*
-      "<div class="jsx-2622041802 jsx-2314170206 ValuePercent ValuePercent__dark"><p class="jsx-2622041802 jsx-2314170206 ValuePercent__value">52.07<span class="jsx-2622041802 jsx-2314170206">%</span></p></div>"
-      */}
       <div className="CurrencyOverview__content">
         <div className="CurrencyOverview__content-left">
           <div className="CurrencyOverview__inner">
