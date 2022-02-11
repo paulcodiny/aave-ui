@@ -24,6 +24,7 @@ import CooldownInfoModal from '../CooldownInfoModal';
 
 import messages from './messages';
 import staticStyles from './style';
+import GradientLine from "../../../../components/basic/GradientLine";
 
 interface StakingWrapperProps {
   children: ReactNode;
@@ -113,6 +114,7 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
       className="StakingWrapper"
       pageTitle={intl.formatMessage(messages.pageTitle)}
       isTopLineSmall={true}
+      isTitleOnDesktop={true}
     >
       <StakingTopPanel
         title={intl.formatMessage(messages.pageTitle)}
@@ -162,7 +164,6 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
               leftOption={Stake.aave}
               rightOption={Stake.bpt}
               onToggle={() => setCurrentAsset(isCurrentAssetAAVE ? Stake.bpt : Stake.aave)}
-              white={true}
             />
           </div>
 
@@ -279,7 +280,6 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
           <Row
             title={intl.formatMessage(messages.incentivesPerMonth)}
             className="StakingWrapper__row"
-            weight="light"
           >
             <Value
               value={userEarningsPerMonth}
@@ -290,10 +290,11 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
             />
           </Row>
 
+          <GradientLine size={2} />
+
           <Row
             title={intl.formatMessage(messages.cooldownPeriod)}
             className="StakingWrapper__row"
-            weight="light"
           >
             <strong className="StakingWrapper__cooldownPeriodTime">
               {intl.formatNumber(
@@ -305,20 +306,22 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
             </strong>
           </Row>
 
+          <GradientLine size={2} />
+
           <Row
             title={intl.formatMessage(messages.stakingAPY)}
             className="StakingWrapper__row"
-            weight="light"
           >
             <ValuePercent value={+selectedStakeData.stakeApy} />
           </Row>
 
+          <GradientLine size={2} />
+
           <Row
             title={intl.formatMessage(messages.currentMaxSlashing)}
             className="StakingWrapper__row"
-            weight="light"
           >
-            <ValuePercent value={0.3} color="red" />
+            <ValuePercent value={0.3} color="red" percentColor={currentTheme.red.hex} />
           </Row>
         </div>
       </div>

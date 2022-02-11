@@ -48,7 +48,7 @@ const staticStyles = css.global`
     &__range-inner {
       width: 100%;
       border-radius: 10px;
-      background-image: linear-gradient(to right, #65c970, #ffac4d 53%, #de5959);
+      background-image: linear-gradient(to right, #65c970, #ffac4d 53%, #ff46a5);
     }
 
     .RiskBar__track {

@@ -38,10 +38,10 @@ const staticStyles = css.global`
 
     &__back-button {
       position: absolute;
-      left: 20px;
-      top: 20px;
-      min-width: 90px;
-      height: 32px;
+      left: 35px;
+      top: 30px;
+      min-width: 75px;
+      height: 35px;
       border-radius: $borderRadius;
       padding: 5px 10px;
       display: flex;
@@ -50,24 +50,22 @@ const staticStyles = css.global`
       font-size: $small;
       transition: $transition;
       @include respond-to(xl) {
-        min-width: 70px;
-        height: 26px;
-        padding: 2px 5px;
+
       }
       @include respond-to(sm) {
         display: none;
       }
       span {
-        width: 15px;
-        height: 15px;
-        margin-right: 15px;
+        width: 5px;
+        height: 5px;
+        margin-right: 5px;
         border-radius: 50%;
         transition: $transition;
         display: flex;
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-          margin-right: 10px;
+
         }
         &:after {
           content: '';

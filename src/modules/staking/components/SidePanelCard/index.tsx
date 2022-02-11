@@ -76,24 +76,11 @@ export default function SidePanelCard({
         .SidePanelCard {
           color: ${currentTheme.textDarkBlue.hex};
           &:after {
-            background: ${currentTheme.textDarkBlue.hex};
-          }
-
-          &__withGradientBorder {
-            &:after,
-            &:before {
-              background: linear-gradient(
-                to right,
-                ${currentTheme.secondary.hex},
-                ${currentTheme.primary.hex},
-                ${currentTheme.secondary.hex},
-                ${currentTheme.primary.hex}
-              );
-            }
+            background: #e2e2e2;
           }
 
           &__inner {
-            background: ${isCurrentThemeDark ? '#42475a' : currentTheme.white.hex};
+            background: ${currentTheme.white.hex};
           }
         }
       `}</style>

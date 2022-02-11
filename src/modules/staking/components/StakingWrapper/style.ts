@@ -6,11 +6,9 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .StakingWrapper {
-    margin-top: 50px !important;
-    margin-bottom: 10px !important;
+
     @include respond-to(sm) {
-      margin-top: 0 !important;
-      display: block !important;
+
     }
 
     &__mobile-switcher {
@@ -43,7 +41,7 @@ const staticStyles = css.global`
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 20px 10px;
+      padding: 30px 35px;
       position: relative;
       @include respond-to(sm) {
         padding: 20px 0;
@@ -62,16 +60,14 @@ const staticStyles = css.global`
     &__content-right {
       display: flex;
       flex-direction: column;
-      width: 400px;
-      margin-left: 20px;
-      padding: 30px 15px 20px;
+      width: 360px;
+      margin-left: 30px;
+      padding: 35px 30px;
       @include respond-to(xl) {
-        width: 340px;
+
       }
       @include respond-to(lg) {
-        width: 310px;
-        margin-left: 10px;
-        padding: 20px 10px;
+
       }
       @include respond-to(sm) {
         width: 100%;
@@ -262,20 +258,8 @@ const staticStyles = css.global`
       }
     }
 
-    .StakingWrapper__row {
-      margin-bottom: 40px;
-      @include respond-to(xl) {
-        margin-bottom: 25px;
-      }
-      @include respond-to(lg) {
-        margin-bottom: 20px;
-      }
-      @include respond-to(md) {
-        margin-bottom: 25px;
-      }
-      &:last-of-type {
-        margin-bottom: 0;
-      }
+    .GradientLine {
+      margin: 20px 0;
     }
   }
 `;

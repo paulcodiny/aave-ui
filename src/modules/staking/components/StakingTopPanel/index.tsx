@@ -6,6 +6,7 @@ import Value from '../../../../components/basic/Value';
 
 import messages from './messages';
 import staticStyles from './style';
+import GradientLine from "../../../../components/basic/GradientLine";
 
 interface StakingTopPanelProps {
   title: string;
@@ -36,21 +37,23 @@ export default function StakingTopPanel({
 
   return (
     <div className="StakingTopPanel">
-      <h3 className="StakingTopPanel__caption">{title}</h3>
-
       <div className="StakingTopPanel__values">
-        {data.map((item) => (
-          <div className="StakingTopPanel__value-inner" key={item.symbol}>
-            <p className="StakingTopPanel__value-title">{intl.formatMessage(item.title)}</p>
-            <Value
-              value={item.value}
-              symbol={item.symbol}
-              maximumValueDecimals={2}
-              minimumValueDecimals={2}
-              color="white"
-              tokenIcon={item.symbol === 'USD'}
-            />
-          </div>
+        {data.map((item, itemIndex) => (
+          <React.Fragment  key={item.symbol}>
+            <div className="StakingTopPanel__value-inner">
+              <p className="StakingTopPanel__value-title">{intl.formatMessage(item.title)}</p>
+              <Value
+                value={item.value}
+                symbol={item.symbol}
+                maximumValueDecimals={2}
+                minimumValueDecimals={2}
+                tokenIcon={item.symbol === 'USD'}
+                leftSided={true}
+              />
+            </div>
+
+            {(itemIndex < data.length - 1) ? <GradientLine size={2} direction="vertical" /> : null}
+          </React.Fragment>
         ))}
       </div>
 
@@ -59,8 +62,7 @@ export default function StakingTopPanel({
       </style>
       <style jsx={true}>{`
         .StakingTopPanel {
-          background: ${currentTheme.darkBlue.hex};
-          color: ${currentTheme.white.hex};
+          color: ${currentTheme.darkBlue.hex};
         }
       `}</style>
     </div>

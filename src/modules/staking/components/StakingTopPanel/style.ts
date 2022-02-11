@@ -8,20 +8,20 @@ const staticStyles = css.global`
   .StakingTopPanel {
     margin-bottom: 30px;
     border-radius: $borderRadius;
-    box-shadow: $boxShadow;
-    padding: 15px 30px;
+    backdrop-filter: blur(10px);
+    border: solid 1px rgba(255, 255, 255, 0.35);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -6%, rgba(255, 255, 255, 0.25) 58%);
+    padding: 15px 35px;
     display: flex;
     align-items: center;
     @include respond-to(xl) {
-      margin-bottom: 20px;
+
     }
     @include respond-to(lg) {
-      padding: 10px 20px;
-      margin-bottom: 10px;
+
     }
     @include respond-to(md) {
-      padding: 15px 30px;
-      margin-bottom: 20px;
+
     }
     @include respond-to(sm) {
       padding: 15px 10px;
@@ -56,19 +56,21 @@ const staticStyles = css.global`
 
     &__values {
       display: flex;
-      align-items: center;
       @include respond-to(sm) {
         width: 100%;
         justify-content: center;
+      }
+
+      .GradientLine {
+        margin: 0 30px;
       }
     }
 
     &__value-inner {
       display: flex;
-      align-items: center;
-      margin-right: 80px;
+      flex-direction: column;
       @include respond-to(lg) {
-        margin-right: 50px;
+
       }
       @include respond-to(sm) {
         display: block;
@@ -82,24 +84,34 @@ const staticStyles = css.global`
       }
     }
     &__value-title {
-      font-weight: 300;
+      font-weight: 400;
       margin-right: 20px;
       font-size: $regular;
       @include respond-to(xl) {
-        font-size: $medium;
-        margin-right: 10px;
+
       }
       @include respond-to(lg) {
-        font-size: $small;
+
       }
       @include respond-to(md) {
-        font-size: $medium;
+
       }
       @include respond-to(sm) {
         margin: 0 0 5px 0;
         font-size: $small;
         font-weight: 400;
       }
+    }
+
+    .Value {
+      margin-top: 10px;
+    }
+
+    .Value__token-icon span,
+    .Value__value,
+    .Value__symbol {
+      font-size: $extraExtraLarge;
+      font-weight: 600;
     }
   }
 `;

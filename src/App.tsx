@@ -16,6 +16,7 @@ import {
   Deposit,
   Withdraw,
   Borrow,
+  ManageRadiant,
   Repay,
   Faucet,
   Dashboard,
@@ -59,6 +60,8 @@ function ModulesWithMenu() {
 
         <Route path="/borrow" component={Borrow} />
         <Route path={`/repay/${CURRENCY_ROUTE_PARAMS}`} component={Repay} />
+
+        <Route path="/manage-radiant" component={ManageRadiant} />
 
         <Route
           exact={true}
