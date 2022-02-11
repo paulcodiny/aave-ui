@@ -6,10 +6,9 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .AssetsFilterPanel {
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     display: flex;
     @include respond-to(xl) {
-      margin-bottom: 20px;
     }
     @include respond-to(sm) {
       margin-bottom: 30px;

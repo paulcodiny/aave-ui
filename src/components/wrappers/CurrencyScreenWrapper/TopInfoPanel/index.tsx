@@ -39,13 +39,12 @@ export default function TopInfoPanel({
   const currentBorrows = userReserve ? valueToBigNumber(userReserve.totalBorrows).toString() : '0';
 
   return (
-    <div className="TopInfoPanel">
+    <>
       {isDeposit ? (
         <>
           <Row
-            className="TopInfoPanel__line"
+            className="CurrencyOverview__row"
             title={intl.formatMessage(messages.yourBalanceInAave)}
-            color="white"
             isColumn={sm}
           >
             {user && userReserve && Number(userReserve.underlyingBalance) > 0 ? (
@@ -54,7 +53,6 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -62,9 +60,8 @@ export default function TopInfoPanel({
           </Row>
 
           <Row
-            className="TopInfoPanel__line"
+            className="CurrencyOverview__row"
             title={intl.formatMessage(messages.yourWalletBalance)}
-            color="white"
             isColumn={sm}
           >
             {user && Number(walletBalance) > 0 ? (
@@ -73,7 +70,6 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -83,9 +79,8 @@ export default function TopInfoPanel({
       ) : (
         <>
           <Row
-            className="TopInfoPanel__line"
+            className="CurrencyOverview__row"
             title={intl.formatMessage(messages.youBorrowed)}
-            color="white"
             isColumn={sm}
           >
             {user && Number(currentBorrows) > 0 ? (
@@ -94,7 +89,6 @@ export default function TopInfoPanel({
                 symbol={currencySymbol}
                 maximumValueDecimals={decimals}
                 minimumValueDecimals={decimals}
-                color="white"
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -102,9 +96,8 @@ export default function TopInfoPanel({
           </Row>
 
           <Row
-            className="TopInfoPanel__line"
+            className="CurrencyOverview__row"
             title={intl.formatMessage(messages.totalCollateral)}
-            color="white"
             isColumn={sm}
           >
             {user && Number(user?.totalCollateralUSD) > 0 ? (
@@ -113,7 +106,6 @@ export default function TopInfoPanel({
                 symbol="USD"
                 maximumValueDecimals={4}
                 minimumValueDecimals={4}
-                color="white"
               />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
@@ -121,13 +113,12 @@ export default function TopInfoPanel({
           </Row>
 
           <Row
-            className="TopInfoPanel__line"
+            className="CurrencyOverview__row"
             title={intl.formatMessage(messages.loanToValue)}
-            color="white"
             isColumn={sm}
           >
             {user && Number(user?.currentLoanToValue) > 0 ? (
-              <ValuePercent value={user?.currentLoanToValue} color="white" />
+              <ValuePercent value={user?.currentLoanToValue} />
             ) : (
               <span className="TopInfoPanel__no-data">—</span>
             )}
@@ -139,7 +130,6 @@ export default function TopInfoPanel({
         <HealthFactor
           className="TopInfoPanel__healthFactor"
           value={user?.healthFactor || '-1'}
-          titleColor="white"
           helpIconSize={xl && !lg ? 12 : lg && !sm ? 10 : sm ? 12 : 14}
           isColumn={sm}
         />
@@ -150,9 +140,9 @@ export default function TopInfoPanel({
       </style>
       <style jsx={true} global={true}>{`
         .TopInfoPanel {
-          color: ${currentTheme.white.hex};
+          color: ${currentTheme.darkBlue.hex};
         }
       `}</style>
-    </div>
+    </>
   );
 }

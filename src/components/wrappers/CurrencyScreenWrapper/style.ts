@@ -6,13 +6,25 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .CurrencyScreenWrapper {
-    margin-top: 40px !important;
-
     @include respond-to(sm) {
       margin-top: 0 !important;
       padding-bottom: 0 !important;
       .ScreenWrapper__mobile-bottomBorder {
         display: none;
+      }
+    }
+
+    &__token-title {
+      display: flex;
+
+      img {
+        height: 35px;
+        width: 35px;
+        position: absolute;
+      }
+
+      p {
+        padding-left: 45px;
       }
     }
 
