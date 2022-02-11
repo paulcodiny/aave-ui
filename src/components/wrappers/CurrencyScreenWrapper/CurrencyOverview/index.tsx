@@ -57,8 +57,6 @@ export default function CurrencyOverview({
   //   poolReserveId: poolReserve.id,
   // }); TODO: uncomment when filters are added to history graphs
 
-  console.log(poolReserve.avg30DaysLiquidityRate);
-
   const overviewData = {
     utilizationRate: Number(poolReserve.utilizationRate),
     availableLiquidity: poolReserve.availableLiquidity,
@@ -177,12 +175,12 @@ export default function CurrencyOverview({
   }, [
     isCollapse,
     overviewData.availableLiquidity,
-    // overviewData.avg30DaysLiquidityRate,
+    overviewData.avg30DaysLiquidityRate,
     overviewData.borrowingEnabled,
     overviewData.depositApy,
     overviewData.priceInUsd,
     overviewData.usageAsCollateralEnabled,
-    // overviewData.utilizationRate,
+    overviewData.utilizationRate,
     currentLangSlug,
   ]);
 
