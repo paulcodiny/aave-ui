@@ -5,6 +5,7 @@ import Deposit from './deposit';
 import Withdraw from './withdraw';
 import Borrow from './borrow';
 import Repay from './repay';
+import ManageRadiant from './manage-radiant';
 import Faucet from './faucet';
 import Dashboard from './dashboard';
 import Governance from './governance';
@@ -19,6 +20,7 @@ export {
   Withdraw,
   Borrow,
   Repay,
+  ManageRadiant,
   Faucet,
   Dashboard,
   Governance,

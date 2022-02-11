@@ -11,15 +11,15 @@ const staticStyles = css`
     align-items: flex-start;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: $large;
+    font-size: $medium;
     @include respond-to(xl) {
-      font-size: $medium;
+
     }
     @include respond-to(lg) {
-      font-size: $small;
+
     }
     @include respond-to(md) {
-      font-size: $medium;
+
     }
     @include respond-to(sm) {
       font-size: $regular;

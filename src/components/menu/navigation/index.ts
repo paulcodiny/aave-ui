@@ -38,6 +38,10 @@ const navigation: Navigation[] = [
     title: messages.borrow,
   },
   {
+    link: '/manage-radiant',
+    title: messages.manageRadiant,
+  },
+  {
     link: '/asset-swap',
     title: messages.swap,
     isVisible: isFeatureEnabled.liquiditySwap,

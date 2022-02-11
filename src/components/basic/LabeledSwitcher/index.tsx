@@ -12,7 +12,6 @@ type LabeledSwitcherProps = {
   height?: number;
   fontSize?: number;
   disabled?: boolean;
-  white?: boolean;
   darkOnDarkMode?: boolean;
 };
 
@@ -26,7 +25,6 @@ export default function LabeledSwitcher({
   height,
   fontSize,
   disabled,
-  white,
 }: LabeledSwitcherProps) {
   const { currentTheme } = useThemeContext();
 
@@ -42,7 +40,7 @@ export default function LabeledSwitcher({
         rightOption={rightOption}
         onToggle={onToggle}
         disabled={disabled}
-        className={classNames({ LabeledSwitch__white: white }, className)}
+        className={classNames(className)}
         width={width || baseWidth}
         height={height || baseHeight}
         fontSize={fontSize || baseFontSize}

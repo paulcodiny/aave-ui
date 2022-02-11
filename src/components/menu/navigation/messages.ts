@@ -5,6 +5,7 @@ export default defineMessages({
   dashboard: 'My dashboard',
   deposit: 'Deposit',
   borrow: 'Borrow',
+  manageRadiant: 'Manage Radiant',
   swap: 'Swap',
   stake: 'Stake',
   governance: 'Governance',

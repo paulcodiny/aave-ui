@@ -51,12 +51,11 @@ export default function ContentWrapper({
 
           &__back-button {
             color: ${currentTheme.textDarkBlue.hex};
-            border: 1px solid ${currentTheme.textDarkBlue.hex};
+            border: 1px solid ${currentTheme.purple.hex};
             &:hover {
-              background: ${currentTheme.textDarkBlue.hex};
+              background: ${currentTheme.purple.hex};
               color: ${currentTheme.whiteElement.hex};
               span {
-                border-color: ${currentTheme.whiteElement.hex};
                 &:after {
                   border: solid ${currentTheme.whiteElement.hex};
                   border-width: 0 1px 1px 0;
@@ -64,7 +63,6 @@ export default function ContentWrapper({
               }
             }
             span {
-              border: 1px solid ${currentTheme.textDarkBlue.hex};
               &:after {
                 border: solid ${currentTheme.textDarkBlue.hex};
                 border-width: 0 1px 1px 0;

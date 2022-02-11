@@ -20,28 +20,6 @@ const staticStyles = css`
       transform: scale(0.98);
     }
 
-    &:after,
-    &:before {
-      content: '';
-      position: absolute;
-      border-radius: $borderRadius;
-      transition: all 0.3s ease;
-      background-size: 300% !important;
-      animation: animate 4.5s infinite;
-    }
-
-    &:before,
-    &:after {
-      top: -2px;
-      bottom: -2px;
-      left: -2px;
-      right: -2px;
-    }
-
-    &:before {
-      filter: blur(2px);
-    }
-
     &__inner {
       width: 100px;
       min-height: 32px;
@@ -58,7 +36,7 @@ const staticStyles = css`
         padding: 0 10px;
       }
       span {
-        font-size: $extraSmall;
+        font-size: $small;
         @include respond-to(sm) {
           font-size: $regular;
         }

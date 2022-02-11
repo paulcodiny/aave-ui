@@ -36,25 +36,17 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ConnectButton {
+          border-radius: 4px;
+          border: solid 1px #7159ff;
+          background: ${currentTheme.darkBlue.hex};
+
           &:hover {
             .ConnectButton__inner {
               border-color: ${currentTheme.white.hex};
             }
           }
 
-          &:before,
-          &:after {
-            background: linear-gradient(
-              to right,
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex},
-              ${currentTheme.secondary.hex},
-              ${currentTheme.primary.hex}
-            );
-          }
-
           &__inner {
-            background: ${currentTheme.darkBlue.hex};
             color: ${currentTheme.white.hex};
           }
         }
