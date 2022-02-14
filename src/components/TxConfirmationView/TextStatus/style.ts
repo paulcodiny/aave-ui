@@ -14,13 +14,10 @@ const staticStyles = css.global`
     &__text {
       font-size: $regular;
       @include respond-to(xl) {
-        font-size: $medium;
       }
       @include respond-to(lg) {
-        font-size: $small;
       }
       @include respond-to(md) {
-        font-size: $medium;
       }
     }
 
@@ -29,9 +26,6 @@ const staticStyles = css.global`
       min-height: 32px;
       font-size: $medium;
       @include respond-to(xl) {
-        width: 90px;
-        min-height: 26px;
-        font-size: $small;
       }
     }
   }

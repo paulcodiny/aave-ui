@@ -8,6 +8,7 @@ const staticStyles = css.global`
   .ActionsWrapper {
     width: 100%;
     border-radius: $borderRadius;
+    border: 1px solid #e2e2e2;
     display: flex;
     flex-direction: column;
     transition: $transition;
@@ -24,9 +25,11 @@ const staticStyles = css.global`
       min-height: 20px;
       font-size: $small;
       flex: 1;
-      font-weight: 400;
+      font-weight: 600;
       transition: $transition;
       cursor: default;
+      padding: 6px 0;
+      background: #e2e2e2;
       &:last-of-type {
         border-right: none !important;
       }

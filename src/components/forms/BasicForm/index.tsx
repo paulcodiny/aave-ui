@@ -91,7 +91,7 @@ export default function BasicForm({
 
   return (
     <form onSubmit={handleSubmit} className={classNames('BasicForm', className)}>
-      {!!title && <Caption title={title} description={description} />}
+      {!!title && <Caption title={title} description={description} color="dark" />}
 
       <div className="BasicForm__inner">
         {children}
@@ -131,6 +131,7 @@ export default function BasicForm({
             title={submitButtonTitle || intl.formatMessage(messages.continue)}
             mobileBig={true}
             type="submit"
+            color="purple"
           />
         )}
       </div>

@@ -236,9 +236,10 @@ export default function TxConfirmationView({
           title={!mainTxConfirmed ? caption : intl.formatMessage(messages.congratulations)}
           description={
             !mainTxConfirmed
-              ? description || intl.formatMessage(messages.transactionDetails)
+              ? description || intl.formatMessage(messages.transactionDetails, { br: <br /> })
               : intl.formatMessage(messages.successfullyExecuted)
           }
+          color="purple"
         />
       )}
 
@@ -387,7 +388,6 @@ export default function TxConfirmationView({
           &__content {
             color: ${currentTheme.textDarkBlue.hex};
             background: ${currentTheme.whiteItem.hex};
-            border: 1px solid ${currentTheme.darkBlue.hex};
           }
         }
       `}</style>

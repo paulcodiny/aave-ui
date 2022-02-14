@@ -6,19 +6,16 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .DotStatus {
-    font-size: $medium;
+    font-size: $small;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     white-space: nowrap;
     @include respond-to(xl) {
-      font-size: $small;
     }
     @include respond-to(lg) {
-      font-size: $extraSmall;
     }
     @include respond-to(md) {
-      font-size: $small;
     }
 
     .DotStatus__loader {

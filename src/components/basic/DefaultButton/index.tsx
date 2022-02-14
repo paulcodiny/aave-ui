@@ -6,7 +6,7 @@ export interface DefaultButtonProps {
   onClick?: (event: any) => void;
   title: string;
   type?: 'button' | 'submit';
-  color?: 'primary' | 'secondary' | 'dark' | 'green' | 'red' | 'white' | 'gradient';
+  color?: 'primary' | 'secondary' | 'dark' | 'green' | 'red' | 'white' | 'purple' | 'gradient';
   size?: 'big' | 'medium' | 'normal' | 'small';
   transparent?: boolean;
   mobileBig?: boolean;
@@ -98,6 +98,14 @@ export default function DefaultButton({
           &__red {
             background: ${currentTheme.red.hex};
             border-color: ${currentTheme.red.hex};
+          }
+          &__purple {
+            background: ${currentTheme.purple.hex};
+            border-color: ${currentTheme.purple.hex};
+
+            &:hover {
+              border-color: #3cecd1;
+            }
           }
           &__white {
             background: ${currentTheme.white.hex};

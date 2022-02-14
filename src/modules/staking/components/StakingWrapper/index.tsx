@@ -24,7 +24,7 @@ import CooldownInfoModal from '../CooldownInfoModal';
 
 import messages from './messages';
 import staticStyles from './style';
-import GradientLine from "../../../../components/basic/GradientLine";
+import GradientLine from '../../../../components/basic/GradientLine';
 
 interface StakingWrapperProps {
   children: ReactNode;
@@ -292,10 +292,7 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
 
           <GradientLine size={2} />
 
-          <Row
-            title={intl.formatMessage(messages.cooldownPeriod)}
-            className="StakingWrapper__row"
-          >
+          <Row title={intl.formatMessage(messages.cooldownPeriod)} className="StakingWrapper__row">
             <strong className="StakingWrapper__cooldownPeriodTime">
               {intl.formatNumber(
                 stakeCooldownDays < 1 ? selectedStakeData.stakeCooldownSeconds : stakeCooldownDays
@@ -308,10 +305,7 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
 
           <GradientLine size={2} />
 
-          <Row
-            title={intl.formatMessage(messages.stakingAPY)}
-            className="StakingWrapper__row"
-          >
+          <Row title={intl.formatMessage(messages.stakingAPY)} className="StakingWrapper__row">
             <ValuePercent value={+selectedStakeData.stakeApy} />
           </Row>
 

@@ -61,10 +61,8 @@ const staticStyles = css.global`
       flex: 1;
 
       @include respond-to(xl) {
-
       }
       @include respond-to(lg) {
-
       }
       @include respond-to(sm) {
         width: 150px;

@@ -98,7 +98,7 @@ function DepositAmount({
                     />
                   ),
                 })
-              : intl.formatMessage(messages.description)
+              : intl.formatMessage(messages.description, { br: <br /> })
           }
           amountFieldTitle={intl.formatMessage(messages.amountTitle)}
           maxAmount={maxAmountToDeposit.toString(10)}

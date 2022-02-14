@@ -6,7 +6,7 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .TxTopInfo {
-    padding: 15px;
+    padding: 20px;
     &__inner {
       display: flex;
       justify-content: space-between;
@@ -31,14 +31,12 @@ const staticStyles = css.global`
         align-items: flex-start;
         justify-content: space-between;
         margin-bottom: 2px;
+        color: #7159ff;
         @include respond-to(xl) {
-          font-size: $medium;
         }
         @include respond-to(lg) {
-          font-size: $small;
         }
         @include respond-to(md) {
-          font-size: $medium;
         }
 
         .DotStatus {
@@ -49,13 +47,10 @@ const staticStyles = css.global`
         font-size: $medium;
         word-break: break-word;
         @include respond-to(xl) {
-          font-size: $small;
         }
         @include respond-to(lg) {
-          font-size: $extraSmall;
         }
         @include respond-to(md) {
-          font-size: $small;
         }
       }
     }
@@ -86,9 +81,6 @@ const staticStyles = css.global`
       min-height: 40px;
       font-size: $medium;
       @include respond-to(xl) {
-        width: 90px;
-        min-height: 30px;
-        font-size: $small;
       }
     }
 

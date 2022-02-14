@@ -10,18 +10,12 @@ const staticStyles = css.global`
     display: flex;
     flex-direction: column;
     margin-right: 30px;
-    max-width: calc(100% - 555px);
+    max-width: calc(100% - 370px);
     @include respond-to(xl) {
-      margin-right: 20px;
-      max-width: calc(100% - 460px);
     }
     @include respond-to(lg) {
-      max-width: calc(100% - 360px);
     }
     @include respond-to(md) {
-      display: block;
-      margin: 0 0 10px 0;
-      max-width: 100%;
     }
     @include respond-to(sm) {
       margin: 30px 0 0 0;

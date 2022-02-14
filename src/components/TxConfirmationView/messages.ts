@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   congratulations: 'Congrats!',
   transactionDetails:
-    'These are your transaction details. Make sure to check if this is correct before submitting.',
+    'These are your transaction details.{br}Make sure to check if this is correct before submitting.',
   successfullyExecuted: 'Your action has been successfully executed',
   nextSteps: 'Next steps',
   approve: 'Approve',

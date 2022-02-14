@@ -6,9 +6,7 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .StakingWrapper {
-
     @include respond-to(sm) {
-
     }
 
     &__mobile-switcher {
@@ -64,10 +62,8 @@ const staticStyles = css.global`
       margin-left: 30px;
       padding: 35px 30px;
       @include respond-to(xl) {
-
       }
       @include respond-to(lg) {
-
       }
       @include respond-to(sm) {
         width: 100%;

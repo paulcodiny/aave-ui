@@ -9,7 +9,7 @@ import animationCircle from '../../../images/animationCircle.svg';
 interface CaptionProps {
   title: string;
   description?: string | ReactNode;
-  color?: 'primary' | 'secondary' | 'dark';
+  color?: 'primary' | 'secondary' | 'purple' | 'dark';
   className?: string;
   marginBottom?: number;
   withAnimationCircle?: boolean;
@@ -43,6 +43,12 @@ export default function Caption({
           &__market {
             h2 {
               color: ${currentTheme.primary.hex};
+            }
+          }
+
+          &__purple {
+            h2 {
+              color: ${currentTheme.purple.hex};
             }
           }
 

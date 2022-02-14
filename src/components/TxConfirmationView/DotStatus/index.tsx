@@ -49,7 +49,7 @@ export default function DotStatus({ confirmed, submitted, error, failed }: DotSt
 
           &__confirmed {
             .DotStatus__dot {
-              background: ${currentTheme.green.hex};
+              background: ${currentTheme.darkGreen.hex};
             }
           }
           &__error {

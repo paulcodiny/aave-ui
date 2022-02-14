@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   title: 'How much would you like to deposit?',
   description:
-    'Please enter an amount you would like to deposit. The maximum amount you can deposit is shown below.',
+    'Please enter an amount you would like to deposit.{br}The maximum amount you can deposit is shown below.',
   aaveDescription:
     'Do not deposit your AAVE tokens if you want to {stake} them in the Safety Module. To stake AAVE,  please continue to the {link}',
   stake: 'stake',

@@ -56,16 +56,13 @@ const staticStyles = css.global`
     }
 
     &__info-wrapper {
-      padding: 20px;
-      margin-bottom: 15px;
+      padding: 25px 30px;
+      margin-bottom: 30px;
       position: relative;
-      box-shadow: $boxShadow;
+      border-radius: $borderRadius;
       @include respond-to(xl) {
-        padding: 15px;
       }
       @include respond-to(lg) {
-        margin-bottom: 10px;
-        padding: 10px;
       }
       @include respond-to(md) {
         margin-bottom: 0;
@@ -106,15 +103,10 @@ const staticStyles = css.global`
         align-items: center;
         justify-content: space-between;
         @include respond-to(xl) {
-          font-size: $medium;
-          margin-bottom: 15px;
         }
         @include respond-to(lg) {
-          font-size: $small;
-          margin-bottom: 10px;
         }
         @include respond-to(md) {
-          font-size: $medium;
         }
         @include respond-to(sm) {
           font-size: $regular;

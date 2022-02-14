@@ -6,7 +6,7 @@ import Value from '../../../../components/basic/Value';
 
 import messages from './messages';
 import staticStyles from './style';
-import GradientLine from "../../../../components/basic/GradientLine";
+import GradientLine from '../../../../components/basic/GradientLine';
 
 interface StakingTopPanelProps {
   title: string;
@@ -39,7 +39,7 @@ export default function StakingTopPanel({
     <div className="StakingTopPanel">
       <div className="StakingTopPanel__values">
         {data.map((item, itemIndex) => (
-          <React.Fragment  key={item.symbol}>
+          <React.Fragment key={item.symbol}>
             <div className="StakingTopPanel__value-inner">
               <p className="StakingTopPanel__value-title">{intl.formatMessage(item.title)}</p>
               <Value
@@ -52,7 +52,7 @@ export default function StakingTopPanel({
               />
             </div>
 
-            {(itemIndex < data.length - 1) ? <GradientLine size={2} direction="vertical" /> : null}
+            {itemIndex < data.length - 1 ? <GradientLine size={2} direction="vertical" /> : null}
           </React.Fragment>
         ))}
       </div>
