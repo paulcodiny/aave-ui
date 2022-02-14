@@ -99,7 +99,7 @@ export default function UserInformation({
                   <DefaultButton
                     className="UserInformation__button"
                     title={intl.formatMessage(defaultMessages.deposit)}
-                    color={elementsColor}
+                    color="purple"
                     disabled={poolReserve.isFrozen}
                   />
                 </Link>

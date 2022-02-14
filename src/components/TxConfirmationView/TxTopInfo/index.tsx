@@ -86,6 +86,7 @@ export default function TxTopInfo({
                     disabled={loading}
                     onDarkBackground={true}
                     type="submit"
+                    color="purple"
                   />
                 </div>
               ) : (
@@ -157,7 +158,7 @@ export default function TxTopInfo({
           color: ${currentTheme.textDarkBlue.hex};
           &__left-inner {
             .TxTopInfo__title {
-              color: ${currentTheme.primary.hex};
+              color: ${currentTheme.darkBlue.hex};
             }
           }
 

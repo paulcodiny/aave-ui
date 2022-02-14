@@ -54,6 +54,7 @@ export default function TextStatus({
           <DefaultButton
             className="TextStatus__button"
             title={successButtonTitle || intl.formatMessage(messages.dashboard)}
+            color="purple"
           />
         </Link>
       )}
@@ -76,7 +77,7 @@ export default function TextStatus({
           }
           &__confirmed {
             .TextStatus__text {
-              color: ${currentTheme.green.hex};
+              color: ${currentTheme.darkGreen.hex};
             }
           }
         }

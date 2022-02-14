@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import { useThemeContext } from '@aave/aave-ui-kit';
 
 interface LinkProps {
-  title?: string;
+  title?: string | ReactNode;
   to: string;
   absolute?: boolean;
   inNewWindow?: boolean;

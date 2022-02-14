@@ -46,6 +46,7 @@ const staticStyles = css.global`
       padding: 0 15px;
       border-radius: $borderRadius;
       transition: $transition;
+      border: 1px solid #d8d9e0;
     }
 
     .AmountField__input {

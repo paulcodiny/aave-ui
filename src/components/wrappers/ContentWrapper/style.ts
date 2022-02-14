@@ -50,7 +50,6 @@ const staticStyles = css.global`
       font-size: $small;
       transition: $transition;
       @include respond-to(xl) {
-
       }
       @include respond-to(sm) {
         display: none;
@@ -65,7 +64,6 @@ const staticStyles = css.global`
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-
         }
         &:after {
           content: '';

@@ -10,18 +10,19 @@ const staticStyles = css.global`
     border-radius: $borderRadius;
     backdrop-filter: blur(10px);
     border: solid 1px rgba(255, 255, 255, 0.35);
-    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) -6%, rgba(255, 255, 255, 0.25) 58%);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) -6%,
+      rgba(255, 255, 255, 0.25) 58%
+    );
     padding: 15px 35px;
     display: flex;
     align-items: center;
     @include respond-to(xl) {
-
     }
     @include respond-to(lg) {
-
     }
     @include respond-to(md) {
-
     }
     @include respond-to(sm) {
       padding: 15px 10px;
@@ -70,7 +71,6 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       @include respond-to(lg) {
-
       }
       @include respond-to(sm) {
         display: block;
@@ -88,13 +88,10 @@ const staticStyles = css.global`
       margin-right: 20px;
       font-size: $regular;
       @include respond-to(xl) {
-
       }
       @include respond-to(lg) {
-
       }
       @include respond-to(md) {
-
       }
       @include respond-to(sm) {
         margin: 0 0 5px 0;

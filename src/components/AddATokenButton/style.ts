@@ -6,8 +6,8 @@ const staticStyles = css`
   @import 'src/_mixins/screen-size';
 
   .AddATokenButton {
-    box-shadow: $boxShadow;
     border-radius: $borderRadius;
+    border: 1px solid #7159ff;
     display: flex;
     align-items: center;
     justify-content: center;

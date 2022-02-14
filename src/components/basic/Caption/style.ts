@@ -11,14 +11,13 @@ const staticStyles = css`
     width: 100%;
     overflow: hidden;
     @include respond-to(xl) {
-      margin-bottom: 30px;
     }
     @include respond-to(sm) {
       margin-bottom: 25px;
     }
     h2 {
       width: 100%;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
       font-size: $large;
       display: flex;
       align-items: center;
@@ -26,10 +25,8 @@ const staticStyles = css`
       justify-content: center;
       position: relative;
       @include respond-to(xl) {
-        font-size: $regular;
       }
       @include respond-to(lg) {
-        font-size: $medium;
       }
       @include respond-to(md) {
         font-size: $regular;
@@ -60,15 +57,14 @@ const staticStyles = css`
       }
     }
     &__description {
-      font-size: $large;
+      font-size: $medium;
+      font-family: 'roboto-font';
+      line-height: 17px;
       @include respond-to(xl) {
-        font-size: $regular;
       }
       @include respond-to(lg) {
-        font-size: $medium;
       }
       @include respond-to(md) {
-        font-size: $regular;
       }
     }
   }

@@ -137,16 +137,8 @@ export default function AmountField({
             }
           }
 
-          &__wrapper {
-            border: 1px solid
-              ${isCurrentThemeDark
-                ? sm
-                  ? currentTheme.white.hex
-                  : currentTheme.whiteItem.hex
-                : currentTheme.textDarkBlue.hex};
-          }
           &__maxButton {
-            color: ${currentTheme.primary.hex};
+            color: ${currentTheme.purple.hex};
           }
 
           &__error-text {

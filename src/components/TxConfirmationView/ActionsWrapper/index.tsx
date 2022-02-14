@@ -149,7 +149,6 @@ export default function ActionsWrapper({
       <style jsx={true} global={true}>{`
         .ActionsWrapper {
           background: ${currentTheme.whiteItem.hex};
-          border: 1px solid ${currentTheme.darkBlue.hex};
 
           &__submitted {
             border: 1px solid ${currentTheme.orange.hex};
@@ -162,9 +161,6 @@ export default function ActionsWrapper({
           }
 
           &__button {
-            border-right: 1px solid
-              ${isCurrentThemeDark ? currentTheme.headerBg.hex : currentTheme.white.hex};
-            background: ${isCurrentThemeDark ? currentTheme.headerBg.hex : currentTheme.mainBg.hex};
             color: ${currentTheme.textDarkBlue.hex};
           }
           &__buttonAllowed {
@@ -175,7 +171,7 @@ export default function ActionsWrapper({
             }
           }
           &__buttonActive {
-            background: ${activeGradient};
+            background: ${currentTheme.purple.hex};
             color: ${currentTheme.white.hex};
           }
           &__buttonSubmitted {
@@ -183,7 +179,7 @@ export default function ActionsWrapper({
             color: ${currentTheme.white.hex};
           }
           &__buttonConfirmed {
-            background: ${currentTheme.green.hex};
+            background: ${currentTheme.darkGreen.hex};
             color: ${currentTheme.white.hex};
           }
           &__buttonError {

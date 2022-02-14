@@ -112,6 +112,7 @@ const staticStyles = css.global`
       flex-direction: column;
       box-shadow: none !important;
       background: transparent !important;
+      border: none !important;
     }
     .ReserveOverview__noUser.ReserveOverview__noUser {
       box-shadow: $boxShadow !important;

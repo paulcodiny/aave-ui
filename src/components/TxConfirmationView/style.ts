@@ -14,13 +14,10 @@ const staticStyles = css.global`
     width: 410px;
     margin: 0 auto;
     @include respond-to(xl) {
-      width: 380px;
     }
     @include respond-to(lg) {
-      width: 340px;
     }
     @include respond-to(md) {
-      width: 380px;
     }
     @include respond-to(sm) {
       width: 100%;
@@ -32,10 +29,8 @@ const staticStyles = css.global`
       width: 100%;
       text-align: center;
       @include respond-to(lg) {
-        margin-bottom: 10px;
       }
       @include respond-to(md) {
-        margin-bottom: 20px;
       }
     }
     &__contentInner {
@@ -43,8 +38,9 @@ const staticStyles = css.global`
     }
 
     &__content {
-      padding: 15px;
+      padding: 30px 25px;
       border-radius: $borderRadius;
+      border: 1px solid #e2e2e2;
     }
 
     &__actions-inner {

@@ -9,9 +9,10 @@ const staticStyles = css.global`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 15px;
+    padding: 10px 15px;
     position: relative;
-    width: 100%;
+    margin: 0 20px;
+    width: calc(100% - 40px);
     min-height: 28px;
     &:after {
       content: '';
@@ -35,16 +36,13 @@ const staticStyles = css.global`
 
     .TxBottomStatusLine__title,
     .TxBottomStatusLine__link {
-      font-size: $medium;
+      font-size: $small;
       white-space: nowrap;
       @include respond-to(xl) {
-        font-size: $small;
       }
       @include respond-to(lg) {
-        font-size: $extraSmall;
       }
       @include respond-to(md) {
-        font-size: $small;
       }
     }
 

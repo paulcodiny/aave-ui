@@ -28,16 +28,16 @@ const staticStyles = css.global`
       }
     }
 
-    .CurrencyScreenWrapper__content {
+    &__content {
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       flex: 1;
       margin: 30px 0 10px;
-      padding: 15px 0;
+      padding: 90px 0 130px;
+      background: #fff;
       @include respond-to(xl) {
-        margin: 20px 0 10px;
       }
       @include respond-to(sm) {
         margin: 40px 0;
