@@ -14,7 +14,7 @@ export default function UserInfo() {
     <div className={classNames('UserInfo')}>
       <div className={classNames('UserInfo__stats')}>
         {userStats.map(({ value, text, time }) => (
-          <p className={classNames('UserInfo__item')}>
+          <p className={classNames('UserInfo__item')} key={JSON.stringify({ value, text, time })}>
             <span className={classNames('UserInfo__value')}>$ {value}</span>
             <span className={classNames('UserInfo__text')}>{text}</span>{' '}
             <span className={classNames('UserInfo__time')}>{time}</span>

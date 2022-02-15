@@ -17,7 +17,7 @@ export default function DashboardWrapper({ children }: DashboardWrapperProps) {
     <ScreenWrapper
       pageTitle={intl.formatMessage(messages.pageTitle)}
       className="DashboardWrapper"
-      withMobileGrayBg={true}
+      isTitleOnDesktop={true}
     >
       <div className="DashboardWrapper__content">{children}</div>
 

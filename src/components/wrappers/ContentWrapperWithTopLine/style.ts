@@ -59,6 +59,7 @@ const staticStyles = css`
         rgba(255, 255, 255, 0) -6%,
         rgba(255, 255, 255, 0.25) 58%
       );
+      flex: 1;
     }
   }
 `;

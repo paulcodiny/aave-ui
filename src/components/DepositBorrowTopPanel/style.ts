@@ -6,6 +6,18 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .DepositBorrowTopPanel {
+    &__top-info {
+      flex-direction: row;
+      gap: 30px;
+      display: flex;
+    }
+
+    &__left-info {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
     &__topPanel {
       margin-bottom: 30px;
       @include respond-to(xl) {
@@ -28,26 +40,19 @@ const staticStyles = css.global`
       display: flex;
       justify-content: space-between;
       p {
-        width: calc(50% - 10px);
-        font-size: $regular;
+        font-size: $large;
         display: flex;
         flex-direction: column;
         border-top-right-radius: $borderRadius;
         border-top-left-radius: $borderRadius;
         @include respond-to(xl) {
-          font-size: $small;
+
         }
         @include respond-to(lg) {
-          font-size: $extraSmall;
-          &:first-of-type {
-            width: 38%;
-          }
-          &:last-of-type {
-            width: 60%;
-          }
+
         }
         @include respond-to(md) {
-          font-size: $small;
+
         }
         i {
           font-style: normal;
@@ -85,7 +90,6 @@ const staticStyles = css.global`
     }
 
     &__topPanel-inner {
-      width: calc(50% - 10px);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -94,17 +98,10 @@ const staticStyles = css.global`
       transition: $transition;
       padding: 25px 20px;
       @include respond-to(lg) {
-        &:first-of-type {
-          width: 38%;
-        }
-        &:last-of-type {
-          width: 60%;
-        }
+
       }
       @include respond-to(md) {
-        align-items: flex-start;
-        flex-direction: column;
-        padding: 20px 10px;
+
       }
     }
 
@@ -175,9 +172,7 @@ const staticStyles = css.global`
       align-items: center;
       justify-content: space-between;
       @include respond-to(md) {
-        margin-top: 30px;
-        width: 100%;
-        max-width: 320px;
+
       }
       .CircleCompositionBar {
         margin-left: 35px;
