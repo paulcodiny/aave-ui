@@ -11,8 +11,6 @@ import messages from './messages';
 import staticStyles from './style';
 
 import radiantBackground from '../../../images/radiant/background-2.png';
-import background from '../../../images/background.svg';
-import backgroundDark from '../../../images/backgroundDark.svg';
 
 export interface ScreensWrapperProps {
   children: ReactNode;
@@ -40,7 +38,7 @@ export function useWithDesktopTitle() {
 
 export default function ScreensWrapper({ children }: ScreensWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   const [title, setTitle] = useState(intl.formatMessage(messages.pageTitle));
   const [isTopPanelSmall, setTopPanelSmall] = useState(false);

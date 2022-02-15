@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 import staticStyles from './style';
-import Value from '../basic/Value';
 
 export default function UserInfo() {
   const userStats = [

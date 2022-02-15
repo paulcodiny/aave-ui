@@ -27,7 +27,7 @@ export default function SidePanelCard({
   children,
 }: SidePanelCardProps) {
   const intl = useIntl();
-  const { currentTheme, xl, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, xl } = useThemeContext();
 
   const iconSize = xl ? 14 : 18;
 

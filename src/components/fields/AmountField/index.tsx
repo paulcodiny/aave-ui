@@ -42,7 +42,7 @@ export default function AmountField({
   topDecimals,
 }: AmountFieldProps) {
   const intl = useIntl();
-  const { currentTheme, lg, md, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, lg, md } = useThemeContext();
   const [onFocus, setFocus] = useState(false);
 
   const blockInvalidChar = (event: React.KeyboardEvent<HTMLInputElement>) =>

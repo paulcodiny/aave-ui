@@ -2,7 +2,6 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
 import BlockWrapper, { BlockWrapperProps } from '../BlockWrapper';
 
 import messages from './messages';
@@ -14,7 +13,6 @@ interface TextBlockProps extends Pick<BlockWrapperProps, 'title'> {
 
 export default function TextBlock({ condition, title }: TextBlockProps) {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
 
   return (
     <BlockWrapper title={title}>

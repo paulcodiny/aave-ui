@@ -22,7 +22,7 @@ export default function ContentWrapperWithTopLine({
   withDropdown,
 }: ContentWrapperWithTopLineProps) {
   const intl = useIntl();
-  const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme, sm } = useThemeContext();
 
   const [visible, setVisible] = useState(false);
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@aave/aave-ui-kit';
 
 import goToTop from '../../../helpers/goToTop';
 import Link from '../../basic/Link';
