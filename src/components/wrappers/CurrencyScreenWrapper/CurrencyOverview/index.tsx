@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { valueToBigNumber } from '@aave/protocol-js';
@@ -6,21 +6,16 @@ import { rgba, useThemeContext } from '@aave/aave-ui-kit';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useLanguageContext } from '../../../../libs/language-provider';
-// import { useReservesRateHistoryHelper } from '../../../../helpers/use-reserve-rates-history';
 import Row from '../../../basic/Row';
 import ValuePercent from '../../../basic/ValuePercent';
 import Value from '../../../basic/Value';
-import Link from '../../../basic/Link';
 import GradientLine from '../../../basic/GradientLine';
 import MaxLTVHelpModal from '../../../HelpModal/MaxLTVHelpModal';
 import LiquidationThresholdHelpModal from '../../../HelpModal/LiquidationThresholdHelpModal';
 import LiquidationBonusHelpModal from '../../../HelpModal/LiquidationBonusHelpModal';
-// import GraphFilterButtons from '../../../graphs/GraphFilterButtons';
 import { ValidationWrapperComponentProps } from '../../../RouteParamsValidationWrapper';
 import { InterestRateSeries } from '../../../graphs/types';
 import { GraphLegendDot } from '../../../graphs/GraphLegend';
-import GraphInner from '../GraphInner';
-import { getAssetInfo, TokenIcon } from '../../../../helpers/config/assets-config';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -48,7 +43,7 @@ export default function CurrencyOverview({
   children,
 }: CurrencyOverviewProps) {
   const intl = useIntl();
-  const { currentTheme, sm } = useThemeContext();
+  const { currentTheme } = useThemeContext();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const { currentLangSlug } = useLanguageContext();
 

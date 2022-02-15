@@ -51,11 +51,12 @@ const navigation: Navigation[] = [
     title: messages.stake,
     isVisible: () => !!stakeConfig,
   },
-  {
-    link: '/governance',
-    title: messages.governance,
-    isVisible: () => !!governanceConfig,
-  },
+  // todo:pavlik PODL link from the design
+  // {
+  //   link: '/governance',
+  //   title: messages.governance,
+  //   isVisible: () => !!governanceConfig,
+  // },
 ];
 
 export const moreNavigation: Navigation[] = [...moreMenuItems, ...moreMenuExtraItems];

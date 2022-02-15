@@ -1,10 +1,8 @@
-import React, { ReactNode, useState } from 'react';
+import React, { ReactNode } from 'react';
 import { useIntl } from 'react-intl';
 
 import { useThemeContext } from '@aave/aave-ui-kit';
-import toggleLocalStorageClick from '../../../helpers/toggle-local-storage-click';
 import ScreenWrapper from '../ScreenWrapper';
-import TopPanelWrapper from '../TopPanelWrapper';
 import ContentWrapper from '../ContentWrapper';
 import TopInfoPanel from './TopInfoPanel';
 import CurrencyOverview from './CurrencyOverview';
@@ -16,9 +14,7 @@ import { GraphLegendDot } from '../../graphs/GraphLegend';
 import { InterestRateSeries } from '../../graphs/types';
 
 import messages from './messages';
-import Link from '../../basic/Link';
 import { getAssetInfo, TokenIcon } from '../../../helpers/config/assets-config';
-import DesktopPageTitle from '../../DesktopPageTitle';
 import ContentWrapperWithTopLine from '../ContentWrapperWithTopLine';
 
 interface CurrencyScreenWrapperProps

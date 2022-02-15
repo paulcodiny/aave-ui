@@ -1,9 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
-import CustomScroll from '../basic/CustomScroll';
-
 import staticStyles from './style';
 
 interface BasicTableProps {
@@ -13,8 +10,6 @@ interface BasicTableProps {
 }
 
 export default function BasicTable({ children, headerColumns, className }: BasicTableProps) {
-  const { sm } = useThemeContext();
-
   return (
     <div className={classNames('BasicTable', className)}>
       <div className="BasicTable__wrapper">

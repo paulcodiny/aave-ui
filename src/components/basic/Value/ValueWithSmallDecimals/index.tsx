@@ -47,7 +47,7 @@ export default function ValueWithSmallDecimals({
       <style jsx={true}>{staticStyles}</style>
       <style jsx={true}>{`
         .ValueWithSmallDecimals {
-          color: ${currentTheme.white.hex};
+          color: ${currentTheme.darkBlue.hex};
         }
       `}</style>
     </>

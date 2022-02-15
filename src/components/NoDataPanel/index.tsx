@@ -45,7 +45,7 @@ export default function NoDataPanel({
 
       {linkTo && buttonTitle && (
         <Link to={linkTo} className="ButtonLink">
-          <DefaultButton title={buttonTitle} mobileBig={!buttonMediumSize} />
+          <DefaultButton color="purple" title={buttonTitle} mobileBig={!buttonMediumSize} />
         </Link>
       )}
 
@@ -58,6 +58,7 @@ export default function NoDataPanel({
       {withBigBackButton && (
         <div className="NoDataPanel__button-inner">
           <DefaultButton
+            color="purple"
             title={intl.formatMessage(messages.goBack)}
             mobileBig={true}
             onClick={history.goBack}

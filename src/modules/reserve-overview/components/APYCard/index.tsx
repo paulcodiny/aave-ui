@@ -1,8 +1,6 @@
 import React, { ReactNode } from 'react';
 import classNames from 'classnames';
 
-import { useThemeContext } from '@aave/aave-ui-kit';
-
 import staticStyles from './style';
 
 interface APYCardProps {
@@ -11,8 +9,6 @@ interface APYCardProps {
 }
 
 export default function APYCard({ title, children }: APYCardProps) {
-  const { currentTheme } = useThemeContext();
-
   return (
     <div className={classNames('APYCard')}>
       <div className="APYCard__title">

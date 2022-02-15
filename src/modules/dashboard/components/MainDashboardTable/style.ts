@@ -6,6 +6,7 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .MainDashboardTable {
+    margin-top: 45px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;

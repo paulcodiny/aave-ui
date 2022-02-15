@@ -31,7 +31,7 @@ export default function ActionsWrapper({
   children,
 }: ActionsWrapperProps) {
   const intl = useIntl();
-  const { currentTheme, isCurrentThemeDark } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   const activeGradient = gradient(
     90,

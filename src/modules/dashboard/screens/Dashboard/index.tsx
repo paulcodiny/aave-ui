@@ -214,12 +214,13 @@ export default function Dashboard() {
         </div>
       )}
 
-      <div className="Dashboard__top--line">
-        <div className="ButtonLink">
-          <DashboardLeftTopLine intl={intl} chainId={chainId} />
-        </div>
-        <IncentiveWrapper />
-      </div>
+      {/* todo:pavlik what is this???*/}
+      {/*<div className="Dashboard__top--line">*/}
+      {/*  <div className="ButtonLink">*/}
+      {/*    <DashboardLeftTopLine intl={intl} chainId={chainId} />*/}
+      {/*  </div>*/}
+      {/*  <IncentiveWrapper />*/}
+      {/*</div>*/}
 
       <DepositBorrowTopPanel />
 

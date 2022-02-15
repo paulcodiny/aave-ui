@@ -33,7 +33,7 @@ export default function TableButtonCol({
         ) : (
           <DefaultButton
             className="TableButtonCol__button"
-            color="dark"
+            color="purple"
             title={title}
             disabled={disabled}
           />

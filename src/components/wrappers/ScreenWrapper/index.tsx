@@ -7,7 +7,7 @@ import { useLanguageContext } from '../../../libs/language-provider';
 import { useProtocolDataContext } from '../../../libs/protocol-data-provider';
 import BridgeBanner from '../../BridgeBanner';
 import DesktopPageTitle from '../../DesktopPageTitle';
-import { useHeaderTitle, useWithDesktopTitle } from '../ScreensWrapper';
+import { useHeaderTitle } from '../ScreensWrapper';
 
 import staticStyles from './style';
 

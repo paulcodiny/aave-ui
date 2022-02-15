@@ -14,16 +14,13 @@ const staticStyles = css.global`
     border-radius: 50%;
     position: relative;
     @include respond-to(xl) {
-      width: 120px;
-      height: 120px;
+
     }
     @include respond-to(lg) {
-      width: 100px;
-      height: 100px;
+
     }
     @include respond-to(md) {
-      width: 120px;
-      height: 120px;
+
     }
 
     &__title {
