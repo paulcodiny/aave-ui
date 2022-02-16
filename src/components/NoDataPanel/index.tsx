@@ -13,7 +13,7 @@ import staticStyles from './style';
 
 export interface NoDataPanelProps {
   title: string;
-  description?: string | ReactNodeArray;
+  description?: string | ReactNodeArray | ReactNode;
   buttonTitle?: string;
   linkTo?: string;
   className?: string;
@@ -41,7 +41,12 @@ export default function NoDataPanel({
 
   return (
     <div className={classNames('NoDataPanel', className)}>
-      <Caption title={title} description={description} withAnimationCircle={withAnimationCircle} />
+      <Caption
+        color="dark"
+        title={title}
+        description={description}
+        withAnimationCircle={withAnimationCircle}
+      />
 
       {linkTo && buttonTitle && (
         <Link to={linkTo} className="ButtonLink">

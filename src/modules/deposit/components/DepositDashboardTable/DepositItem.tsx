@@ -61,7 +61,7 @@ export default function DepositItem({
           value={usageAsCollateralEnabledOnUser && usageAsCollateralEnabledOnThePool}
           offLabel={intl.formatMessage(messages.offLabel)}
           onLabel={intl.formatMessage(messages.onLabel)}
-          onColor={currentTheme.green.hex}
+          onColor={currentTheme.darkGreen.hex}
           offColor={currentTheme.red.hex}
           onSwitch={onToggleSwitch}
           disabled={!usageAsCollateralEnabledOnThePool}

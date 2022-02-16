@@ -23,7 +23,7 @@ const staticStyles = css.global`
 
     .DefaultButton.TextStatus__button {
       width: 120px;
-      min-height: 32px;
+      min-height: 40px;
       font-size: $medium;
       @include respond-to(xl) {
       }

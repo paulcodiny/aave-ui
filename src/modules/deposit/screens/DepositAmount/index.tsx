@@ -120,6 +120,7 @@ function DepositAmount({
               ? intl.formatMessage(messages.connectWalletDescription)
               : intl.formatMessage(messages.noDataDescription, {
                   currencySymbol: asset.formattedName,
+                  br: <br />,
                 })
           }
           linkTo={

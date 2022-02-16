@@ -27,11 +27,10 @@ const staticStyles = css.global`
       display: block;
       text-align: center;
       .ValuePercent {
-        align-items: center;
-        justify-content: center;
       }
       .TextWithModal {
         display: inline-block;
+        margin-bottom: 5px;
       }
     }
 

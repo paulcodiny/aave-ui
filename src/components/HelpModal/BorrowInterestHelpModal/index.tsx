@@ -42,7 +42,7 @@ export default function BorrowInterestHelpModal({
             })}
           </p>
         }
-        captionColor="primary"
+        captionColor="dark"
       />
       <HelpItem
         caption={intl.formatMessage(messages.secondHelpItemCaption)}

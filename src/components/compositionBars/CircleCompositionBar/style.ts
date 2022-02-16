@@ -9,18 +9,15 @@ const staticStyles = css.global`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 140px;
-    height: 140px;
+    width: 110px;
+    height: 110px;
     border-radius: 50%;
     position: relative;
     @include respond-to(xl) {
-
     }
     @include respond-to(lg) {
-
     }
     @include respond-to(md) {
-
     }
 
     &__title {

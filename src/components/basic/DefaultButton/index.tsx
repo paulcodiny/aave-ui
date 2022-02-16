@@ -69,6 +69,7 @@ export default function DefaultButton({
 
         .DefaultButton {
           color: ${currentTheme.white.hex};
+          font-weight: bold;
 
           &__primary {
             background: ${currentTheme.primary.hex};

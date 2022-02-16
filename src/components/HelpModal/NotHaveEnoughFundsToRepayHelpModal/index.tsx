@@ -35,6 +35,7 @@ export default function NotHaveEnoughFundsToRepayHelpModal({
         color={color}
         lightWeight={lightWeight}
         onWhiteBackground={onWhiteBackground}
+        captionColor="dark"
       />
 
       <style jsx={true} global={true}>

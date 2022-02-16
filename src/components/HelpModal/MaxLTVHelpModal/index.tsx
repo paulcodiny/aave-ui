@@ -25,6 +25,7 @@ export default function MaxLTVHelpModal({
       color={color}
       lightWeight={lightWeight}
       onWhiteBackground={onWhiteBackground}
+      captionColor="dark"
     />
   );
 }

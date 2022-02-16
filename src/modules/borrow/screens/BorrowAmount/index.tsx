@@ -96,7 +96,7 @@ function BorrowAmount({
           {borrowStep === BorrowStep.AmountForm && (
             <BasicForm
               title={intl.formatMessage(messages.title)}
-              description={intl.formatMessage(messages.description)}
+              description={intl.formatMessage(messages.description, { br: <br /> })}
               maxAmount={formattedMaxAmountToBorrow}
               currencySymbol={currencySymbol}
               onSubmit={handleSetAmountSubmit}

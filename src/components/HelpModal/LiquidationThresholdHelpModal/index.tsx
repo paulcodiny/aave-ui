@@ -27,6 +27,7 @@ export default function LiquidationThresholdHelpModal({
       lightWeight={lightWeight}
       color={color}
       onWhiteBackground={onWhiteBackground}
+      captionColor="dark"
     />
   );
 }

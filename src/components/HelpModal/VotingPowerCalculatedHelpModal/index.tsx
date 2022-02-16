@@ -33,6 +33,7 @@ export default function VotingPowerCalculatedHelpModal({
         color={color}
         lightWeight={lightWeight}
         onWhiteBackground={onWhiteBackground}
+        captionColor="dark"
       />
 
       <style jsx={true} global={true}>

@@ -45,7 +45,7 @@ export default function StakingMain() {
         <AboutStakingModal />
         <p className="StakingMain__description">
           {intl.formatMessage(messages.description, {
-            aave: <strong>AAVE</strong>,
+            radiant: <strong>RADIANT</strong>,
             bpt: <strong>BPT</strong>,
           })}
         </p>

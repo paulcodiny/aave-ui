@@ -158,7 +158,8 @@ export default function TxTopInfo({
           color: ${currentTheme.textDarkBlue.hex};
           &__left-inner {
             .TxTopInfo__title {
-              color: ${currentTheme.darkBlue.hex};
+              color: ${currentTheme.purple.hex};
+              font-weight: bold;
             }
           }
 

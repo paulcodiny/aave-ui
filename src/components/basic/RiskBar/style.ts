@@ -46,22 +46,23 @@ const staticStyles = css.global`
     }
 
     &__range-inner {
+      margin-top: 7px;
       width: 100%;
       border-radius: 10px;
-      background-image: linear-gradient(to right, #65c970, #ffac4d 53%, #ff46a5);
+      background-image: linear-gradient(to left, #ff59a4, #ffc64e 55%, #3cecd1 100%);
     }
 
     .RiskBar__track {
-      height: 12px;
-      width: calc(100% - 12px);
+      height: 14px;
+      width: calc(100% - 14px);
       margin: 0 auto;
       border-radius: 10px;
     }
 
     .RiskBar__thumb {
-      width: 10px;
-      height: 10px;
-      border-radius: 10px;
+      width: 28px;
+      height: 28px;
+      border-radius: 28px;
       box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.3);
       outline: none !important;
     }

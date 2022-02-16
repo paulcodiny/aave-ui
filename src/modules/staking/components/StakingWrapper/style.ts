@@ -39,7 +39,7 @@ const staticStyles = css.global`
       align-items: center;
       justify-content: center;
       flex-direction: column;
-      padding: 30px 35px;
+      padding: 90px 35px 0;
       position: relative;
       @include respond-to(sm) {
         padding: 20px 0;

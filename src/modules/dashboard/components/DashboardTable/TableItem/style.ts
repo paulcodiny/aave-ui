@@ -13,7 +13,7 @@ const staticStyles = css.global`
     position: relative;
     box-shadow: $boxShadow;
     border-radius: $borderRadius;
-    margin-bottom: 6px;
+    margin-bottom: 15px;
     min-height: 70px;
     @include respond-to(xl) {
       min-height: 60px;

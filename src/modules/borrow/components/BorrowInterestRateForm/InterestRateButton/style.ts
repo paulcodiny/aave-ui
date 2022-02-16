@@ -13,28 +13,13 @@ const staticStyles = css.global`
     position: relative;
     margin: 0 25px;
     @include respond-to(xl) {
-      margin: 0 20px;
     }
     @include respond-to(lg) {
-      margin: 0 15px;
     }
     @include respond-to(md) {
-      margin: 0 20px;
     }
     @include respond-to(sm) {
       margin: 0 15px;
-    }
-    &:after {
-      content: '';
-      transition: $transition;
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
-      bottom: 0;
-      border-radius: $borderRadius;
-      background: rgba(#000, 0.1);
-      filter: blur(5px);
     }
     &:disabled {
       cursor: not-allowed;
@@ -42,32 +27,23 @@ const staticStyles = css.global`
       .InterestRateButton__description-inner {
         opacity: 0.2;
       }
-      &:after {
-        display: none;
-      }
     }
 
     &__inner {
       position: relative;
       z-index: 2;
       border-radius: $borderRadius;
-      width: 180px;
-      height: 160px;
+      width: 160px;
+      height: 170px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
       @include respond-to(xl) {
-        width: 140px;
-        height: 130px;
       }
       @include respond-to(lg) {
-        width: 120px;
-        height: 115px;
       }
       @include respond-to(md) {
-        width: 140px;
-        height: 130px;
       }
     }
     &__image-inner {
@@ -115,9 +91,6 @@ const staticStyles = css.global`
       .InterestRateButton__image-inner,
       .InterestRateButton__description-inner {
         opacity: 1;
-      }
-      &:after {
-        display: block;
       }
     }
   }

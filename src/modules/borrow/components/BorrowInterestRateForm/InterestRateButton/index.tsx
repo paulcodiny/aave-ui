@@ -71,26 +71,9 @@ export default function InterestRateButton({
         @import 'src/_mixins/screen-size';
 
         .InterestRateButton {
-          &:hover {
-            &:after {
-              background: ${primaryButtonHoverColor};
-            }
-          }
-          &:disabled {
-            .InterestRateButton__inner {
-              background: ${currentTheme.mainBg.hex};
-              @include respond-to(sm) {
-                background: ${currentTheme.disabledGray.hex} !important;
-                border-color: ${currentTheme.disabledGray.hex} !important;
-              }
-              .InterestRateButton__description {
-                color: ${currentTheme.textDarkBlue.hex};
-              }
-            }
-          }
-          &__inner {
-            background: ${currentTheme.white.hex};
-          }
+          border: 1px solid #e2e2e2;
+          border-radius: 5px;
+
           &__description {
             color: ${currentTheme.darkBlue.hex};
           }
@@ -105,20 +88,19 @@ export default function InterestRateButton({
         }
 
         .InterestRateButtonActive {
-          &:after {
-            background: ${gradientOnActive} !important;
-          }
+          background: #7159ff;
+          border-color: #7159ff;
           &:disabled {
-            .InterestRateButton__inner {
-              background: ${currentTheme.white.hex} !important;
-            }
             .InterestRateButton__percent {
               .ValuePercent__value {
-                color: ${currentTheme.darkBlue.hex} !important;
+                color: ${currentTheme.white.hex} !important;
+                span {
+                  color: ${currentTheme.white.hex} !important;
+                }
               }
             }
             .InterestRateButton__description {
-              color: ${currentTheme.darkBlue.hex} !important;
+              color: ${currentTheme.white.hex} !important;
             }
           }
         }
@@ -126,7 +108,7 @@ export default function InterestRateButton({
           &:disabled {
             .InterestRateButton__percent {
               .ValuePercent__value {
-                color: ${currentTheme.darkBlue.hex} !important;
+                color: ${currentTheme.white.hex} !important;
               }
             }
           }

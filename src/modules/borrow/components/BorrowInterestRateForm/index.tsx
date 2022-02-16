@@ -72,6 +72,7 @@ export default function BorrowInterestRateForm({
   return (
     <form onSubmit={handleSubmit} className="BorrowInterestRateForm">
       <Caption
+        color="dark"
         title={intl.formatMessage(messages.title)}
         description={intl.formatMessage(messages.description)}
       />
@@ -99,7 +100,7 @@ export default function BorrowInterestRateForm({
       <div className="BorrowInterestRateForm__button-inner">
         <DefaultButton
           title={intl.formatMessage(messages.continue)}
-          color="primary"
+          color="purple"
           type="submit"
           disabled={!rateMode}
           mobileBig={true}

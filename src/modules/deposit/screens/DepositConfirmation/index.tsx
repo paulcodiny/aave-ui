@@ -128,7 +128,7 @@ function DepositConfirmation({
           <strong
             style={{
               color: usageAsCollateralEnabledOnDeposit
-                ? currentTheme.green.hex
+                ? currentTheme.darkGreen.hex
                 : currentTheme.red.hex,
             }}
             className="Collateral__text"
