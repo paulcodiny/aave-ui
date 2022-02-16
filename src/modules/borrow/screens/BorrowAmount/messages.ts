@@ -3,7 +3,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   title: 'How much would you like to borrow?',
   description:
-    'Please enter an amount you would like to borrow. The maximum amount you can borrow is shown below.',
+    'Please enter an amount you would like to borrow.{br}The maximum amount you can borrow is shown below.',
   amountTitle: 'Available to borrow',
 
   noDataTitle: 'No deposits yet',

@@ -41,6 +41,17 @@ const staticStyles = css.global`
       padding: 30px 25px;
       border-radius: $borderRadius;
       border: 1px solid #e2e2e2;
+
+      .Row__title {
+        font-size: $small;
+      }
+
+      .Value__value,
+      .Value__symbol,
+      .ValuePercent__value,
+      .ValuePercent__value span {
+        font-weight: 600 !important;
+      }
     }
 
     &__actions-inner {

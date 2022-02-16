@@ -72,10 +72,8 @@ const staticStyles = css`
     &__withMargin {
       margin-bottom: 15px;
       @include respond-to(lg) {
-        margin-bottom: 10px;
       }
       @include respond-to(md) {
-        margin-bottom: 15px;
       }
     }
   }

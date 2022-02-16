@@ -136,6 +136,7 @@ export default function TextWithModal({
 
           {!withoutContentButton && (
             <DefaultButton
+              color="purple"
               title={intl.formatMessage(messages.buttonTitle)}
               size="medium"
               onClick={(e: React.MouseEvent<HTMLButtonElement>) => {

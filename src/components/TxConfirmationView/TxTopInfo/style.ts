@@ -30,7 +30,7 @@ const staticStyles = css.global`
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
-        margin-bottom: 2px;
+        margin-bottom: 5px;
         color: #7159ff;
         @include respond-to(xl) {
         }
@@ -44,7 +44,7 @@ const staticStyles = css.global`
         }
       }
       span {
-        font-size: $medium;
+        font-size: $small;
         word-break: break-word;
         @include respond-to(xl) {
         }

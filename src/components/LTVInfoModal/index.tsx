@@ -128,6 +128,7 @@ export default function LTVInfoModal({ visible, setVisible }: LTVInfoModalProps)
           title={intl.formatMessage(messages.liquidationOverview)}
           description={intl.formatMessage(messages.liquidationOverviewDescription)}
           onWhiteBackground={true}
+          color="dark"
         />
 
         <div className="LTVInfoModal__content">

@@ -49,6 +49,7 @@ export default function AccessMaticMarketHelpModal({
         lightWeight={lightWeight}
         onWhiteBackground={false}
         clickOnText={true}
+        captionColor="dark"
       />
 
       <style jsx={true} global={true}>

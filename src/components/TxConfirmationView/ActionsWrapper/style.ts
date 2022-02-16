@@ -14,12 +14,13 @@ const staticStyles = css.global`
     transition: $transition;
 
     &__buttons {
-      width: 100%;
+      width: calc(100% + 1px);
       display: flex;
     }
     &__button {
       display: flex;
       align-items: center;
+      border-right: 1px solid #ffffff;
       justify-content: center;
       text-align: center;
       min-height: 20px;
@@ -30,7 +31,13 @@ const staticStyles = css.global`
       cursor: default;
       padding: 6px 0;
       background: #e2e2e2;
+
+      &:first-of-type {
+        border-top-left-radius: 4px;
+      }
+
       &:last-of-type {
+        border-top-right-radius: 4px;
         border-right: none !important;
       }
       span,

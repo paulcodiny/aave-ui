@@ -15,6 +15,7 @@ const staticStyles = css.global`
     .AboutStakingModal__title {
       .TextWithModal__text {
         font-weight: 600;
+        font-size: $large;
       }
     }
 

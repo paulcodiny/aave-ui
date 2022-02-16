@@ -25,6 +25,7 @@ export default function CollateralHelpModal({
       caption={intl.formatMessage(messages.caption)}
       description={intl.formatMessage(messages.description)}
       onWhiteBackground={onWhiteBackground}
+      captionColor="dark"
     />
   );
 }

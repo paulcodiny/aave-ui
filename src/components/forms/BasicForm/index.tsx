@@ -130,6 +130,7 @@ export default function BasicForm({
           <DefaultButton
             title={submitButtonTitle || intl.formatMessage(messages.continue)}
             mobileBig={true}
+            size="medium"
             type="submit"
             color="purple"
           />

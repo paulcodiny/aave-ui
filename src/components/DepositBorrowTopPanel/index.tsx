@@ -22,7 +22,7 @@ import ApproximateBalanceHelpModal from '../HelpModal/ApproximateBalanceHelpModa
 import messages from './messages';
 import staticStyles from './style';
 import { getAssetInfo, getAssetColor } from '../../helpers/config/assets-config';
-import ContentWrapperWithTopLine from "../wrappers/ContentWrapperWithTopLine";
+import ContentWrapperWithTopLine from '../wrappers/ContentWrapperWithTopLine';
 
 export default function DepositBorrowTopPanel() {
   const intl = useIntl();
@@ -122,9 +122,13 @@ export default function DepositBorrowTopPanel() {
           )}
         >
           <div
-            className={classNames('DepositBorrowTopPanel__topPanel-inner', {
-              DepositBorrowTopPanel__topPanelInnerFull: !depositCompositionData.length,
-            })}
+            className={classNames(
+              'DepositBorrowTopPanel__topPanel-inner',
+              'DepositBorrowTopPanel__deposit-top-panel',
+              {
+                DepositBorrowTopPanel__topPanelInnerFull: !depositCompositionData.length,
+              }
+            )}
           >
             <div className="DepositBorrowTopPanel__topPanel-values">
               <Row
@@ -145,7 +149,7 @@ export default function DepositBorrowTopPanel() {
                     withSmallDecimals={true}
                   />
                 ) : (
-                  <NoData color="dark" onWhiteBackground={true}  />
+                  <NoData color="dark" onWhiteBackground={true} />
                 )}
               </Row>
             </div>
@@ -189,7 +193,7 @@ export default function DepositBorrowTopPanel() {
                         maximumValueDecimals={2}
                       />
                     ) : (
-                      <NoData color="dark" onWhiteBackground={true}  />
+                      <NoData color="dark" onWhiteBackground={true} />
                     )}
                   </Row>
 
@@ -208,7 +212,7 @@ export default function DepositBorrowTopPanel() {
                           maximumValueDecimals={2}
                         />
                       ) : (
-                        <NoData color="dark" onWhiteBackground={true}  />
+                        <NoData color="dark" onWhiteBackground={true} />
                       )}
                     </Row>
                   )}
@@ -243,7 +247,7 @@ export default function DepositBorrowTopPanel() {
                           maximumValueDecimals={2}
                         />
                       ) : (
-                        <NoData color="dark" onWhiteBackground={true}  />
+                        <NoData color="dark" onWhiteBackground={true} />
                       )}
                     </Row>
                   )}
@@ -257,7 +261,7 @@ export default function DepositBorrowTopPanel() {
                       {user && collateralUsagePercent !== '0' ? (
                         <ValuePercent value={collateralUsagePercent} />
                       ) : (
-                        <NoData color="dark" onWhiteBackground={true}  />
+                        <NoData color="dark" onWhiteBackground={true} />
                       )}
                     </Row>
                   )}
@@ -282,19 +286,20 @@ export default function DepositBorrowTopPanel() {
                       {user && loanToValue !== '0' ? (
                         <ValuePercent value={loanToValue} />
                       ) : (
-                        <NoData color="dark" onWhiteBackground={true}  />
+                        <NoData color="dark" onWhiteBackground={true} />
                       )}
                     </Row>
                   )}
 
                   {loanToValue !== '0' && (
                     <DefaultButton
+                      color="dark"
                       title={intl.formatMessage(messages.details)}
                       transparent={true}
                       className={classNames('DepositBorrowTopPanel__button', {
                         DepositBorrowTopPanel__buttonCollapse: isCollapse,
                       })}
-                      size="small"
+                      size="normal"
                       onClick={() => setLTVModalVisible(true)}
                     />
                   )}
@@ -330,16 +335,13 @@ export default function DepositBorrowTopPanel() {
         .DepositBorrowTopPanel {
           &__topPanel-caption {
             p {
-
             }
           }
 
           &__topPanel-inner {
-
           }
 
           &__topPanel-captionWrapper {
-
           }
         }
       `}</style>

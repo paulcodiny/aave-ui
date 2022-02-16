@@ -28,7 +28,7 @@ export default function AboutStakingModal() {
     <div className="AboutStakingModal">
       <TextWithModal
         text={intl.formatMessage(messages.caption)}
-        color="primary"
+        color="dark"
         className="AboutStakingModal__title"
         withCloseButton={true}
         withoutContentButton={true}

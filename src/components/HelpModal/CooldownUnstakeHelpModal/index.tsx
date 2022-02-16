@@ -34,6 +34,7 @@ export default function CooldownUnstakeHelpModal({
         </>
       }
       lightWeight={true}
+      captionColor="dark"
     />
   );
 }

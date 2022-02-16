@@ -55,7 +55,7 @@ export default function HealthFactor({
   const formattedHealthFactor = Number(valueToBigNumber(newValue).toFixed(2, BigNumber.ROUND_DOWN));
   let healthFactorColor = '';
   if (formattedHealthFactor >= 1.5) {
-    healthFactorColor = currentTheme.green.hex;
+    healthFactorColor = currentTheme.darkGreen.hex;
   } else if (formattedHealthFactor < 1.1 && formattedHealthFactor > 0) {
     healthFactorColor = currentTheme.red.hex;
   } else {

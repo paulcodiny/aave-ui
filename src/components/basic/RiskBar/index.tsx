@@ -97,7 +97,7 @@ export default function RiskBar({ value, onChange, maxAmount, currencySymbol }: 
       <style jsx={true} global={true}>{`
         .RiskBar {
           &__title {
-            color: ${currentTheme.green.hex};
+            color: ${currentTheme.darkGreen.hex};
             &:last-of-type {
               color: ${currentTheme.red.hex};
             }

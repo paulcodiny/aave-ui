@@ -45,7 +45,8 @@ export default function TableButtonCol({
       </style>
       <style jsx={true} global={true}>{`
         .TableButtonCol__buttonText {
-          color: ${currentTheme.textDarkBlue.hex};
+          color: ${currentTheme.purple.hex};
+          font-weight: 600;
         }
       `}</style>
     </TableCol>

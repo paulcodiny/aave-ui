@@ -46,13 +46,10 @@ const staticStyles = css.global`
         border-top-right-radius: $borderRadius;
         border-top-left-radius: $borderRadius;
         @include respond-to(xl) {
-
         }
         @include respond-to(lg) {
-
         }
         @include respond-to(md) {
-
         }
         i {
           font-style: normal;
@@ -96,13 +93,15 @@ const staticStyles = css.global`
       border-bottom-right-radius: $borderRadius;
       border-bottom-left-radius: $borderRadius;
       transition: $transition;
-      padding: 25px 20px;
+      padding: 35px 30px;
       @include respond-to(lg) {
-
       }
       @include respond-to(md) {
-
       }
+    }
+
+    &__deposit-top-panel {
+      height: 100%;
     }
 
     &__topPanelInnerFull {
@@ -113,6 +112,7 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       width: 100%;
+      min-width: 285px;
       .Row {
         margin-right: 60px;
         @include respond-to(xl) {
@@ -127,7 +127,6 @@ const staticStyles = css.global`
       display: flex;
       margin-bottom: 15px;
       @include respond-to(xl) {
-        margin-bottom: 10px;
       }
       &:last-of-type {
         align-items: center;
@@ -172,12 +171,9 @@ const staticStyles = css.global`
       align-items: center;
       justify-content: space-between;
       @include respond-to(md) {
-
       }
       .CircleCompositionBar {
-        margin-left: 35px;
         @include respond-to(xl) {
-          margin-left: 25px;
         }
         @include respond-to(md) {
           margin-left: 0;
@@ -190,6 +186,21 @@ const staticStyles = css.global`
     }
 
     .Row.Row__column {
+      .Row__title {
+        font-size: $small;
+        white-space: nowrap;
+      }
+
+      .Value__value,
+      .Value__symbol,
+      .ValuePercent__value,
+      .ValuePercent__value span,
+      .ValueWithSmallDecimals,
+      .TokenIcon__dollar {
+        font-size: $regular;
+        font-weight: 600 !important;
+      }
+
       .Row__title-inner {
         text-align: left;
       }

@@ -27,6 +27,7 @@ export default function LiquidationBonusHelpModal({
       color={color}
       lightWeight={lightWeight}
       onWhiteBackground={onWhiteBackground}
+      captionColor="dark"
     />
   );
 }

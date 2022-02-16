@@ -14,13 +14,11 @@ const staticStyles = css.global`
       background: transparent;
       font-family: 'roboto-font', sans-serif;
       transition: $transition;
-      font-size: $regular;
+      font-size: $large;
       width: 100%;
       @include respond-to(lg) {
-        font-size: $small;
       }
       @include respond-to(md) {
-        font-size: $regular;
       }
     }
   }
