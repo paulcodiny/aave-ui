@@ -150,6 +150,10 @@ const staticStyles = css.global`
       }
     }
 
+    .TextWithModal__text {
+      font-size: $medium;
+    }
+
     &__row {
       display: flex;
       justify-content: space-between;

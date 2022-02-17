@@ -53,8 +53,6 @@ export default function CollateralCompositionBar({
     <Row
       className={classNames('CollateralCompositionBar', className)}
       title={intl.formatMessage(messages.collateralComposition)}
-      color="white"
-      weight="light"
       isColumn={isColumn}
     >
       <CompositionBar dataset={collateralComposition} isCollateral={true} />

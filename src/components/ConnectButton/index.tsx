@@ -38,7 +38,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
         .ConnectButton {
           border-radius: 4px;
           border: solid 1px #7159ff;
-          background: ${currentTheme.darkBlue.hex};
+          background: ${currentTheme.purple.hex};
 
           &:hover {
             .ConnectButton__inner {
@@ -60,9 +60,7 @@ export default function ConnectButton({ className, size = 'normal' }: ConnectBut
           }
 
           .ConnectButton__inner {
-            background: ${isCurrentThemeDark
-              ? currentTheme.whiteItem.hex
-              : currentTheme.textDarkBlue.hex};
+            background: ${currentTheme.purple.hex};
             color: ${currentTheme.white.hex};
           }
         }

@@ -196,7 +196,7 @@ export default function UserInformation({
                     <DefaultButton
                       className="UserInformation__button"
                       title={intl.formatMessage(defaultMessages.borrow)}
-                      color={elementsColor}
+                      color="purple"
                       disabled={
                         !availableBorrows || !poolReserve.borrowingEnabled || poolReserve.isFrozen
                       }

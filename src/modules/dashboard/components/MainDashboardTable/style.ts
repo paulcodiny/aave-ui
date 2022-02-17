@@ -20,7 +20,7 @@ const staticStyles = css.global`
 
     &__left-inner,
     &__right-inner {
-      width: calc(50% - 10px);
+      width: calc(50% - 15px); /* 30px between tables */
       display: flex;
       align-self: stretch;
       flex-direction: column;
@@ -42,6 +42,14 @@ const staticStyles = css.global`
       @include respond-to(md) {
         margin-bottom: 30px;
       }
+
+      .TableHeader__item:nth-of-type(2) {
+        margin-left: 40px;
+
+        p {
+          white-space: nowrap;
+        }
+      }
     }
 
     &__right-inner {
@@ -59,6 +67,11 @@ const staticStyles = css.global`
           display: flex;
         }
       }
+    }
+
+    .TableHeader__title,
+    .TableHeader .TextWithModal__text {
+      font-size: $small;
     }
 
     &__noBorrows {

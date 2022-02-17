@@ -6,6 +6,12 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .WithdrawScreenWrapper {
+    &__content {
+      background: #fff;
+      margin: 30px 0 10px;
+      padding: 90px 0 130px;
+    }
+
     .Row {
       min-width: 150px;
       &:first-of-type {

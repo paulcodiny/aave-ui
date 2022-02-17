@@ -21,11 +21,6 @@ export default function RepayWithdrawWrapper({
 
   return (
     <div className={classNames('RepayWithdrawWrapper', className)}>
-      <div className="RepayWithdrawWrapper__caption">
-        <p>{title}</p>
-      </div>
-      {!sm && <GradientLine size={2} />}
-
       <div className="RepayWithdrawWrapper__content">{children}</div>
 
       <style jsx={true} global={true}>
@@ -33,8 +28,6 @@ export default function RepayWithdrawWrapper({
       </style>
       <style jsx={true}>{`
         .RepayWithdrawWrapper {
-          color: ${currentTheme.white.hex};
-          background: ${currentTheme.darkBlue.hex};
         }
       `}</style>
     </div>

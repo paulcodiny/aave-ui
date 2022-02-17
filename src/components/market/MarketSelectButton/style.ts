@@ -78,20 +78,19 @@ const staticStyles = css.global`
     &__inner {
       position: relative;
       z-index: 2;
-      width: 150px;
-      height: 45px;
+      width: 125px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: $borderRadius;
+      padding: 5px;
+      border-radius: 5px;
       border-width: 1px;
       border-style: solid;
       border-color: transparent;
       transition: $transition;
       box-sizing: unset;
       @include respond-to(xl) {
-        width: 125px;
-        height: 50px;
       }
       @include respond-to(sm) {
         width: 150px;

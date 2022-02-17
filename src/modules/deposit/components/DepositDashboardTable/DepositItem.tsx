@@ -14,6 +14,7 @@ import TableButtonCol from '../../../dashboard/components/DashboardTable/TableBu
 
 import defaultMessages from '../../../../defaultMessages';
 import messages from './messages';
+import staticStyles from './style';
 
 import { DepositTableItem } from './types';
 
@@ -42,59 +43,65 @@ export default function DepositItem({
   const isSwapButton = isFeatureEnabled.liquiditySwap(currentMarketData);
 
   return (
-    <TableItem tokenSymbol={symbol} color={uiColor} {...rest}>
-      <TableValueCol
-        value={Number(underlyingBalance)}
-        subValue={Number(underlyingBalanceUSD)}
-        tooltipId={`deposit-${symbol}__${index}`}
-      />
-      <TableAprCol
-        value={Number(liquidityRate)}
-        thirtyDaysAverage={avg30DaysLiquidityRate}
-        liquidityMiningValue={aincentivesAPR}
-        symbol={symbol}
-        type="deposit"
-      />
-
-      <TableCol maxWidth={125}>
-        <CustomSwitch
-          value={usageAsCollateralEnabledOnUser && usageAsCollateralEnabledOnThePool}
-          offLabel={intl.formatMessage(messages.offLabel)}
-          onLabel={intl.formatMessage(messages.onLabel)}
-          onColor={currentTheme.darkGreen.hex}
-          offColor={currentTheme.red.hex}
-          onSwitch={onToggleSwitch}
-          disabled={!usageAsCollateralEnabledOnThePool}
-          swiperHeight={swiperHeight}
-          swiperWidth={swiperWidth}
+    <>
+      <TableItem tokenSymbol={symbol} color={uiColor} {...rest}>
+        <TableValueCol
+          value={Number(underlyingBalance)}
+          subValue={Number(underlyingBalanceUSD)}
+          tooltipId={`deposit-${symbol}__${index}`}
         />
-      </TableCol>
-
-      <TableButtonsWrapper>
-        {!isSwapButton && (
-          <TableButtonCol
-            disabled={!isActive || isFrozen}
-            title={intl.formatMessage(defaultMessages.deposit)}
-            linkTo={`/deposit/${underlyingAsset}-${id}`}
-          />
-        )}
-
-        <TableButtonCol
-          disabled={!isActive}
-          title={intl.formatMessage(defaultMessages.withdraw)}
-          linkTo={`/withdraw/${underlyingAsset}-${id}`}
-          withoutBorder={!isSwapButton}
+        <TableAprCol
+          value={Number(liquidityRate)}
+          thirtyDaysAverage={avg30DaysLiquidityRate}
+          liquidityMiningValue={aincentivesAPR}
+          symbol={symbol}
+          type="deposit"
         />
 
-        {isSwapButton && (
-          <TableButtonCol
-            disabled={!isActive || isFrozen}
-            title={intl.formatMessage(defaultMessages.swap)}
-            linkTo={`/asset-swap?asset=${underlyingAsset}`}
-            withoutBorder={true}
+        <TableCol maxWidth={125}>
+          <CustomSwitch
+            value={usageAsCollateralEnabledOnUser && usageAsCollateralEnabledOnThePool}
+            offLabel={intl.formatMessage(messages.offLabel)}
+            onLabel={intl.formatMessage(messages.onLabel)}
+            onColor={currentTheme.darkGreen.hex}
+            offColor={currentTheme.red.hex}
+            onSwitch={onToggleSwitch}
+            disabled={!usageAsCollateralEnabledOnThePool}
+            swiperHeight={swiperHeight}
+            swiperWidth={swiperWidth}
           />
-        )}
-      </TableButtonsWrapper>
-    </TableItem>
+        </TableCol>
+
+        <TableButtonsWrapper>
+          {!isSwapButton && (
+            <TableButtonCol
+              disabled={!isActive || isFrozen}
+              title={intl.formatMessage(defaultMessages.deposit)}
+              linkTo={`/deposit/${underlyingAsset}-${id}`}
+            />
+          )}
+
+          <TableButtonCol
+            disabled={!isActive}
+            title={intl.formatMessage(defaultMessages.withdraw)}
+            linkTo={`/withdraw/${underlyingAsset}-${id}`}
+            withoutBorder={!isSwapButton}
+          />
+
+          {isSwapButton && (
+            <TableButtonCol
+              disabled={!isActive || isFrozen}
+              title={intl.formatMessage(defaultMessages.swap)}
+              linkTo={`/asset-swap?asset=${underlyingAsset}`}
+              withoutBorder={true}
+            />
+          )}
+        </TableButtonsWrapper>
+      </TableItem>
+
+      <style jsx={true} global={true}>
+        {staticStyles}
+      </style>
+    </>
   );
 }

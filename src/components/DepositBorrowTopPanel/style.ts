@@ -10,12 +10,28 @@ const staticStyles = css.global`
       flex-direction: row;
       gap: 30px;
       display: flex;
+
+      @include respond-to(md) {
+        flex-direction: column;
+      }
     }
 
     &__left-info {
       display: flex;
       flex-direction: column;
-      flex: 1;
+      width: 50%;
+    }
+
+    &__right-info {
+      width: 50%;
+      min-width: 550px;
+    }
+
+    &__left-info,
+    &__right-info {
+      @include respond-to(md) {
+        width: 100%;
+      }
     }
 
     &__topPanel {
@@ -112,7 +128,7 @@ const staticStyles = css.global`
       display: flex;
       flex-direction: column;
       width: 100%;
-      min-width: 285px;
+      min-width: 225px;
       .Row {
         margin-right: 60px;
         @include respond-to(xl) {

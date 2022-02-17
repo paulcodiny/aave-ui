@@ -166,7 +166,10 @@ export default function DepositBorrowTopPanel() {
           </div>
         </ContentWrapperWithTopLine>
 
-        <ContentWrapperWithTopLine title={intl.formatMessage(messages.borrowInformation)}>
+        <ContentWrapperWithTopLine
+          title={intl.formatMessage(messages.borrowInformation)}
+          className="DepositBorrowTopPanel__right-info"
+        >
           {!!depositCompositionData.length && (
             <div className="DepositBorrowTopPanel__topPanel-inner">
               <div

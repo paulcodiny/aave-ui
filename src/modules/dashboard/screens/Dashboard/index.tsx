@@ -222,7 +222,7 @@ export default function Dashboard() {
       {/*  <IncentiveWrapper />*/}
       {/*</div>*/}
 
-      <DepositBorrowTopPanel />
+      {user && <DepositBorrowTopPanel />}
 
       {user && !!depositedPositions.length && !isBorrow && (
         <MobileTopPanelWrapper
@@ -391,7 +391,11 @@ export default function Dashboard() {
           )}
         </>
       ) : (
-        <ContentWrapper withBackButton={true} withFullHeight={true}>
+        <ContentWrapper
+          className="Dashboard__no-data-wrapper"
+          withBackButton={true}
+          withFullHeight={true}
+        >
           <NoDataPanel
             title={intl.formatMessage(messages.connectWallet)}
             description={intl.formatMessage(messages.connectWalletDescription)}

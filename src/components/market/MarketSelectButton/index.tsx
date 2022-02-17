@@ -81,7 +81,7 @@ export default function MarketSelectButton({
         .MarketSelectButton {
           &:hover {
             .MarketSelectButton__inner {
-              box-shadow: 0 1px 8px 0 ${currentTheme.white.hex};
+              border-color: ${currentTheme.purple.hex};
             }
           }
           &.MarketSelectButton__active,

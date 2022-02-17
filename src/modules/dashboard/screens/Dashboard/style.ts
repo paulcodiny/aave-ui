@@ -125,6 +125,10 @@ const staticStyles = css.global`
       font-size: $small;
       margin-left: 10px;
     }
+
+    &__no-data-wrapper {
+      background: #fff;
+    }
   }
 
   @media (max-height: 750px) {

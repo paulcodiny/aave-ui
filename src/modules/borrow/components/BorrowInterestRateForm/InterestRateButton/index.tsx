@@ -1,6 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
-import { gradient, rgba, useThemeContext } from '@aave/aave-ui-kit';
+import { rgba, useThemeContext } from '@aave/aave-ui-kit';
 
 import ValuePercent from '../../../../../components/basic/ValuePercent';
 
@@ -28,15 +28,7 @@ export default function InterestRateButton({
 }: InterestRateButtonProps) {
   const { currentTheme } = useThemeContext();
 
-  const primaryButtonHoverColor = rgba(`${currentTheme.primary.rgb}, 0.5`);
   const secondaryButtonHoverColor = rgba(`${currentTheme.secondary.rgb}, 0.5`);
-  const gradientOnActive = gradient(
-    217,
-    `${currentTheme.primary.rgb}, 1`,
-    25,
-    `${currentTheme.secondary.rgb}, 1`,
-    100
-  );
 
   return (
     <button

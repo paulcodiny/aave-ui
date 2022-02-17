@@ -51,6 +51,8 @@ function ModulesWithMenu() {
   const { isUserHasDeposits, userId } = useStaticPoolDataContext();
   const { currentMarketData } = useProtocolDataContext();
 
+  // todo:pavlik depending on the URL detect the background (perhaps also with a help of router)
+
   return (
     <ScreensWrapper>
       <Switch>

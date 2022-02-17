@@ -47,7 +47,7 @@ export default function ScreenWrapper({
     pageTitle && setTitle(pageTitle);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLangSlug, location.pathname]);
-
+  console.log('here', isTitleOnDesktop, pageTitle);
   return (
     <section
       className={classNames('ScreenWrapper', className, {
