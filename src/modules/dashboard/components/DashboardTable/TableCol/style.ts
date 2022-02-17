@@ -11,9 +11,12 @@ const staticStyles = css`
     align-items: center;
     justify-content: flex-end;
     flex: 1;
-    min-width: 110px;
+    min-width: 70px;
     overflow: hidden;
     padding: 2px;
+    @include respond-to(lg) {
+      min-width: 110px;
+    }
     @include respond-to(md) {
       padding: 0;
     }

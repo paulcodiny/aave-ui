@@ -7,7 +7,13 @@ const staticStyles = css.global`
 
   .RepayWithdrawWrapper {
     border-radius: $borderRadius;
-    box-shadow: $boxShadow;
+    backdrop-filter: blur(10px);
+    border: solid 1px rgba(255, 255, 255, 0.35);
+    background-image: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0) -6%,
+      rgba(255, 255, 255, 0.25) 58%
+    );
     margin-bottom: 30px;
     margin-top: 50px;
     @include respond-to(xl) {

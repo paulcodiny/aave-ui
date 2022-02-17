@@ -1,6 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { gradient, useThemeContext } from '@aave/aave-ui-kit';
+import { useThemeContext } from '@aave/aave-ui-kit';
 
 import Link from '../../../../components/basic/Link';
 import AboutStakingModal from '../../components/AboutStakingModal';
@@ -31,14 +31,6 @@ export default function StakingMain() {
     },
   ];
 
-  const gradientOnHover = gradient(
-    217,
-    `${currentTheme.primary.rgb}, 1`,
-    25,
-    `${currentTheme.secondary.rgb}, 1`,
-    100
-  );
-
   return (
     <div className="StakingMain">
       <div className="StakingMain__caption-inner">
@@ -57,7 +49,10 @@ export default function StakingMain() {
             <div className="StakingMain__button-inner">
               <img src={button.icon} alt={button.title} />
               <p>
-                {intl.formatMessage(messages.stake, { asset: <strong> {button.title}</strong> })}
+                {intl.formatMessage(messages.stake, {
+                  asset: <strong>{button.title}</strong>,
+                  br: <br />,
+                })}
               </p>
             </div>
           </Link>
@@ -103,10 +98,6 @@ export default function StakingMain() {
               color: ${currentTheme.darkBlue.hex};
 
               .StakingMain__button-inner {
-                background: ${currentTheme.white.hex};
-              }
-              &:after {
-                background: ${gradientOnHover};
               }
             }
             .StakingMain__buttonDisabled {

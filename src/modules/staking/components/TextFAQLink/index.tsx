@@ -1,7 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
 
-import { rgba, useThemeContext } from '@aave/aave-ui-kit';
 import Link from '../../../../components/basic/Link';
 import TailArrow from '../../../../components/basic/TailArrow';
 
@@ -12,9 +11,6 @@ import { faqLink } from '../../index';
 
 export default function TextFAQLink() {
   const intl = useIntl();
-  const { currentTheme } = useThemeContext();
-
-  const background = rgba(`${currentTheme.textDarkBlue.rgb}, 0.03`);
 
   return (
     <div className="TextFAQLink">
@@ -32,13 +28,6 @@ export default function TextFAQLink() {
       <style jsx={true} global={true}>
         {staticStyles}
       </style>
-      <style jsx={true} global={true}>{`
-        .TextFAQLink {
-          .TextFAQLink__link {
-            background: ${background};
-          }
-        }
-      `}</style>
     </div>
   );
 }

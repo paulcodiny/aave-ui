@@ -23,7 +23,7 @@ export default function TableButtonCol({
 }: TableButtonColProps) {
   const { currentTheme, xl, lg, md } = useThemeContext();
 
-  const columnWidth = xl && !lg ? 80 : lg && !md ? 90 : md ? 80 : 100;
+  const columnWidth = 80;
 
   return (
     <TableCol maxWidth={columnWidth} minWidth={columnWidth}>

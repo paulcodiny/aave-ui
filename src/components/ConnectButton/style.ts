@@ -7,15 +7,6 @@ const staticStyles = css`
 
   .ConnectButton {
     position: relative;
-    &:hover {
-      &:before,
-      &:after {
-        top: 0;
-        bottom: 0;
-        left: 0;
-        right: 0;
-      }
-    }
     &:active {
       transform: scale(0.98);
     }

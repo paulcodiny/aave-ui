@@ -25,6 +25,7 @@ import staticStyles from './style';
 import linkIcon from '../../../../images/blueLinkIcon.svg';
 import { getAssetInfo } from '../../../../helpers/config/assets-config';
 import { useReserveRatesHistory } from '../../../../libs/pool-data-provider/hooks/use-reserve-rates-history';
+import { useHistory } from 'react-router-dom';
 
 function Charts({ poolReserve }: { poolReserve: ValidationWrapperComponentProps['poolReserve'] }) {
   const { data, loading } = useReserveRatesHistory(poolReserve.id);
@@ -55,6 +56,7 @@ function ReserveOverview({
   user,
 }: ValidationWrapperComponentProps) {
   const intl = useIntl();
+  const history = useHistory();
   const { currentTheme, sm } = useThemeContext();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const asset = getAssetInfo(currencySymbol);
@@ -80,7 +82,9 @@ function ReserveOverview({
       withMobileGrayBg={true}
     >
       <div className="ReserveOverview__navigation">
-        <button className="ReserveOverview__back-button">Back</button>
+        <button className="ReserveOverview__back-button" type="button" onClick={history.goBack}>
+          Back
+        </button>
       </div>
       <div className="ReserveOverview__content">
         <div className="ReserveOverview__mobileUserInformation-wrapper">

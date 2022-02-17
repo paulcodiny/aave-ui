@@ -6,19 +6,19 @@ const staticStyles = css.global`
   @import 'src/_mixins/screen-size';
 
   .TextFAQLink {
-    margin: 60px auto 80px;
+    margin: 50px auto 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 5;
     @include respond-to(xl) {
-      margin: 60px auto;
     }
 
     .TextFAQLink__link {
+      background-color: #e2e2e2;
       border-radius: $borderRadius;
-      padding: 5px 40px;
+      padding: 10px 40px;
       &:hover {
         opacity: 0.7;
       }
@@ -27,7 +27,6 @@ const staticStyles = css.global`
         font-size: $medium;
         margin-right: 20px;
         @include respond-to(xl) {
-          font-size: $small;
         }
       }
     }

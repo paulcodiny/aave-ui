@@ -15,11 +15,8 @@ const staticStyles = css.global`
       text-align: center;
       margin: 0 auto 40px;
       @include respond-to(xl) {
-        margin: 0 auto 30px;
-        max-width: 415px;
       }
       @include respond-to(lg) {
-        max-width: 300px;
       }
     }
 
@@ -45,67 +42,38 @@ const staticStyles = css.global`
       justify-content: center;
 
       .StakingMain__button {
+        border: 1px solid #e2e2e2;
         border-radius: $borderRadius;
-        box-shadow: $boxShadow;
-        margin: 0 25px;
         position: relative;
-        &:hover {
-          &:after {
-            opacity: 1;
-          }
+        margin-left: 30px;
+
+        &:first-of-type {
+          margin-left: 0;
         }
+
         &:active {
           img {
             transform: scale(0.9);
           }
         }
         @include respond-to(lg) {
-          margin: 0 20px;
         }
         @include respond-to(sm) {
-          margin: 0 15px;
         }
-        &:after {
-          content: '';
-          position: absolute;
-          left: -1px;
-          right: -1px;
-          top: -1px;
-          bottom: -1px;
-          filter: blur(3px);
-          opacity: 0;
-          transition: all 0.3s ease;
-        }
-
         img {
-          width: 60px;
-          height: 60px;
-          margin-bottom: 15px;
+          width: 50px;
+          height: 50px;
+          margin-bottom: 20px;
           transition: all 0.3s ease;
           @include respond-to(xl) {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
           }
         }
 
         p {
-          font-size: $large;
+          font-size: $small;
           text-align: center;
-          height: 50px;
-          display: inline-flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: center;
+
           @include respond-to(xl) {
-            font-size: $medium;
-            height: 40px;
-          }
-          strong {
-            margin-left: 5px;
-            @include respond-to(xl) {
-              margin-left: 3px;
-            }
           }
         }
       }
@@ -114,12 +82,10 @@ const staticStyles = css.global`
         opacity: 1 !important;
         cursor: not-allowed;
         box-shadow: none;
-        &:after {
-          display: none;
-        }
         img {
           transform: scale(1) !important;
         }
+
         p,
         img {
           opacity: 0.2;
@@ -136,8 +102,6 @@ const staticStyles = css.global`
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-          width: 120px;
-          height: 120px;
         }
       }
     }

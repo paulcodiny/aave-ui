@@ -39,6 +39,7 @@ function Withdraw({ currencySymbol, userReserve, user }: ValidationWrapperCompon
       pageTitle={intl.formatMessage(messages.pageTitle, {
         currencySymbol: asset.formattedName,
       })}
+      isTitleOnDesktop={true}
     >
       <WithdrawScreenWrapper
         title={intl.formatMessage(messages.pageTitle, {

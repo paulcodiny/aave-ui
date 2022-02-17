@@ -89,20 +89,26 @@ const staticStyles = css.global`
     }
 
     &__user-information {
-      width: 525px;
+      width: 370px;
       display: flex;
       flex-direction: column;
       @include respond-to(xl) {
-        width: 440px;
       }
       @include respond-to(lg) {
-        width: 340px;
       }
       @include respond-to(md) {
         width: 100%;
       }
       @include respond-to(sm) {
         display: none;
+      }
+
+      .ValuePercent__value,
+      .ValuePercent__value span,
+      .Value__token-icon,
+      .Value__value,
+      .Value__symbol {
+        font-size: $medium !important;
       }
     }
 

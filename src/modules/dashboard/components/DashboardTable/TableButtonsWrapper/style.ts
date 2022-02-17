@@ -13,13 +13,11 @@ const staticStyles = css`
     max-width: 200px;
     flex: 2;
     @include respond-to(xl) {
-      max-width: 160px;
     }
     @include respond-to(lg) {
-      max-width: 180px;
+      max-width: 160px;
     }
     @include respond-to(md) {
-      max-width: 160px;
     }
   }
 `;
