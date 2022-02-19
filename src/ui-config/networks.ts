@@ -7,7 +7,7 @@ import { ChainId } from '@aave/contract-helpers';
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
   [ChainId.kovan]: {
     name: 'Kovan',
-    publicJsonRPCUrl: ['https://eth-kovan.alchemyapi.io/v2/demo', 'https://kovan.poa.network'],
+    publicJsonRPCUrl: ['https://kovan.poa.network'],
     addresses: {
       walletBalanceProvider: '0x07DC923859b68e9399d787bf52c4Aa9eBe3490aF',
       uiPoolDataProvider: '0x6062ad399E47BF75AEa0b3c5BE7077c1E8664Dcb',
@@ -22,21 +22,18 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenSymbol: 'stkAAVE',
     rewardTokenAddress: '0xb597cd8d3217ea6477232f9217fa70837ff667af',
     rewardTokenDecimals: 18,
-    explorerLink: 'https://kovan.etherscan.io',
+    incentivePrecision: 18,
+    explorerLink: 'https://kovan.etherscan.com',
     rpcOnly: true,
     isTestnet: true,
   },
   [ChainId.mainnet]: {
-    name: 'Ethereum mainnet',
-    publicJsonRPCUrl: [
-      'https://cloudflare-eth.com',
-      'https://rpc.flashbots.net',
-      // 'https://eth-mainnet.alchemyapi.io/v2/demo',
-    ],
+    name: 'Ethereum Mainnet',
+    publicJsonRPCUrl: ['https://cloudflare-eth.com', 'https://eth-mainnet.alchemyapi.io/v2/demo'],
     publicJsonRPCWSUrl: 'wss://eth-mainnet.alchemyapi.io/v2/demo',
     addresses: {
       walletBalanceProvider: '0x8E8dAd5409E0263a51C0aB5055dA66Be28cFF922',
-      uiPoolDataProvider: '0x47e300dDd1d25447482E2F7e5a5a967EA2DA8634',
+      uiPoolDataProvider: '0x3feA857BD405656Ed25508D91cF3CD1d0eC2Bcda',
       uiIncentiveDataProvider: '0xd9F1e5F70B14b8Fd577Df84be7D75afB8a3A0186',
       chainlinkFeedRegistry: '0x47Fb2585D2C56Fe188D0E6ec628a38b74fCeeeDf',
     },
@@ -50,7 +47,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenSymbol: 'stkAAVE',
     rewardTokenAddress: '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
     rewardTokenDecimals: 18,
-    explorerLink: 'https://etherscan.io',
+    incentivePrecision: 18,
+    explorerLink: 'https://etherscan.com',
     rpcOnly: false,
   },
   [ChainId.polygon]: {
@@ -59,7 +57,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCWSUrl: 'wss://polygon-rpc.com',
     addresses: {
       walletBalanceProvider: '0x34aa032bC416Cf2CdC45c0C8f065b1F19463D43e',
-      uiPoolDataProvider: '0x538C84EA84F655f2e04eBfAD4948abA9495A2Fc3',
+      uiPoolDataProvider: '0xd6741Bbe4F90CFD5dB612D0b008129Fc9696ecF2', // '0x538C84EA84F655f2e04eBfAD4948abA9495A2Fc3',
       uiIncentiveDataProvider: '0xC5093EDAC52f4DD68b42433eA8754B26eAbb1A48',
     },
     cachingServerUrl: 'https://cache-api-polygon.aave.com/graphql',
@@ -71,8 +69,9 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenSymbol: 'WMATIC',
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
+    incentivePrecision: 18,
     explorerLink: 'https://polygonscan.com',
-    rpcOnly: false,
+    rpcOnly: true,
     bridge: {
       brandColor: '130, 71, 229',
       name: 'Polygon PoS Bridge',
@@ -86,7 +85,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCWSUrl: 'wss://rpc-mumbai.maticvigil.com',
     addresses: {
       walletBalanceProvider: '0xEe7c0172c200e12AFEa3C34837052ec52F3f367A',
-      uiPoolDataProvider: '0xafcE41554C19FfC87293Fb30C33c17614f61e7eD',
+      uiPoolDataProvider: '0x8E53e38D0EAAb4D9728d5242C5C3D97B852E3Ce4', // '0xafcE41554C19FfC87293Fb30C33c17614f61e7eD',
       uiIncentiveDataProvider: '0x04110Dc40B04b99B94840E53B2a33bE45E45A8Ed',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/aave/aave-v2-polygon-mumbai',
@@ -106,7 +105,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCWSUrl: 'wss://api.avax-test.network/ext/bc/C/rpc',
     addresses: {
       walletBalanceProvider: '0x3f5A507B33260a3869878B31FB90F04F451d28e3',
-      uiPoolDataProvider: '0xDb49B99073C2AE890708227Dc83B1781bF01512D',
+      uiPoolDataProvider: '0x848482E84d358C0E23A40deB11Ca5b9c1984de81',
       uiIncentiveDataProvider: '0x2c911e6FaD423C00205eda22BBAc3e7F82c38007',
     },
     protocolDataUrl: 'https://api.thegraph.com/subgraphs/name/aave/protocol-v2-fuji',
@@ -128,6 +127,35 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
       logo: avalancheBridgeLogo,
     },
   },
+  [ChainId.arbitrum_rinkeby]: {
+    name: 'Arbitrum Rinkeby',
+    publicJsonRPCUrl: ['https://rinkeby.arbitrum.io/rpc'],
+    publicJsonRPCWSUrl: 'wss://rinkeby.arbitrum.io/rpc',
+    addresses: {
+      walletBalanceProvider: '0x3092e3557521C186c44fB4D802007f2B4126b9b3',
+      uiPoolDataProvider: '0x01f7e505e43dA50e99f2F6841c3E8183c86E8432',
+      // uiIncentiveDataProvider: '0xD0fbc73f1E3be7267AA23D8d74194887a862e02e',
+    },
+    protocolDataUrl: '',
+    baseUniswapAdapter: '0x0',
+    baseAsset: 'ARETH',
+    baseAssetWrappedAddress: '0x217F76f6332aAC6854CAf224B98eD95412940151',
+    // incentives hardcoded information
+    rewardTokenSymbol: '',
+    rewardTokenAddress: '',
+    rewardTokenDecimals: 0,
+    incentivePrecision: 0,
+    explorerLink: 'https://testnet.arbiscan.io/',
+    rpcOnly: true,
+    usdMarket: true,
+    isTestnet: true,
+    bridge: {
+      brandColor: '232, 65, 66',
+      name: 'Arbitrum Bridge',
+      url: 'https://bridge.arbitrum.io',
+      logo: avalancheBridgeLogo, // TO-DO: Update
+    },
+  },
   [ChainId.avalanche]: {
     name: 'Avalanche',
     publicJsonRPCUrl: ['https://api.avax.network/ext/bc/C/rpc'],
@@ -147,6 +175,7 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     rewardTokenSymbol: 'WAVAX',
     rewardTokenAddress: API_ETH_MOCK_ADDRESS,
     rewardTokenDecimals: 18,
+    incentivePrecision: 18,
     explorerLink: 'https://cchain.explorer.avax.network',
     rpcOnly: false,
     usdMarket: true,

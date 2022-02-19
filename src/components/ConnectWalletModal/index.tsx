@@ -95,9 +95,11 @@ export default function ConnectWalletModal({
       title: 'Coinbase',
       providerName: 'wallet-link',
       icon: icons.coinbaseIcon,
-      notSupported: ![ChainId.mainnet, ChainId.polygon, ChainId.avalanche].includes(
-        preferredChainId
-      ),
+      // todo:pavlik
+      // notSupported: ![ChainId.mainnet, ChainId.polygon, ChainId.avalanche].includes(
+      //   preferredChainId
+      // ),
+      notSupported: preferredChainId === ChainId.avalanche,
     },
     {
       title: 'Authereum',

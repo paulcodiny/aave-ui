@@ -123,6 +123,7 @@ export const getProvider = (chainId: ChainId): ethers.providers.Provider => {
     const config = getNetworkConfig(chainId);
     const chainProviders: ethers.providers.StaticJsonRpcProvider[] = [];
     if (config.privateJsonRPCUrl) {
+      providers[chainId] = new ethers.providers.StaticJsonRpcProvider(config.privateJsonRPCUrl);
       providers[chainId] = new ethers.providers.StaticJsonRpcProvider(
         config.privateJsonRPCUrl,
         chainId

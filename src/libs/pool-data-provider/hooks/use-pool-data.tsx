@@ -50,9 +50,9 @@ export function usePoolData(
 
     try {
       setLoadingReserves(true);
-      const reservesResponse = await poolDataProviderContract.getReservesHumanized(
-        lendingPoolAddressProvider
-      );
+      const reservesResponse: ReservesDataHumanized =
+        await poolDataProviderContract.getReservesHumanized(lendingPoolAddressProvider);
+      console.log('reserves: ', reservesResponse);
       setReserves(reservesResponse);
       setErrorReserves(false);
     } catch (e) {
