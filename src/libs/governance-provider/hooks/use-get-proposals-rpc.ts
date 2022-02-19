@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { normalize } from '@aave/protocol-js';
+import { Proposal, normalize } from '@aave/protocol-js';
 import { providers } from 'ethers';
 
 import { ProposalItem } from '../types';
-import { getProposalExpiry, IPFS_ENDPOINT } from '../helper';
+import { getProposalExpiry } from '../helper';
 
 import { useStateLoading, LOADING_STATE } from '../../hooks/use-state-loading';
 import { usePolling } from '../../hooks/use-polling';
@@ -11,12 +11,7 @@ import { IpfsMeta } from '../types';
 
 import fm from 'front-matter';
 import { getProvider } from '../../../helpers/config/markets-and-network-config';
-import {
-  AaveGovernanceService,
-  ChainId,
-  getProposalMetadata,
-  Proposal,
-} from '@aave/contract-helpers';
+import { AaveGovernanceService, ChainId } from '@aave/contract-helpers';
 
 const MemorizeStartTimestamp: { [id: string]: number } = {};
 const MemorizeProposalTimestamp: { [id: string]: number } = {};
@@ -38,16 +33,15 @@ const generateProposal = async (
       );
       MemorizeProposalTimestamp[memorizeId] = Number(proposalTimestamp);
     }
-    const meta = await getProposalMetadata(prop.ipfsHash, IPFS_ENDPOINT);
     // Fix Bug with the @
-    const parsedDesc = !!meta.description
-      ? meta.description.replace(/@/gi, '')
+    const parsedDesc = !!prop.description
+      ? prop.description.replace(/@/gi, '')
       : 'no description, or description loading failed';
     const processed = fm<IpfsMeta>(parsedDesc);
 
     const proposal: ProposalItem = {
       id: Number(prop.id),
-      title: meta.title || '',
+      title: prop.title || '',
       state: prop.state || '',
       ipfsHash: prop.ipfsHash,
       description: {
@@ -57,7 +51,7 @@ const generateProposal = async (
       },
       creator: prop.creator,
       executor: prop.executor,
-      shortDescription: meta.shortDescription,
+      shortDescription: prop.shortDescription,
       totalVotingSupply: normalize(prop.totalVotingSupply, 18),
       executionTime: prop.executionTime,
       startBlock: Number(prop.startBlock),
@@ -97,7 +91,7 @@ const parserProposals = async (
   provider: providers.Provider,
   averageNetworkBlockTime: number
 ) => {
-  const proposalPromises: Promise<ProposalItem | undefined>[] = data.map((prop) =>
+  const proposalPromises: Promise<ProposalItem | undefined>[] = data.map((prop: Proposal) =>
     generateProposal(prop, provider, averageNetworkBlockTime)
   );
   const results: (ProposalItem | undefined)[] = await Promise.all(proposalPromises);
@@ -113,11 +107,11 @@ const parserProposals = async (
 const INTERVAL_POOL = 120000; // 2 min
 
 const useGetProposalsRPC = ({
-  skip = false,
-  averageNetworkBlockTime,
-  governanceService,
-  chainId,
-}: {
+                              skip = false,
+                              averageNetworkBlockTime,
+                              governanceService,
+                              chainId,
+                            }: {
   skip: boolean;
   averageNetworkBlockTime: number;
   governanceService: AaveGovernanceService;

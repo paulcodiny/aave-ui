@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 import fm from 'front-matter';
 import { IpfsMeta, IpfsPropsal } from '../types';
-import { getProposalMetadata } from '@aave/contract-helpers';
-import { IPFS_ENDPOINT } from '../helper';
+import { getProposalMetadata } from '../helper';
 
 const useGetMetadataDescription = (idHash: string, skip: boolean) => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +10,7 @@ const useGetMetadataDescription = (idHash: string, skip: boolean) => {
   const getMeta = async (idHash: string) => {
     setLoading(true);
     try {
-      const rawBody = await getProposalMetadata(idHash, IPFS_ENDPOINT);
+      const rawBody = await getProposalMetadata(idHash);
       // Fix Bug with the @
       const parsedDesc = !!rawBody.description
         ? rawBody.description.replace(/@/gi, '')
