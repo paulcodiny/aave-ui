@@ -1,14 +1,23 @@
 import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import BorrowMain from './screens/BorrowMain';
+import ManagerRadiantMain from './screens/ManageRadiantMain';
+import { stakeConfig } from '../../ui-config';
+import ErrorPage from '../../components/ErrorPage';
+import { StakeDataProvider } from '../../libs/pool-data-provider/hooks/use-stake-data-context';
 
 export default function ManageRadiant() {
-  return (
-    <Switch>
-      <Route exact={true} path="/manage-radiant" component={BorrowMain} />
+  if (!stakeConfig) {
+    return <ErrorPage title="Stake was not configured" />;
+  }
 
-      <Redirect to="/borrow" />
-    </Switch>
+  return (
+    <StakeDataProvider stakeConfig={stakeConfig}>
+      <Switch>
+        <Route exact={true} path="/manage-radiant" component={ManagerRadiantMain} />
+
+        <Redirect to="/borrow" />
+      </Switch>
+    </StakeDataProvider>
   );
 }
