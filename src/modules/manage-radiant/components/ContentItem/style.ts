@@ -97,8 +97,8 @@ const staticStyles = css.global`
     justify-content: space-between;
 
     .ConnectButton__inner {
-      width: 100px;
-      min-height: 32px;
+      width: 100px !important;
+      min-height: 32px !important;
     }
   }
 
