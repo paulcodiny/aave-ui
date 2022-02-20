@@ -95,6 +95,11 @@ const staticStyles = css.global`
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
+
+    .ConnectButton__inner {
+      width: 100px;
+      min-height: 32px;
+    }
   }
 
   .ManageRadiant__form-input {
