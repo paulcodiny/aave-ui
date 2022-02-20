@@ -19,7 +19,7 @@ import { ChainId } from '@aave/contract-helpers';
 interface BasicFormProps {
   title?: string;
   description?: string | ReactNode;
-  maxAmount: string;
+  maxAmount?: string | number;
   amountFieldTitle?: string;
   currencySymbol: string;
   onSubmit: (amount: string, max?: boolean) => void;
@@ -62,8 +62,8 @@ export default function BasicForm({
   const handleAmountChange = (newAmount: string) => {
     const newAmountValue = valueToBigNumber(newAmount);
     setError('');
-    if (newAmountValue.gt(maxAmount)) {
-      setAmount(maxAmount);
+    if (maxAmount && newAmountValue.gt(maxAmount)) {
+      setAmount(maxAmount as string);
       return setIsMaxSelected(true);
     } else if (newAmountValue.isNegative()) {
       setAmount('0');
@@ -74,7 +74,7 @@ export default function BasicForm({
   };
 
   const handleMaxButtonClick = () => {
-    setAmount(maxAmount);
+    setAmount(maxAmount as string);
     setIsMaxSelected(true);
     setError('');
   };
@@ -115,7 +115,7 @@ export default function BasicForm({
           <RiskBar
             value={Number(amount)}
             onChange={handleAmountChange}
-            maxAmount={maxAmount}
+            maxAmount={maxAmount as string}
             currencySymbol={currencySymbol}
           />
         )}
