@@ -38,7 +38,7 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
   const { data, cooldownStep, setCooldownStep, usdPriceEth } = useStakeDataContext();
 
   const [isShowYourIncentives, setShowYourIncentives] = useState(false);
-  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.aave);
+  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.aave); // todo:pavlik
   const [isActivateCooldownModalVisible, setActivateCooldownModalVisible] = useState(false);
 
   const isCurrentAssetAAVE = currentAsset === Stake.aave;
@@ -161,7 +161,7 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
           <div className="StakingWrapper__asset-switcherWrapper">
             <LabeledSwitcher
               value={!isCurrentAssetAAVE}
-              leftOption={Stake.aave}
+              leftOption="radiant"
               rightOption={Stake.bpt}
               onToggle={() => setCurrentAsset(isCurrentAssetAAVE ? Stake.bpt : Stake.aave)}
             />

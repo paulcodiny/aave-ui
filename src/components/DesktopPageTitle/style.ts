@@ -7,15 +7,12 @@ const staticStyles = css.global`
 
   .DesktopPageTitle {
     position: relative;
-    margin-bottom: 37px;
+    margin-bottom: 5px;
     @include respond-to(xl) {
-      margin-bottom: 30px;
     }
     @include respond-to(lg) {
-      margin-bottom: 20px;
     }
     @include respond-to(md) {
-      margin-bottom: 30px;
     }
     @include respond-to(sm) {
       display: none;

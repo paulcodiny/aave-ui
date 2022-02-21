@@ -1,14 +1,10 @@
-```
-        .///.                .///.     //.            .//  `/////////////-
-       `++:++`              .++:++`    :++`          `++:  `++:......---.`
-      `/+: -+/`            `++- :+/`    /+/         `/+/   `++.
-      /+/   :+/            /+:   /+/    `/+/        /+/`   `++.
-  -::/++::`  /+:       -::/++::` `/+:    `++:      :++`    `++/:::::::::.
-  -:+++::-`  `/+:      --++/---`  `++-    .++-    -++.     `++/:::::::::.
-   -++.       .++-      -++`       .++.    .++.  .++-      `++.
-  .++-         -++.    .++.         -++.    -++``++-       `++.
- `++:           :++`  .++-           :++`    :+//+:        `++:----------`
- -/:             :/-  -/:             :/.     ://:         `/////////////-
+```marmaid
+graph TD
+    Navigation[Top Menu] --> Markets & Dashboard & Deposit & Borrow & Manage[Manage Radiant] & Stake & Faucet
+    Markets --> Markets_Details[Market / Details]
+    Dashboard[My Dashboard] --> Deposit
+    Dashboard[My Dashboard] --> Borrow
+    Dashboard[My Dashboard] --> Withdraw
 ```
 
 # Aave protocol interface :ghost:

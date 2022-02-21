@@ -28,7 +28,7 @@ const staticStyles = css.global`
     }
 
     &__withDesktopTitle {
-      margin-top: 40px;
+      margin-top: 60px;
       @include respond-to(sm) {
         margin-top: 0;
         padding-top: 30px;
