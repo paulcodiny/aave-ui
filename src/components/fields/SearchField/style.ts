@@ -13,6 +13,7 @@ const staticStyles = css.global`
     position: relative;
     outline: none;
     background: #fff;
+    border: solid 1px #d8d9e0;
     @include respond-to(xl) {
     }
     @include respond-to(lg) {

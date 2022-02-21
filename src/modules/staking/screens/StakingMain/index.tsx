@@ -11,8 +11,8 @@ import TextFAQLink from '../../components/TextFAQLink';
 import messages from './messages';
 import staticStyles from './style';
 
-import aaveIcon from '../../../../images/aave.svg';
-import bptIcon from '../../../../images/bpt.svg';
+import aaveIcon from '../../../../images/radiant/radiant-token-color.svg';
+import bptIcon from '../../../../images/radiant/radiant-token-color.svg';
 
 export default function StakingMain() {
   const intl = useIntl();
@@ -20,14 +20,14 @@ export default function StakingMain() {
 
   const buttons = [
     {
-      link: '/staking/aave',
+      link: '/staking/radiant',
       icon: aaveIcon,
-      title: 'AAVE',
+      title: 'RADIANT',
     },
     {
       link: '/staking/bpt',
       icon: bptIcon,
-      title: 'AAVE/ETH BPT',
+      title: 'RADIANT/ETH BPT',
     },
   ];
 

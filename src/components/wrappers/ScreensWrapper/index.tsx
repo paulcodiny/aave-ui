@@ -10,7 +10,7 @@ import { BottomDisclaimer, TopDisclaimer } from '../../../ui-config';
 import messages from './messages';
 import staticStyles from './style';
 
-import radiantBackground from '../../../images/radiant/background-2.png';
+import radiantBackground from '../../../images/radiant/bg-2.png';
 
 export interface ScreensWrapperProps {
   children: ReactNode;

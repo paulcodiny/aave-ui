@@ -57,6 +57,17 @@ const staticStyles = css.global`
         margin-bottom: 20px;
         order: 0;
       }
+
+      .ContentWrapperWithTopLine__content {
+        background: #fff;
+        border: none;
+        backdrop-filter: none;
+        padding: 30px 30px 10px;
+      }
+
+      .Card__content {
+        border-bottom: solid 1px #d8d9e0;
+      }
     }
 
     .DepositBorrowMainWrapper__total {

@@ -149,6 +149,7 @@ export function StakeDataProvider({
   }
 
   const computedData = {
+    // todo:pavlik
     [Stake.aave]: computeStakeData(rawData[Stake.aave]),
     [Stake.bpt]: computeStakeData(rawData[Stake.bpt]),
   };
