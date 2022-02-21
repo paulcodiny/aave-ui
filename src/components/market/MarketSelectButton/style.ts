@@ -49,14 +49,12 @@ const staticStyles = css.global`
       }
 
       img {
-        width: 100px;
-        max-height: 20px;
+        width: 65px;
+        max-height: 23px;
         display: flex;
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-          width: 88px;
-          max-height: 23px;
         }
         @include respond-to(sm) {
           width: 100px;
@@ -66,9 +64,8 @@ const staticStyles = css.global`
     }
 
     .MarketSelectButton__subLogo {
-      height: 45px;
+      height: 25px;
       @include respond-to(xl) {
-        height: 40px;
       }
       @include respond-to(sm) {
         height: 45px;
@@ -81,6 +78,7 @@ const staticStyles = css.global`
       width: 125px;
       height: 40px;
       display: flex;
+      flex-direction: row-reverse;
       align-items: center;
       justify-content: center;
       padding: 5px;

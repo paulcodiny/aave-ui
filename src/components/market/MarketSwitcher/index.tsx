@@ -78,6 +78,14 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
             type="button"
           >
             <div className="MarketSwitcher__button-content">
+              {!!currentMarketData.subLogo && (
+                <img
+                  className="MarketSwitcher__button-subLogo"
+                  src={currentMarketData.subLogo}
+                  alt=""
+                />
+              )}
+
               <div className="MarketSwitcher__button-text">
                 <div
                   className={classNames('MarketSwitcher__buttonLogo-inner', {
@@ -96,14 +104,6 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
 
                 {/*<p>{intl.formatMessage(messages.market)}</p>*/}
               </div>
-
-              {!!currentMarketData.subLogo && (
-                <img
-                  className="MarketSwitcher__button-subLogo"
-                  src={currentMarketData.subLogo}
-                  alt=""
-                />
-              )}
 
               {selectedMarketTestnetMark && (
                 <span className="MarketSwitcher__kovan">{selectedMarketTestnetMark}</span>
@@ -128,28 +128,29 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
               onClick={() => handleSetCurrentMarket(market)}
               className={classNames('MarketSwitcher__market', {
                 MarketSwitcher__marketActive: currentMarket === market,
+                MarketSwitcher__withoutKovan: !testnetMark,
               })}
               type="button"
               disabled={currentMarket === market}
               key={market}
             >
               <div className="MarketSwitcher__market-content">
+                {!!marketData.subLogo && (
+                  <img className="MarketSwitcher__subLogo" src={marketData.subLogo} alt="" />
+                )}
+
                 <div className="MarketSwitcher__market-inner">
                   <div className="MarketSwitcher__logo-inner">
                     <img src={marketData.logo} alt={market} />
                   </div>
 
-                  <GradientText
-                    className="MarketSwitcher__marketText"
-                    colorStart={currentTheme.secondary.rgb}
-                    colorEnd={currentTheme.primary.rgb}
-                    title={intl.formatMessage(messages.market)}
-                  />
+                  {/*<GradientText*/}
+                  {/*  className="MarketSwitcher__marketText"*/}
+                  {/*  colorStart={currentTheme.secondary.rgb}*/}
+                  {/*  colorEnd={currentTheme.primary.rgb}*/}
+                  {/*  title={intl.formatMessage(messages.market)}*/}
+                  {/*/>*/}
                 </div>
-
-                {!!marketData.subLogo && (
-                  <img className="MarketSwitcher__subLogo" src={marketData.subLogo} alt="" />
-                )}
               </div>
 
               {testnetMark && <span className="MarketSwitcher__kovan">{testnetMark}</span>}

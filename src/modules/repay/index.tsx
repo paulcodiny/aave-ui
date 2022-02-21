@@ -31,7 +31,7 @@ function Repay({
   const intl = useIntl();
   const { currentMarketData } = useProtocolDataContext();
   const asset = getAssetInfo(currencySymbol);
-  console.log('repay???');
+
   return (
     <ScreenWrapper
       pageTitle={intl.formatMessage(messages.pageTitle, {
