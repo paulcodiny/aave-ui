@@ -4,10 +4,11 @@ import aavev2Logo from './aavev2.svg';
 import aavev2ActiveLogo from './aavev2Active.svg';
 import ammLogo from './amm.svg';
 import ammActiveLogo from './ammActive.svg';
-import polygon from './polygon.svg';
-import arbitrium from './arbitrium.svg';
-import avalanche from './avalanche.svg';
-import radiant from './radiant.png';
+import polygon from './polygon-matic.svg';
+import arbitrum from './arbitrum2.svg';
+import avalanche from './avalanche2.svg';
+import radiant from './radiant.svg';
+import radiantActive from './radiantActive.svg';
 
 export {
   aaveLogo,
@@ -17,7 +18,8 @@ export {
   polygon,
   aavev2Logo,
   aavev2ActiveLogo,
-  arbitrium,
+  arbitrum,
   avalanche,
   radiant,
+  radiantActive,
 };

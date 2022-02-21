@@ -1,10 +1,13 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { gradient, rgba, useThemeContext } from '@aave/aave-ui-kit';
-
-import staticStyles from './style';
 import { ChainId } from '@aave/contract-helpers';
+
 import { getNetworkConfig } from '../../../helpers/config/markets-and-network-config';
+
+import messages from './messages';
+import staticStyles from './style';
 
 interface MarketSelectButtonProps {
   onClick: () => void;
@@ -32,6 +35,7 @@ export default function MarketSelectButton({
   isDark,
 }: MarketSelectButtonProps) {
   const { currentTheme } = useThemeContext();
+  const intl = useIntl();
   const config = getNetworkConfig(chainId);
 
   const hoverColor = rgba(`${currentTheme.primary.rgb}, 0.7`);
@@ -66,7 +70,7 @@ export default function MarketSelectButton({
             {!!logoText && !subLogo && <span>{logoText}</span>}
           </div>
 
-          {/*{intl.formatMessage(messages.market)}*/}
+          {intl.formatMessage(messages.market)}
         </div>
 
         {subLogo && <img className="MarketSelectButton__subLogo" src={subLogo} alt="" />}
@@ -88,7 +92,7 @@ export default function MarketSelectButton({
           &:disabled {
             .MarketSelectButton__inner {
               border-radius: 5px;
-              background-color: #7159ff;
+              background-color: #3cecd1;
             }
           }
 

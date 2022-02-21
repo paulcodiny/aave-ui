@@ -79,8 +79,8 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   // },
   [CustomMarket.proto_mumbai]: {
     chainId: ChainId.mumbai,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
+    logo: logos.radiant,
+    activeLogo: logos.radiantActive,
     subLogo: logos.polygon,
     aTokenPrefix: 'AM',
     enabledFeatures: {
@@ -96,8 +96,8 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   },
   [CustomMarket.proto_matic]: {
     chainId: ChainId.polygon,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
+    logo: logos.radiant,
+    activeLogo: logos.radiantActive,
     subLogo: logos.polygon,
     aTokenPrefix: 'AM',
     enabledFeatures: {
@@ -113,8 +113,8 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   },
   [CustomMarket.proto_fuji]: {
     chainId: ChainId.fuji,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
+    logo: logos.radiant,
+    activeLogo: logos.radiantActive,
     subLogo: logos.avalanche,
     aTokenPrefix: 'AAVA',
     enabledFeatures: {
@@ -147,9 +147,9 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   // },
   [CustomMarket.proto_arbitrum_rinkeby]: {
     chainId: ChainId.arbitrum_rinkeby,
-    logo: logos.aaveLogo,
-    activeLogo: logos.aaveActiveLogo,
-    subLogo: logos.arbitrium,
+    logo: logos.radiant,
+    activeLogo: logos.radiantActive,
+    subLogo: logos.arbitrum,
     aTokenPrefix: '',
     enabledFeatures: {
       faucet: true,

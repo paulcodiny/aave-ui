@@ -42,7 +42,7 @@ const staticStyles = css.global`
       justify-content: space-between;
       position: relative;
       z-index: 2;
-      width: 120px;
+      width: 135px;
       height: 32px;
       border: 1px solid transparent;
       border-radius: 2px;
@@ -87,7 +87,8 @@ const staticStyles = css.global`
     }
 
     &__button-subLogo {
-      height: 30px;
+      height: 20px;
+      margin: 0 5px;
       @include respond-to(sm) {
         height: 52px;
       }
@@ -99,7 +100,7 @@ const staticStyles = css.global`
 
       img {
         width: 67px;
-        max-height: 24px;
+        max-height: 9px;
         margin: 0 auto;
         @include respond-to(sm) {
           width: 125px;
@@ -132,7 +133,7 @@ const staticStyles = css.global`
     }
 
     &__content {
-      width: 120px;
+      width: 135px;
       @include respond-to(sm) {
         width: 180px;
       }
@@ -192,6 +193,7 @@ const staticStyles = css.global`
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 0 5px;
       height: 40px;
       width: 100%;
       @include respond-to(sm) {
@@ -200,6 +202,10 @@ const staticStyles = css.global`
       &:last-child {
         border: none;
       }
+    }
+
+    &__withoutKovan {
+      padding-right: 20px;
     }
 
     &__market-content {
@@ -218,7 +224,7 @@ const staticStyles = css.global`
       padding-top: 4px;
     }
     &__subLogo {
-      height: 39px;
+      height: 20px;
       @include respond-to(sm) {
         height: 59px;
       }
