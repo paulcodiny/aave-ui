@@ -46,7 +46,7 @@ export default function WalletCard({
         .WalletCard {
           &:hover {
             &:after {
-              background: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.primary.hex};
+              background: ${isCurrentThemeDark ? currentTheme.white.hex : currentTheme.purple.hex};
             }
           }
           &:disabled {

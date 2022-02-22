@@ -8,7 +8,7 @@ import Link from '../../../../components/basic/Link';
 import messages from './messages';
 import staticStyles from './style';
 
-import aaveIcon from '../../../../images/aave.svg';
+import rdntIcon from '../../../../images/radiant/radiant-token-color.svg';
 import bptIcon from '../../../../images/bpt.svg';
 import tickIcon from './images/tick.svg';
 
@@ -37,7 +37,7 @@ export default function AboutStakingModal() {
         <div className="AboutStakingModal__modal-content">
           <div className="AboutStakingModal__modal-left">
             <div className="AboutStakingModal__modal-captionInner">
-              <img src={aaveIcon} alt="AAVE" />
+              <img src={rdntIcon} alt="RDNT" />
               <h3>{intl.formatMessage(messages.infoCaption, { asset: 'AAVE' })}</h3>
               <p>
                 {intl.formatMessage(messages.aaveDescription, {

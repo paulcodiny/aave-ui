@@ -43,7 +43,7 @@ export default function Menu({ title }: MenuProps) {
     <header className="Menu">
       <div className="Menu__logo-inner">
         <Link className="Menu__logo-link" to="/markets" onClick={() => goToTop()}>
-          <img src={LOGO} alt="Aave" />
+          <img src={LOGO} alt="Radiant" />
         </Link>
       </div>
 

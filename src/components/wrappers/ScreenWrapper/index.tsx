@@ -12,7 +12,7 @@ import { useHeaderTitle } from '../ScreensWrapper';
 import staticStyles from './style';
 
 // Pages where the banners should be displayed
-export const DISPLAY_BRIDGE_BANNER_PAGES = ['/deposit', '/repay'];
+export const DISPLAY_BRIDGE_BANNER_PAGES = [];
 
 interface ScreenWrapperProps {
   pageTitle?: string;
@@ -48,6 +48,7 @@ export default function ScreenWrapper({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentLangSlug, location.pathname]);
 
+  // @ts-ignore
   return (
     <section
       className={classNames('ScreenWrapper', className, {
@@ -62,6 +63,7 @@ export default function ScreenWrapper({
       )}
       {subTitle && <div className="ScreenWrapper__mobileSubTitle">{subTitle}</div>}
 
+      {/* @ts-ignore */}
       {DISPLAY_BRIDGE_BANNER_PAGES.includes(location.pathname) && bridge && (
         <>
           <div className="ScreenWrapper__bannerWrapper">

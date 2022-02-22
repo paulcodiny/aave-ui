@@ -117,7 +117,7 @@ export default function AddressInfo() {
           </div>
         </DropdownWrapper>
       ) : (
-        <ConnectButton size="small" />
+        <ConnectButton size="small" transparent />
       )}
 
       <style jsx={true} global={true}>

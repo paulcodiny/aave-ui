@@ -52,7 +52,7 @@ export default function VotingInformation({
         <div className="VotingInformation__noInner">
           <p className="VotingInformation__orange">
             {intl.formatMessage(messages.invalidVoteBalance, {
-              symbol: <strong>AAVE or StkAAVE</strong>,
+              symbol: <strong>RDNT or StkRDNT</strong>,
             })}
           </p>
         </div>

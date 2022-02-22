@@ -12,7 +12,7 @@ export interface Asset {
 
 export const DELEGATED_ASSETS = [
   {
-    symbol: 'AAVE',
+    symbol: 'RDNT',
     icon: aaveIcon,
   },
   {

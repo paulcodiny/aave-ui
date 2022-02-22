@@ -85,7 +85,7 @@ export default function Preloader({
 
           &__text {
             h4 {
-              color: ${currentTheme.primary.hex};
+              color: ${currentTheme.purple.hex};
             }
             p {
               color: ${currentTheme.textDarkBlue.hex};
@@ -123,22 +123,22 @@ export default function Preloader({
           0% {
             opacity: 0;
             transform: scale(0.5);
-            background: ${currentTheme.secondary.hex};
+            background: ${currentTheme.darkGreen.hex};
           }
           25% {
             opacity: 1;
             transform: scale(1.25);
-            background: ${currentTheme.primary.hex};
+            background: ${currentTheme.purple.hex};
           }
           50% {
             opacity: 0;
             transform: scale(0.5);
-            background: ${currentTheme.secondary.hex};
+            background: ${currentTheme.darkGreen.hex};
           }
           75% {
             opacity: 1;
             transform: scale(1.25);
-            background: ${currentTheme.primary.hex};
+            background: ${currentTheme.purple.hex};
           }
           100% {
             opacity: 0;
