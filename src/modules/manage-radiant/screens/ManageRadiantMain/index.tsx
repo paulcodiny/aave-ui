@@ -147,7 +147,7 @@ export default function ManageRadiantMain() {
                 >
                   <Value
                     value={userEarningsPerMonth}
-                    symbol="AAVE"
+                    symbol="RDNT"
                     withoutSymbol={true}
                     subSymbol="USD"
                     subValue={userEarningsPerMonthInUSD !== '0' ? userEarningsPerMonthInUSD : '0'}

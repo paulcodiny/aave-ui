@@ -27,7 +27,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: 'AAVE',
+    name: 'RDNT',
     outputs: [{ internalType: 'address', name: '', type: 'address' }],
     stateMutability: 'view',
     type: 'function',
@@ -55,7 +55,7 @@ const _abi = [
   },
   {
     inputs: [],
-    name: 'STAKED_AAVE',
+    name: 'STAKED_RDNT',
     outputs: [{ internalType: 'contract IStakedToken', name: '', type: 'address' }],
     stateMutability: 'view',
     type: 'function',

@@ -47,10 +47,10 @@ export default function TableItemWrapper({
             : currentTheme.whiteElement.hex};
           color: ${currentTheme.darkBlue.hex};
           &:hover {
-            box-shadow: 0 0 9px 0 ${currentTheme.primary.hex};
+            box-shadow: 0 0 9px 0 ${currentTheme.purple.hex};
           }
           &:active {
-            border-color: ${currentTheme.primary.hex};
+            border-color: ${currentTheme.purple.hex};
           }
         }
       `}</style>

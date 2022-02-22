@@ -42,7 +42,7 @@ export default function MarketSelectButton({
   const testnetMark = config.isFork
     ? 'F'
     : config.isTestnet
-    ? config.name.charAt(0).toUpperCase()
+    ? 'T'
     : undefined;
   const gradientBorder = gradient(
     252,
