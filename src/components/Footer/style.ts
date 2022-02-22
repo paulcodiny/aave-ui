@@ -27,7 +27,7 @@ const staticStyles = css.global`
 
   .Footer {
     background: #131313;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
     z-index: 2;
     padding: 10px 15px 10px;

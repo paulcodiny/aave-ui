@@ -14,7 +14,7 @@ export default function Footer({ inside }: FooterProps) {
   return (
     <>
       <footer className={classNames('Footer', { Footer__inside: inside })}>
-        <UserInfo />
+        {/*<UserInfo />*/}
         <LangSwitcher />
 
         <style jsx={true} global={true}>

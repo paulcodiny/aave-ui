@@ -107,7 +107,7 @@ export default function Link({
           color: ${currentTheme.primary.hex};
         }
         .Link__secondary {
-          color: ${currentTheme.secondary.hex};
+          color: ${currentTheme.darkGreen.hex};
         }
         .Link__dark {
           color: ${onWhiteBackground ? currentTheme.darkBlue.hex : currentTheme.textDarkBlue.hex};

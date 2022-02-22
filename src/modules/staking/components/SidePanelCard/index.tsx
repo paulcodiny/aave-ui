@@ -49,15 +49,7 @@ export default function SidePanelCard({
         <div className="SidePanelCard__value-wrapper">
           <p className="SidePanelCard__title">{title}</p>
           <div className="SidePanelCard__value-inner">
-            {withHelpModal || withGradientBorder ? (
-              <Value value={value} />
-            ) : (
-              <GradientText
-                colorStart={currentTheme.secondary.rgb}
-                colorEnd={currentTheme.primary.rgb}
-                title={value.toString()}
-              />
-            )}
+            <Value value={value} />
             {valueInUsd && !withGradientBorder && (
               <span className="SidePanelCard__value-usd">
                 ${intl.formatNumber(+valueInUsd, { maximumFractionDigits: 2 })} USD
