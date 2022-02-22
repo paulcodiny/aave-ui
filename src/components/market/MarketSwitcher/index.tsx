@@ -165,7 +165,7 @@ export default function MarketSwitcher({ toTop, className, textButton }: MarketS
       <style jsx={true} global={true}>{`
         .MarketSwitcher {
           &__text-button {
-            color: ${currentTheme.primary.hex};
+            color: ${currentTheme.purple.hex};
           }
 
           &__button-content {

@@ -124,6 +124,10 @@ const staticStyles = css.global`
         }
       }
 
+      .DropdownWrapper__icon {
+        display: none;
+      }
+
       .MarketSwitcher__content {
         width: 130px;
       }

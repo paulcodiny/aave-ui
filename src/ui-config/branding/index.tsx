@@ -17,11 +17,11 @@ export const LOGO = logo;
 
 export const socialIcons: SocialIcon[] = [
   {
-    url: 'https://github.com/aave/aave-ui',
+    url: 'https://github.com/radiant-capital/ui',
     type: SocialType.Github,
   },
   {
-    url: 'https://discord.gg/7kHKnkDEUf',
+    url: '#',
     type: SocialType.Discord,
   },
 ];

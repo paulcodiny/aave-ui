@@ -50,7 +50,7 @@ export default function ConnectWalletWrapper({
           color: ${currentTheme.textDarkBlue.hex};
           background: ${currentTheme.whiteElement.hex} !important;
           h2 {
-            color: ${isCurrentThemeDark ? currentTheme.textDarkBlue.hex : currentTheme.primary.hex};
+            color: ${currentTheme.darkBlue.hex};
           }
         }
       `}</style>
