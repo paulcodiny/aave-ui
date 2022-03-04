@@ -1,20 +1,70 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { BigNumber } from '@aave/protocol-js';
 
 import BasicForm from '../../../../components/forms/BasicForm';
 import ContentItem from '../ContentItem';
 
-import defaultMessages from '../../../../defaultMessages';
 import iconLock from '../../images/icon-lock.svg';
 
 import staticStyles from './style';
+import depositConfirmationMessages from '../../../deposit/screens/DepositConfirmation/messages';
+import Value from '../../../../components/basic/Value';
+import {
+  ComputedReserveData,
+  UserSummary,
+  useStaticPoolDataContext,
+} from '../../../../libs/pool-data-provider';
+import NoDataPanel from '../../../../components/NoDataPanel';
+import { ComputedUserReserve } from '@aave/math-utils';
+import { getAssetInfo } from '../../../../helpers/config/assets-config';
+import LockConfirmation from '../LockConfirmation';
 
-export function ContentItemLock(props: {
+interface ContentItemLockProps {
   maxAmount: string;
   currencySymbol: string;
   onSubmit: () => void;
-}) {
+  amount?: BigNumber;
+  walletBalance: BigNumber;
+  walletBalanceUSD: BigNumber;
+  user?: UserSummary;
+  poolReserve: ComputedReserveData;
+  userReserve?: ComputedUserReserve;
+}
+
+function ContentItemLock({
+  // maxAmount,
+  currencySymbol,
+  onSubmit = () => {},
+  poolReserve,
+  userReserve,
+  user,
+  // amount,
+  walletBalance,
+}: ContentItemLockProps) {
+  // todo:pavlik
+  const maxAmount = '123';
+  // const amount = new BigNumber('100');
+
+  console.log({ currencySymbol, poolReserve, userReserve, user, walletBalance });
+
   const intl = useIntl();
+  const { marketRefPriceInUsd } = useStaticPoolDataContext();
+  const [amount, setAmount] = useState<BigNumber | null>(null);
+  const assetDetails = getAssetInfo(poolReserve.symbol);
+
+  if (!user) {
+    return (
+      <NoDataPanel
+        title={intl.formatMessage(depositConfirmationMessages.connectWallet)}
+        description={intl.formatMessage(depositConfirmationMessages.connectWalletDescription)}
+        withConnectButton={true}
+      />
+    );
+  }
+
+  const amountIntEth = walletBalance.multipliedBy(poolReserve.priceInMarketReferenceCurrency);
+  const amountInUsd = amountIntEth.multipliedBy(marketRefPriceInUsd);
 
   return (
     <>
@@ -32,25 +82,42 @@ export function ContentItemLock(props: {
           </>
         }
       >
-        <div className="ManageRadiant__form-legend">
-          <label className="ManageRadiant__input-label">Wallet Balance:</label>
-
-          <div className="ManageRadiant__value">
-            <span className="ManageRadiant__value-rnd">
-              <strong>581</strong> RADIANT
-            </span>
-            <br />
-            <span className="ManageRadiant__value-usd">$ 1543</span>
-          </div>
-        </div>
-        <div className="ManageRadiant__form-controls">
-          <BasicForm
-            maxAmount={props.maxAmount}
-            currencySymbol={props.currencySymbol}
-            onSubmit={props.onSubmit}
-            submitButtonTitle="Lock"
+        {!!amount ? (
+          <LockConfirmation
+            maxAmount={maxAmount}
+            currencySymbol={currencySymbol}
+            onSubmit={(...args) => console.log(args)}
+            amount={amount}
+            user={user}
+            userReserve={userReserve}
+            walletBalance={walletBalance}
+            poolReserve={poolReserve}
           />
-        </div>
+        ) : (
+          <>
+            <div className="ManageRadiant__form-legend">
+              <label className="ManageRadiant__input-label">Wallet Balance:</label>
+
+              <Value
+                className="ManageRadiant__value"
+                symbol={currencySymbol}
+                value={walletBalance.toString()}
+                tokenIcon={true}
+                subValue={amountInUsd.toString()}
+                subSymbol="USD"
+                tooltipId={currencySymbol}
+              />
+            </div>
+            <div className="ManageRadiant__form-controls">
+              <BasicForm
+                maxAmount={maxAmount}
+                currencySymbol={currencySymbol}
+                onSubmit={(amount) => setAmount(new BigNumber(amount))}
+                submitButtonTitle="Lock"
+              />
+            </div>
+          </>
+        )}
       </ContentItem>
 
       <style jsx={true} global={true}>
@@ -64,3 +131,5 @@ export function ContentItemLock(props: {
     </>
   );
 }
+
+export default ContentItemLock;

@@ -46,7 +46,10 @@ export default function routeParamValidationHOC({
   return (ChildComponent: React.ComponentType<ValidationWrapperComponentProps>) =>
     ({ match, location, history }: RouteComponentProps<CurrencyRouteParamsInterface>) => {
       const intl = useIntl();
-      const underlyingAsset = match.params.underlyingAsset.toUpperCase();
+      // todo:pavlik default asset RDNT
+      const underlyingAsset = (
+        match.params.underlyingAsset || '0xff795577d9ac8bd7d90ee22b6c1703490b6512fd'
+      ).toUpperCase();
       const reserveId = match.params.id;
 
       const { marketRefPriceInUsd } = useStaticPoolDataContext();

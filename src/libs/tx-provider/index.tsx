@@ -1,5 +1,6 @@
 import React, { PropsWithChildren, useContext } from 'react';
-import { LendingPool, FaucetService } from '@aave/contract-helpers';
+import { FaucetService } from '@aave/contract-helpers';
+import LendingPool from '../aave-contact-helpers';
 
 import { useProtocolDataContext } from '../protocol-data-provider';
 import { getProvider } from '../../helpers/config/markets-and-network-config';
