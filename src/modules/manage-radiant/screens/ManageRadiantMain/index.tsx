@@ -4,6 +4,9 @@ import { useThemeContext } from '@aave/aave-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
 import { Stake, valueToBigNumber } from '@aave/protocol-js';
 
+import routeParamValidationHOC, {
+  ValidationWrapperComponentProps,
+} from '../../../../components/RouteParamsValidationWrapper';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
@@ -12,7 +15,7 @@ import GradientLine from '../../../../components/basic/GradientLine';
 import Row from '../../../../components/basic/Row';
 import Value from '../../../../components/basic/Value';
 import ValuePercent from '../../../../components/basic/ValuePercent';
-import { ContentItemLock } from '../../components/ContentItemLock';
+import ContentItemLock from '../../components/ContentItemLock';
 import { ContentItemStake } from '../../components/ContentItemStake';
 import { ContentItemHelp } from '../../components/ContentItemHelp';
 import { TopStats } from '../../components/TopStats';
@@ -22,7 +25,27 @@ import { MainStats } from '../../components/MainStats';
 import messages from './messages';
 import staticStyles from './style';
 
-export default function ManageRadiantMain() {
+interface ContentItemLockProps
+  extends Pick<
+    ValidationWrapperComponentProps,
+    | 'userReserve'
+    | 'poolReserve'
+    | 'user'
+    | 'currencySymbol'
+    | 'walletBalance'
+    | 'walletBalanceUSD'
+    | 'amount'
+  > {}
+
+export function ManageRadiantMain({
+  currencySymbol,
+  poolReserve,
+  userReserve,
+  user,
+  amount,
+  walletBalance,
+  walletBalanceUSD,
+}: ContentItemLockProps) {
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
   const {
@@ -31,8 +54,13 @@ export default function ManageRadiantMain() {
     setCooldownStep,
     usdPriceEth,
     selectedStake,
-    selectedStakeData: { underlyingTokenUserBalance },
+    // selectedStakeData: { underlyingTokenUserBalance },
   } = useStakeDataContext();
+
+  // todo: connect tha actual route object to this withBalance etc and pass them to ContentItemLock/Stake
+
+  // todo:pavlik selectedStakeData: { underlyingTokenUserBalance },
+  const underlyingTokenUserBalance = '123';
 
   const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.aave);
 
@@ -114,14 +142,20 @@ export default function ManageRadiantMain() {
             <div className="ManageRadiant__left-column">
               <ContentItemStake
                 maxAmount={underlyingTokenUserBalance}
-                currencySymbol={currencyName}
+                currencySymbol={currencySymbol}
                 onSubmit={handleSubmit}
               />
 
               <ContentItemLock
                 maxAmount={underlyingTokenUserBalance}
-                currencySymbol={currencyName}
+                currencySymbol={currencySymbol}
                 onSubmit={handleSubmit}
+                poolReserve={poolReserve}
+                userReserve={userReserve}
+                user={user}
+                amount={amount}
+                walletBalance={walletBalance}
+                walletBalanceUSD={walletBalanceUSD}
               />
 
               <ContentItemHelp />
@@ -201,3 +235,5 @@ export default function ManageRadiantMain() {
     </>
   );
 }
+
+export default routeParamValidationHOC({ withWalletBalance: true })(ManageRadiantMain);

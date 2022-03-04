@@ -1,6 +1,7 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  lock: 'Lock',
   deposit: 'Deposit',
   withdraw: 'Withdraw',
   borrow: 'Borrow',

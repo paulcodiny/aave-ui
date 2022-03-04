@@ -7,6 +7,12 @@ graph TD
     Dashboard[My Dashboard] --> Withdraw
 ```
 
+# Installation
+```shell
+$ npm i --legacy-peer-deps --unsafe-perm --ignore-scripts --verbose
+$ npm rebuild node-sass
+```
+
 # Aave protocol interface :ghost:
 
 An open source interface for the decentralized liquidity protocol Aave

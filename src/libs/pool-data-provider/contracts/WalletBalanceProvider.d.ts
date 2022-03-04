@@ -8,6 +8,7 @@ import { Listener, Provider } from '@ethersproject/providers';
 import { FunctionFragment, Result } from '@ethersproject/abi';
 
 interface WalletBalanceProviderInterface extends ethers.utils.Interface {
+  // todo:pavlik ts-generated from what? we need this balance
   functions: {
     'balanceOf(address,address)': FunctionFragment;
     'batchBalanceOf(address[],address[])': FunctionFragment;

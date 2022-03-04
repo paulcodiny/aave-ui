@@ -11,7 +11,7 @@ const staticStyles = css.global`
       display: flex;
 
       .AmountField {
-        width: 260px;
+        width: 250px;
       }
 
       .AmountField .AmountField__input input {

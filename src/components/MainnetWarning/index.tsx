@@ -11,7 +11,8 @@ export default function MainnetWarning() {
   const { chainId } = useWeb3React();
   const { currentTheme } = useThemeContext();
 
-  if (chainId === 1 || chainId === undefined) return null;
+  // todo:pavlik this will enable mainnet-only features
+  if (chainId === 1 || chainId === 42 || chainId === undefined) return null;
 
   return (
     <div className="MainnetWarning">
