@@ -48,7 +48,7 @@ export default function routeParamValidationHOC({
       const intl = useIntl();
       // todo:pavlik default asset RDNT
       const underlyingAsset = (
-        match.params.underlyingAsset || '0xff795577d9ac8bd7d90ee22b6c1703490b6512fd'
+        match.params.underlyingAsset || '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
       ).toUpperCase();
       const reserveId = match.params.id;
 
