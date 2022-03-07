@@ -15,7 +15,11 @@ interface ConnectButtonProps {
   transparent?: boolean;
 }
 
-export default function ConnectButton({ className, size = 'normal', transparent = false }: ConnectButtonProps) {
+export default function ConnectButton({
+  className,
+  size = 'normal',
+  transparent = false,
+}: ConnectButtonProps) {
   const intl = useIntl();
   const { currentTheme, sm, isCurrentThemeDark } = useThemeContext();
   const { showSelectWalletModal } = useUserWalletDataContext();

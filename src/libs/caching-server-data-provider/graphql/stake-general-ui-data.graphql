@@ -1,4 +1,14 @@
 fragment StakeGeneralUIDataFragment on StakeGeneralUIData {
+  rdnt {
+    stakeTokenTotalSupply
+    stakeCooldownSeconds
+    stakeUnstakeWindow
+    stakeTokenPriceEth
+    rewardTokenPriceEth
+    stakeApy
+    distributionPerSecond
+    distributionEnd
+  }
   aave {
     stakeTokenTotalSupply
     stakeCooldownSeconds

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useIntl } from 'react-intl';
+import { ChainId } from '@aave/contract-helpers';
 
 import {
   AvailableWeb3Connectors,
@@ -24,7 +25,6 @@ import messages from './messages';
 import staticStyles from './style';
 
 import * as icons from './images';
-import { ChainId } from '@aave/contract-helpers';
 
 export interface Wallet {
   title: string;

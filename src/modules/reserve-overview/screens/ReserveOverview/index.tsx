@@ -69,7 +69,6 @@ function ReserveOverview({
   const isReserveHistoryGraphsVisible = !!RATES_HISTORY_ENDPOINT;
 
   // todo:pavlik get the information about the current market (name, logo)
-  // todo:pavlik make the back button work
 
   return (
     <ScreenWrapper

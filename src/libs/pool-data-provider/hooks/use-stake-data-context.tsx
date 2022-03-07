@@ -1,7 +1,9 @@
 import React, { ReactNode, useContext, useState } from 'react';
-import { normalize, Stake, valueToBigNumber } from '@aave/protocol-js';
+import { normalize, valueToBigNumber } from '@aave/protocol-js';
 
 import { useLocation } from 'react-router-dom';
+
+import { Stake } from '../../aave-protocol-js';
 
 import Preloader from '../../../components/basic/Preloader';
 import ErrorPage from '../../../components/ErrorPage';
@@ -24,6 +26,7 @@ import { useApolloConfigContext } from '../../apollo-config';
 import { StakeConfig } from '../../../ui-config';
 import { getProvider } from '../../../helpers/config/markets-and-network-config';
 import { ChainId, StakingService } from '@aave/contract-helpers';
+// todo:pavlik extend StakingService from MultiFeeDistribution
 
 export function computeStakeData(data: StakeData): ComputedStakeData {
   return {
@@ -69,7 +72,7 @@ const StakeDataContext = React.createContext<{
   setCooldownStep: (value: number) => void;
 }>({
   stakeConfig: {} as StakeConfig,
-  selectedStake: Stake.aave,
+  selectedStake: Stake.rdnt,
   STAKING_REWARD_TOKEN: '',
   selectedStakeData: {} as ComputedStakeData,
   data: {} as ComputedStakesData,
@@ -88,7 +91,6 @@ export function StakeDataProvider({
   children: ReactNode;
 }) {
   const { userId } = useStaticPoolDataContext();
-  const location = useLocation();
   const [cooldownStep, setCooldownStep] = useState(0);
   const { preferredConnectionMode } = useConnectionStatusContext();
   const { chainId, networkConfig } = useProtocolDataContext();
@@ -100,8 +102,7 @@ export function StakeDataProvider({
 
   const rpcProvider = isStakeFork ? getProvider(chainId) : getProvider(stakeConfig.chainId);
 
-  const selectedStake =
-    location.pathname.split('/')[2]?.toLowerCase() === Stake.aave ? Stake.aave : Stake.bpt;
+  const selectedStake = Stake.rdnt;
   const selectedStakeAddresses = stakeConfig.tokens[selectedStake];
   const stakingService = new StakingService(rpcProvider, {
     TOKEN_STAKING_ADDRESS: selectedStakeAddresses.TOKEN_STAKING,
@@ -149,9 +150,7 @@ export function StakeDataProvider({
   }
 
   const computedData = {
-    // todo:pavlik
-    [Stake.aave]: computeStakeData(rawData[Stake.aave]),
-    [Stake.bpt]: computeStakeData(rawData[Stake.bpt]),
+    [Stake.rdnt]: computeStakeData(rawData[Stake.rdnt]),
   };
   const usdPriceEth = normalize((isRPCActive && usdPriceEthRpc) || usdPriceEthCached || '0', 18);
 

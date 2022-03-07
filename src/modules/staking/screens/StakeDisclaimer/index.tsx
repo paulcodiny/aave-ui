@@ -5,6 +5,7 @@ import queryString from 'query-string';
 import BigNumber from 'bignumber.js';
 import { useThemeContext } from '@aave/aave-ui-kit';
 
+import { Stake } from '../../../../libs/aave-protocol-js';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import Link from '../../../../components/basic/Link';
 import CheckBoxField from '../../../../components/fields/CheckBoxField';
@@ -18,7 +19,6 @@ import aaveIcon from '../../../../images/aave.svg';
 import bptIcon from '../../../../images/bpt.svg';
 
 import { faqLink } from '../../index';
-import { Stake } from '@aave/protocol-js';
 
 export default function StakeDisclaimer() {
   const intl = useIntl();
@@ -42,7 +42,7 @@ export default function StakeDisclaimer() {
   return (
     <div className="StakeDisclaimer">
       <div className="StakeDisclaimer__caption-inner">
-        <img src={selectedStake === Stake.aave ? aaveIcon : bptIcon} alt={selectedStake} />
+        <img src={selectedStake === Stake.rdnt ? aaveIcon : bptIcon} alt={selectedStake} />
         <h2>{intl.formatMessage(messages.caption, { asset: selectedStake.toUpperCase() })}</h2>
 
         <div className="StakeDisclaimer__description">

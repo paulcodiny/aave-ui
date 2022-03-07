@@ -2,9 +2,10 @@ import React, { ReactNode, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
-import { valueToBigNumber, Stake } from '@aave/protocol-js';
+import { valueToBigNumber } from '@aave/protocol-js';
 import { gradient, rgba, Timer, useThemeContext } from '@aave/aave-ui-kit';
 
+import { Stake } from '../../../../libs/aave-protocol-js';
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
@@ -38,10 +39,10 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
   const { data, cooldownStep, setCooldownStep, usdPriceEth } = useStakeDataContext();
 
   const [isShowYourIncentives, setShowYourIncentives] = useState(false);
-  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.aave); // todo:pavlik
+  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.rdnt); // todo:pavlik
   const [isActivateCooldownModalVisible, setActivateCooldownModalVisible] = useState(false);
 
-  const isCurrentAssetAAVE = currentAsset === Stake.aave;
+  const isCurrentAssetRDNT = currentAsset === Stake.rdnt;
 
   const selectedStakeData = data[currentAsset];
 
@@ -55,19 +56,12 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
     .multipliedBy(userEarningsPerMonth)
     .toString();
 
-  const smFundsInUSD = valueToBigNumber(data[Stake.bpt].stakeTokenTotalSupply)
-    .multipliedBy(data[Stake.bpt].stakeTokenPriceEth)
-    .plus(
-      valueToBigNumber(data[Stake.aave].stakeTokenTotalSupply).multipliedBy(
-        data[Stake.aave].stakeTokenPriceEth
-      )
-    )
+  const smFundsInUSD = valueToBigNumber(data[Stake.rdnt].stakeTokenTotalSupply)
+    .multipliedBy(data[Stake.rdnt].stakeTokenPriceEth)
     .dividedBy(usdPriceEth)
     .toFixed(2);
 
-  const totalDistributionPerDay = valueToBigNumber(data[Stake.aave].distributionPerDay)
-    .plus(data[Stake.bpt].distributionPerDay)
-    .toFixed(2);
+  const totalDistributionPerDay = valueToBigNumber(data[Stake.rdnt].distributionPerDay).toFixed(2);
   const userStakedInUSD = valueToBigNumber(selectedStakeData.stakeTokenUserBalance)
     .multipliedBy(selectedStakeData.stakeTokenPriceEth)
     .dividedBy(usdPriceEth)
@@ -159,12 +153,12 @@ export default function StakingWrapper({ children }: StakingWrapperProps) {
           })}
         >
           <div className="StakingWrapper__asset-switcherWrapper">
-            <LabeledSwitcher
-              value={!isCurrentAssetAAVE}
-              leftOption="radiant"
-              rightOption={Stake.bpt}
-              onToggle={() => setCurrentAsset(isCurrentAssetAAVE ? Stake.bpt : Stake.aave)}
-            />
+            {/*<LabeledSwitcher*/}
+            {/*  value={!isCurrentAssetRDNT}*/}
+            {/*  leftOption="radiant"*/}
+            {/*  rightOption={Stake.bpt}*/}
+            {/*  onToggle={() => setCurrentAsset(isCurrentAssetRDNT ? Stake.bpt : Stake.aave)}*/}
+            {/*/>*/}
           </div>
 
           <div className="StakingWrapper__cards-inner">

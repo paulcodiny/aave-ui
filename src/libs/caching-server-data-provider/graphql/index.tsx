@@ -4895,6 +4895,7 @@ export type StakeGeneralData = {
 export type StakeGeneralUiData = {
   __typename?: 'StakeGeneralUIData';
   aave: StakeGeneralData;
+  rdnt: StakeGeneralData;
   bpt: StakeGeneralData;
   usdPriceEth: Scalars['String'];
 };
@@ -4911,6 +4912,7 @@ export type StakeUserData = {
 export type StakeUserUiData = {
   __typename?: 'StakeUserUIData';
   aave: StakeUserData;
+  rdnt: StakeUserData;
   bpt: StakeUserData;
   usdPriceEth: Scalars['String'];
 };
@@ -7510,6 +7512,17 @@ export type C_ProtocolDataUpdateSubscription = {
 export type StakeGeneralUiDataFragmentFragment = {
   __typename?: 'StakeGeneralUIData';
   usdPriceEth: string;
+  rdnt: {
+    __typename?: 'StakeGeneralData';
+    stakeTokenTotalSupply: string;
+    stakeCooldownSeconds: number;
+    stakeUnstakeWindow: number;
+    stakeTokenPriceEth: string;
+    rewardTokenPriceEth: string;
+    stakeApy: string;
+    distributionPerSecond: string;
+    distributionEnd: string;
+  };
   aave: {
     __typename?: 'StakeGeneralData';
     stakeTokenTotalSupply: string;
@@ -7541,6 +7554,17 @@ export type C_StakeGeneralUiDataQuery = {
   stakeGeneralUIData: {
     __typename?: 'StakeGeneralUIData';
     usdPriceEth: string;
+    rdnt: {
+      __typename?: 'StakeGeneralData';
+      stakeTokenTotalSupply: string;
+      stakeCooldownSeconds: number;
+      stakeUnstakeWindow: number;
+      stakeTokenPriceEth: string;
+      rewardTokenPriceEth: string;
+      stakeApy: string;
+      distributionPerSecond: string;
+      distributionEnd: string;
+    };
     aave: {
       __typename?: 'StakeGeneralData';
       stakeTokenTotalSupply: string;
@@ -7573,6 +7597,17 @@ export type C_StakeGeneralUiDataUpdateSubscription = {
   stakeGeneralUIDataUpdate: {
     __typename?: 'StakeGeneralUIData';
     usdPriceEth: string;
+    rdnt: {
+      __typename?: 'StakeGeneralData';
+      stakeTokenTotalSupply: string;
+      stakeCooldownSeconds: number;
+      stakeUnstakeWindow: number;
+      stakeTokenPriceEth: string;
+      rewardTokenPriceEth: string;
+      stakeApy: string;
+      distributionPerSecond: string;
+      distributionEnd: string;
+    };
     aave: {
       __typename?: 'StakeGeneralData';
       stakeTokenTotalSupply: string;
@@ -7601,6 +7636,14 @@ export type C_StakeGeneralUiDataUpdateSubscription = {
 export type StakeUserUiDataFragmentFragment = {
   __typename?: 'StakeUserUIData';
   usdPriceEth: string;
+  rdnt: {
+    __typename?: 'StakeUserData';
+    stakeTokenUserBalance: string;
+    underlyingTokenUserBalance: string;
+    userCooldown: number;
+    userIncentivesToClaim: string;
+    userPermitNonce: string;
+  };
   aave: {
     __typename?: 'StakeUserData';
     stakeTokenUserBalance: string;
@@ -7628,6 +7671,14 @@ export type C_StakeUserUiDataQuery = {
   stakeUserUIData: {
     __typename?: 'StakeUserUIData';
     usdPriceEth: string;
+    rdnt: {
+      __typename?: 'StakeUserData';
+      stakeTokenUserBalance: string;
+      underlyingTokenUserBalance: string;
+      userCooldown: number;
+      userIncentivesToClaim: string;
+      userPermitNonce: string;
+    };
     aave: {
       __typename?: 'StakeUserData';
       stakeTokenUserBalance: string;
@@ -7656,6 +7707,14 @@ export type C_StakeUserUiDataUpdateSubscription = {
   stakeUserUIDataUpdate: {
     __typename?: 'StakeUserUIData';
     usdPriceEth: string;
+    rdnt: {
+      __typename?: 'StakeUserData';
+      stakeTokenUserBalance: string;
+      underlyingTokenUserBalance: string;
+      userCooldown: number;
+      userIncentivesToClaim: string;
+      userPermitNonce: string;
+    };
     aave: {
       __typename?: 'StakeUserData';
       stakeTokenUserBalance: string;
@@ -7882,6 +7941,16 @@ export const BaseCurrencyDataFragmentFragmentDoc = gql`
 `;
 export const StakeGeneralUiDataFragmentFragmentDoc = gql`
   fragment StakeGeneralUIDataFragment on StakeGeneralUIData {
+    rdnt {
+      stakeTokenTotalSupply
+      stakeCooldownSeconds
+      stakeUnstakeWindow
+      stakeTokenPriceEth
+      rewardTokenPriceEth
+      stakeApy
+      distributionPerSecond
+      distributionEnd
+    }
     aave {
       stakeTokenTotalSupply
       stakeCooldownSeconds
@@ -7907,6 +7976,13 @@ export const StakeGeneralUiDataFragmentFragmentDoc = gql`
 `;
 export const StakeUserUiDataFragmentFragmentDoc = gql`
   fragment StakeUserUIDataFragment on StakeUserUIData {
+    rdnt {
+      stakeTokenUserBalance
+      underlyingTokenUserBalance
+      userCooldown
+      userIncentivesToClaim
+      userPermitNonce
+    }
     aave {
       stakeTokenUserBalance
       underlyingTokenUserBalance

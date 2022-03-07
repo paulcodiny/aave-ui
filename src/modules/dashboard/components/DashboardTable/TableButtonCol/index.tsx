@@ -21,7 +21,7 @@ export default function TableButtonCol({
   disabled,
   withoutBorder,
 }: TableButtonColProps) {
-  const { currentTheme, xl, lg, md } = useThemeContext();
+  const { currentTheme } = useThemeContext();
 
   const columnWidth = 80;
 

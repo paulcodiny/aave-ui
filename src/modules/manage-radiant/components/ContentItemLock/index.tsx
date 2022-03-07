@@ -27,13 +27,13 @@ interface ContentItemLockProps {
   amount?: BigNumber;
   walletBalance: BigNumber;
   walletBalanceUSD: BigNumber;
-  user?: UserSummary;
+  user: UserSummary;
   poolReserve: ComputedReserveData;
   userReserve?: ComputedUserReserve;
 }
 
 function ContentItemLock({
-  // maxAmount,
+  maxAmount,
   currencySymbol,
   onSubmit = () => {},
   poolReserve,
@@ -43,25 +43,13 @@ function ContentItemLock({
   walletBalance,
 }: ContentItemLockProps) {
   // todo:pavlik
-  const maxAmount = '123';
-  // const amount = new BigNumber('100');
 
-  console.log({ currencySymbol, poolReserve, userReserve, user, walletBalance });
+  // const amount = new BigNumber('100');
 
   const intl = useIntl();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const [amount, setAmount] = useState<BigNumber | null>(null);
   const assetDetails = getAssetInfo(poolReserve.symbol);
-
-  if (!user) {
-    return (
-      <NoDataPanel
-        title={intl.formatMessage(depositConfirmationMessages.connectWallet)}
-        description={intl.formatMessage(depositConfirmationMessages.connectWalletDescription)}
-        withConnectButton={true}
-      />
-    );
-  }
 
   const amountIntEth = walletBalance.multipliedBy(poolReserve.priceInMarketReferenceCurrency);
   const amountInUsd = amountIntEth.multipliedBy(marketRefPriceInUsd);

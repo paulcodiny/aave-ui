@@ -107,11 +107,11 @@ const parserProposals = async (
 const INTERVAL_POOL = 120000; // 2 min
 
 const useGetProposalsRPC = ({
-                              skip = false,
-                              averageNetworkBlockTime,
-                              governanceService,
-                              chainId,
-                            }: {
+  skip = false,
+  averageNetworkBlockTime,
+  governanceService,
+  chainId,
+}: {
   skip: boolean;
   averageNetworkBlockTime: number;
   governanceService: AaveGovernanceService;

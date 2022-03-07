@@ -46,9 +46,17 @@ export default function routeParamValidationHOC({
   return (ChildComponent: React.ComponentType<ValidationWrapperComponentProps>) =>
     ({ match, location, history }: RouteComponentProps<CurrencyRouteParamsInterface>) => {
       const intl = useIntl();
-      // todo:pavlik default asset RDNT
+
+      // todo:pavlik:staking default asset RDNT
+      const ARBITRUM_AAVE = '0x2e2994cf25a177bd8c9c8dd36b1dd3f331806a57';
+      // const ARBITRUM_RINKEBY_DAI = '0xac18c05990171fc83a67fe4282665cd38ed050c7';
+      // const ARBITRUM_ETH = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
+      // const GEIST_TOKEN = '0x69d6CB6c9c447A9a7c88b71D9C1b078Fba1432f3';
+      // const KOVAN_DAI = '0x001b3b4d0f3714ca98ba10f6042daebf0b1b7b6f';
       const underlyingAsset = (
-        match.params.underlyingAsset || '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+        match.params.underlyingAsset ||
+        localStorage.getItem('stakeToken') ||
+        ARBITRUM_AAVE
       ).toUpperCase();
       const reserveId = match.params.id;
 

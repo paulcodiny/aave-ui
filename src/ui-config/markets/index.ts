@@ -4,7 +4,7 @@ import { MarketDataType } from '../../helpers/config/types';
 import * as logos from './images';
 
 export enum CustomMarket {
-  // proto_kovan = 'proto_kovan',
+  // proto_kovan = 'proto_kovan', // todo:pavlik testing
   // proto_mainnet = 'proto_mainnet',
   // proto_avalanche = 'proto_avalanche',
   proto_matic = 'proto_matic',
@@ -16,6 +16,7 @@ export enum CustomMarket {
 }
 
 export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType } = {
+  // todo:pavlik testing
   // [CustomMarket.proto_kovan]: {
   //   chainId: ChainId.kovan,
   //   logo: logos.aavev2Logo,

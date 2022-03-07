@@ -55,7 +55,6 @@ const staticStyles = css.global`
         align-items: center;
         justify-content: center;
         @include respond-to(xl) {
-
         }
         @include respond-to(sm) {
           width: 100px;
@@ -67,7 +66,6 @@ const staticStyles = css.global`
     .MarketSelectButton__subLogo {
       height: 25px;
       @include respond-to(xl) {
-
       }
       @include respond-to(sm) {
         height: 45px;

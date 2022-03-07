@@ -119,7 +119,8 @@ export default function TxConfirmationView({
   const allowedChainIds = _allowedChainIds?.filter((chainId) =>
     getSupportedChainIds().includes(chainId)
   );
-  // current marketNetwork is supported if the action is either not restricted to a network or the network is in the allow list
+  // current marketNetwork is supported if the action is either
+  // not restricted to a network or the network is in the allow-list
   const currentMarketNetworkIsSupported =
     !allowedChainIds ||
     allowedChainIds?.find((network) =>
@@ -130,11 +131,22 @@ export default function TxConfirmationView({
 
   let networkMismatch = false;
   let neededChainId = getDefaultChainId();
+  console.log('NetworkMismatch 1 && 2 !== 3', {
+    currentMarketNetworkIsSupported,
+    currentMarketChainId,
+    currentWalletChainId,
+  });
 
   if (currentMarketNetworkIsSupported && currentMarketChainId !== currentWalletChainId) {
     networkMismatch = true;
     neededChainId = currentMarketChainId;
   }
+
+  console.log('NetworkMismatch !1 && 2 !== 3', {
+    currentMarketNetworkIsSupported,
+    txChainId,
+    currentWalletChainId,
+  });
 
   if (!currentMarketNetworkIsSupported && txChainId !== currentWalletChainId) {
     networkMismatch = true;

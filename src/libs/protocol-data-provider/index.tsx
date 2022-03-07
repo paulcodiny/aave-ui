@@ -30,6 +30,7 @@ const getInitialMarket = () => {
   const cachedMarket = localStorage.getItem(LS_KEY) as CustomMarket | undefined;
   if (cachedMarket && availableMarkets.includes(cachedMarket)) return cachedMarket;
   return availableMarkets[0];
+  // return availableMarkets[1]; // todo:pavlik testing
 };
 
 export function ProtocolDataProvider({ children }: PropsWithChildren<{}>) {

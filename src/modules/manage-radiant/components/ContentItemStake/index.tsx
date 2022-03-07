@@ -1,19 +1,50 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
+import { BigNumber } from '@aave/protocol-js';
+import { ComputedUserReserve } from '@aave/math-utils';
 
+import {
+  ComputedReserveData,
+  UserSummary,
+  useStaticPoolDataContext,
+} from '../../../../libs/pool-data-provider';
 import BasicForm from '../../../../components/forms/BasicForm';
+import Value from '../../../../components/basic/Value';
 import ContentItem from '../ContentItem';
 
 import defaultMessages from '../../../../defaultMessages';
 import iconCoins from '../../images/icon-coins.svg';
 import staticStyles from './style';
+import StakeConfirmation from '../StakeConfirmation';
 
-export function ContentItemStake(props: {
+interface ContentItemStakeProps {
   maxAmount: string;
   currencySymbol: string;
   onSubmit: () => void;
-}) {
+  amount?: BigNumber;
+  walletBalance: BigNumber;
+  walletBalanceUSD: BigNumber;
+  user?: UserSummary;
+  poolReserve: ComputedReserveData;
+  userReserve?: ComputedUserReserve;
+}
+
+export function ContentItemStake({
+  maxAmount,
+  currencySymbol,
+  poolReserve,
+  userReserve,
+  user,
+  onSubmit,
+  walletBalance,
+}: ContentItemStakeProps) {
   const intl = useIntl();
+  const { marketRefPriceInUsd } = useStaticPoolDataContext();
+
+  const [amount, setAmount] = useState<BigNumber | null>(null);
+
+  const amountIntEth = walletBalance.multipliedBy(poolReserve.priceInMarketReferenceCurrency);
+  const amountInUsd = amountIntEth.multipliedBy(marketRefPriceInUsd);
 
   return (
     <>
@@ -23,25 +54,33 @@ export function ContentItemStake(props: {
         apr="72.53%"
         description={<p>Stake RADIANT and earn platform fees with on lockup period</p>}
       >
-        <div className="ManageRadiant__form-legend">
-          <label className="ManageRadiant__input-label">Wallet Balance:</label>
+        {!!amount ? (
+          <StakeConfirmation amount={amount} />
+        ) : (
+          <>
+            <div className="ManageRadiant__form-legend">
+              <label className="ManageRadiant__input-label">Wallet Balance:</label>
 
-          <div className="ManageRadiant__value">
-            <span className="ManageRadiant__value-rnd">
-              <strong>581</strong> RADIANT
-            </span>
-            <br />
-            <span className="ManageRadiant__value-usd">$ 1543</span>
-          </div>
-        </div>
-        <div className="ManageRadiant__form-controls">
-          <BasicForm
-            maxAmount={props.maxAmount}
-            currencySymbol={props.currencySymbol}
-            onSubmit={props.onSubmit}
-            submitButtonTitle={intl.formatMessage(defaultMessages.stake)}
-          />
-        </div>
+              <Value
+                className="ManageRadiant__value"
+                symbol={currencySymbol}
+                value={walletBalance.toString()}
+                tokenIcon={true}
+                subValue={amountInUsd.toString()}
+                subSymbol="USD"
+                tooltipId={currencySymbol}
+              />
+            </div>
+            <div className="ManageRadiant__form-controls">
+              <BasicForm
+                maxAmount={maxAmount}
+                currencySymbol={currencySymbol}
+                onSubmit={(amount) => setAmount(new BigNumber(amount))}
+                submitButtonTitle={intl.formatMessage(defaultMessages.stake)}
+              />
+            </div>
+          </>
+        )}
       </ContentItem>
 
       <style jsx={true} global={true}>

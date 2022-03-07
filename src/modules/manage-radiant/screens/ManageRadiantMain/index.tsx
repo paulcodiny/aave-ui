@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useThemeContext } from '@aave/aave-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
-import { Stake, valueToBigNumber } from '@aave/protocol-js';
+import { valueToBigNumber } from '@aave/protocol-js';
 
+import { Stake } from '../../../../libs/aave-protocol-js';
+import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
+import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
 import routeParamValidationHOC, {
   ValidationWrapperComponentProps,
 } from '../../../../components/RouteParamsValidationWrapper';
-import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
-import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
+import NoDataPanel from '../../../../components/NoDataPanel';
 import ContentWrapperWithTopLine from '../../../../components/wrappers/ContentWrapperWithTopLine';
 import GradientLine from '../../../../components/basic/GradientLine';
 import Row from '../../../../components/basic/Row';
@@ -22,19 +24,14 @@ import { TopStats } from '../../components/TopStats';
 import { Table } from '../../components/Table';
 import { MainStats } from '../../components/MainStats';
 
+import depositConfirmationMessages from '../../../deposit/screens/DepositConfirmation/messages';
 import messages from './messages';
 import staticStyles from './style';
 
 interface ContentItemLockProps
   extends Pick<
     ValidationWrapperComponentProps,
-    | 'userReserve'
-    | 'poolReserve'
-    | 'user'
-    | 'currencySymbol'
-    | 'walletBalance'
-    | 'walletBalanceUSD'
-    | 'amount'
+    'userReserve' | 'poolReserve' | 'user' | 'currencySymbol' | 'walletBalance' | 'walletBalanceUSD'
   > {}
 
 export function ManageRadiantMain({
@@ -42,27 +39,24 @@ export function ManageRadiantMain({
   poolReserve,
   userReserve,
   user,
-  amount,
   walletBalance,
   walletBalanceUSD,
 }: ContentItemLockProps) {
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
-  const {
-    data,
-    cooldownStep,
-    setCooldownStep,
-    usdPriceEth,
-    selectedStake,
-    // selectedStakeData: { underlyingTokenUserBalance },
-  } = useStakeDataContext();
+  const { data, cooldownStep, setCooldownStep, usdPriceEth, selectedStake } = useStakeDataContext();
 
-  // todo: connect tha actual route object to this withBalance etc and pass them to ContentItemLock/Stake
+  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.rdnt);
 
-  // todo:pavlik selectedStakeData: { underlyingTokenUserBalance },
-  const underlyingTokenUserBalance = '123';
-
-  const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.aave);
+  if (!user) {
+    return (
+      <NoDataPanel
+        title={intl.formatMessage(depositConfirmationMessages.connectWallet)}
+        description={intl.formatMessage(depositConfirmationMessages.connectWalletDescription)}
+        withConnectButton={true}
+      />
+    );
+  }
 
   const currencyName = selectedStake.toUpperCase();
   const selectedStakeData = data[currentAsset];
@@ -141,21 +135,25 @@ export function ManageRadiantMain({
           <div className="ManageRadiant__content">
             <div className="ManageRadiant__left-column">
               <ContentItemStake
-                maxAmount={underlyingTokenUserBalance}
+                maxAmount={walletBalance.toString(10)}
                 currencySymbol={currencySymbol}
                 onSubmit={handleSubmit}
-              />
-
-              <ContentItemLock
-                maxAmount={underlyingTokenUserBalance}
-                currencySymbol={currencySymbol}
-                onSubmit={handleSubmit}
+                walletBalance={walletBalance}
+                walletBalanceUSD={walletBalanceUSD}
                 poolReserve={poolReserve}
                 userReserve={userReserve}
                 user={user}
-                amount={amount}
+              />
+
+              <ContentItemLock
+                maxAmount={walletBalance.toString(10)}
+                currencySymbol={currencySymbol}
+                onSubmit={handleSubmit}
                 walletBalance={walletBalance}
                 walletBalanceUSD={walletBalanceUSD}
+                poolReserve={poolReserve}
+                userReserve={userReserve}
+                user={user}
               />
 
               <ContentItemHelp />

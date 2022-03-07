@@ -6,13 +6,12 @@ import defaultMessages from '../../../../defaultMessages';
 
 import messages from './messages';
 import PoolTxConfirmationView from '../../../../components/PoolTxConfirmationView';
-import { getReferralCode } from '../../../../libs/referral-handler';
 import { ComputedReserveData, UserSummary } from '../../../../libs/pool-data-provider';
-import { useTxBuilderContext } from '../../../../libs/tx-provider';
 import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
 import NoDataPanel from '../../../../components/NoDataPanel';
 import { ComputedUserReserve } from '@aave/math-utils';
 import { getAssetInfo } from '../../../../helpers/config/assets-config';
+import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 
 interface LockConfirmationProps {
   maxAmount: string;
@@ -43,7 +42,7 @@ function LockConfirmation({
   });
 
   const intl = useIntl();
-  const { lendingPool } = useTxBuilderContext();
+  const { stakingService } = useStakeDataContext();
 
   const aTokenData = getAtokenInfo({
     address: poolReserve.aTokenAddress,
@@ -70,12 +69,9 @@ function LockConfirmation({
   }
 
   const handleGetTransactions = async () => {
-    return lendingPool.lock({
-      user: user.id,
-      reserve: poolReserve.underlyingAsset,
-      amount: amount.toString(),
-      referralCode: getReferralCode(),
-    });
+    // todo: change to stake first and then to lock
+    // first stake, then stake again in multiFeeDistribution
+    return stakingService.stake(user.id, amount.toString());
   };
 
   return (

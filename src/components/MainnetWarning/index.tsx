@@ -12,7 +12,7 @@ export default function MainnetWarning() {
   const { currentTheme } = useThemeContext();
 
   // todo:pavlik this will enable mainnet-only features
-  if (chainId === 1 || chainId === 42 || chainId === undefined) return null;
+  if (!chainId || [1, 42, 421611].includes(chainId)) return null;
 
   return (
     <div className="MainnetWarning">

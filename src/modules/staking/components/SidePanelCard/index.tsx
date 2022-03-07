@@ -5,7 +5,6 @@ import { useThemeContext } from '@aave/aave-ui-kit';
 
 import CooldownUnstakeHelpModal from '../../../../components/HelpModal/CooldownUnstakeHelpModal';
 import Value from '../../../../components/basic/Value';
-import GradientText from '../../../../components/basic/GradientText';
 
 import staticStyles from './style';
 

@@ -93,16 +93,16 @@ export function useCachedStakeData(currentAccount?: string, skip = false): Stake
     };
   }
   const stakeUserData = stakeUserResult?.stakeUserUIData || {
-    aave: zeroStakeUserData,
-    bpt: zeroStakeUserData,
+    rdnt: zeroStakeUserData,
+    // bpt: zeroStakeUserData,
   };
   const usdPriceEth = stakeGeneralData?.usdPriceEth!;
 
   return {
     loading,
     data: {
-      aave: { ...stakeGeneralData.aave, ...stakeUserData.aave },
-      bpt: { ...stakeGeneralData.bpt, ...stakeUserData.bpt },
+      rdnt: { ...stakeGeneralData.rdnt, ...stakeUserData.rdnt },
+      // bpt: { ...stakeGeneralData.bpt, ...stakeUserData.bpt },
     },
     usdPriceEth,
   };

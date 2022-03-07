@@ -1,4 +1,4 @@
-import { Stake } from '@aave/protocol-js';
+import { Stake } from '../../aave-protocol-js';
 
 export interface StakeGeneralDataT<SimpleNumber, BN> {
   stakeTokenTotalSupply: BN;
@@ -26,8 +26,7 @@ export type StakeUserData = StakeUserDataT<number, string>;
 export type StakeData = StakeGeneralData & StakeUserData;
 
 export type StakesData = {
-  [Stake.aave]: StakeData;
-  [Stake.bpt]: StakeData;
+  [Stake.rdnt]: StakeData;
 };
 
 export type ComputedStakeData = StakeData & {
@@ -37,6 +36,5 @@ export type ComputedStakeData = StakeData & {
 };
 
 export type ComputedStakesData = {
-  [Stake.aave]: ComputedStakeData;
-  [Stake.bpt]: ComputedStakeData;
+  [Stake.rdnt]: ComputedStakeData;
 };
