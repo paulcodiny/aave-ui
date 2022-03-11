@@ -2,89 +2,68 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber } from '@aave/protocol-js';
 
-import defaultMessages from '../../../../defaultMessages';
-
-import messages from './messages';
-import PoolTxConfirmationView from '../../../../components/PoolTxConfirmationView';
-import { ComputedReserveData, UserSummary } from '../../../../libs/pool-data-provider';
-import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
-import NoDataPanel from '../../../../components/NoDataPanel';
-import { ComputedUserReserve } from '@aave/math-utils';
-import { getAssetInfo } from '../../../../helpers/config/assets-config';
+import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
+import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
+import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MultiFeeDistributionContract';
+import { getProvider } from '../../../../helpers/config/markets-and-network-config';
+
+import Row from '../../../../components/basic/Row';
+import Value from '../../../../components/basic/Value';
+import StakeTxConfirmationView from '../../../staking/components/StakeTxConfirmationView';
+
+import defaultMessages from '../../../../defaultMessages';
+import messages from './messages';
+import stakeMessages from '../../../staking/screens/StakeWithApprovalConfirmation/messages';
 
 interface LockConfirmationProps {
-  maxAmount: string;
-  currencySymbol: string;
-  onSubmit: () => void;
   amount: BigNumber;
-  walletBalance: BigNumber;
-  user?: UserSummary;
-  poolReserve: ComputedReserveData;
-  userReserve?: ComputedUserReserve;
+  maxAmount: BigNumber;
 }
 
-function LockConfirmation({
-  onSubmit = () => {},
-  currencySymbol,
-  poolReserve,
-  userReserve,
-  user,
-  amount,
-  walletBalance,
-}: LockConfirmationProps) {
-  console.log({
-    currencySymbol,
-    poolReserve,
-    userReserve,
-    user,
-    amount,
-  });
-
+function LockConfirmation({ amount, maxAmount }: LockConfirmationProps) {
   const intl = useIntl();
-  const { stakingService } = useStakeDataContext();
+  const { selectedStake } = useStakeDataContext();
+  const { chainId } = useProtocolDataContext();
+  const { userId } = useStaticPoolDataContext();
+  // todo:pavlik selectedStake and selectedStakeData should be adjusted to RDNT
 
-  const aTokenData = getAtokenInfo({
-    address: poolReserve.aTokenAddress,
-    symbol: currencySymbol,
-    decimals: poolReserve.decimals,
-  });
-  const assetDetails = getAssetInfo(poolReserve.symbol);
-
-  if (!user) {
-    return (
-      <NoDataPanel
-        title={intl.formatMessage(messages.connectWallet)}
-        description={intl.formatMessage(messages.connectWalletDescription)}
-        withConnectButton={true}
-      />
-    );
+  if (!amount || !userId) {
+    return null;
   }
 
+  const multiFeeDistributionService = new MultiFeeDistributionService(getProvider(chainId));
+  const handleGetTransactions = () =>
+    multiFeeDistributionService.stake(userId, amount.toString(), true);
+
   let blockingError = '';
-  if (walletBalance.lt(amount)) {
-    blockingError = intl.formatMessage(messages.errorWalletBalanceNotEnough, {
-      poolReserveSymbol: assetDetails.formattedSymbol || assetDetails.symbol,
+  if (amount.gt(maxAmount)) {
+    blockingError = intl.formatMessage(stakeMessages.notEnoughBalance, {
+      asset: selectedStake.toUpperCase(),
     });
   }
 
-  const handleGetTransactions = async () => {
-    // todo: change to stake first and then to lock
-    // first stake, then stake again in multiFeeDistribution
-    return stakingService.stake(user.id, amount.toString());
-  };
-
   return (
-    <PoolTxConfirmationView
-      className="LockConfirmation"
-      mainTxName={intl.formatMessage(defaultMessages.lock)}
-      boxTitle={intl.formatMessage(defaultMessages.lock)}
-      boxDescription={intl.formatMessage(messages.boxDescription)}
-      approveDescription={intl.formatMessage(messages.approveDescription)}
+    <StakeTxConfirmationView
       getTransactionsData={handleGetTransactions}
+      boxTitle={intl.formatMessage(defaultMessages.lock, { asset: selectedStake.toUpperCase() })}
+      boxDescription={intl.formatMessage(messages.boxDescription)}
+      mainTxName={intl.formatMessage(defaultMessages.lock, { asset: selectedStake.toUpperCase() })}
+      mainTxType="LOCK_ACTION"
       blockingError={blockingError}
-      aTokenData={aTokenData}
-    />
+      goToAfterSuccess="/manage-radiant"
+      successButtonTitle={intl.formatMessage(messages.backToStaking)}
+      buttonTitle={intl.formatMessage(messages.buttonTitle)}
+    >
+      <Row title={intl.formatMessage(messages.amount)}>
+        <Value
+          symbol={selectedStake.toUpperCase()}
+          value={amount.toString()}
+          tokenIcon={true}
+          tooltipId={selectedStake.toUpperCase()}
+        />
+      </Row>
+    </StakeTxConfirmationView>
   );
 }
 

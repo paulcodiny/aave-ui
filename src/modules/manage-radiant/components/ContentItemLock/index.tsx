@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { BigNumber } from '@aave/protocol-js';
+import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
 
 import BasicForm from '../../../../components/forms/BasicForm';
 import ContentItem from '../ContentItem';
@@ -71,16 +71,7 @@ function ContentItemLock({
         }
       >
         {!!amount ? (
-          <LockConfirmation
-            maxAmount={maxAmount}
-            currencySymbol={currencySymbol}
-            onSubmit={(...args) => console.log(args)}
-            amount={amount}
-            user={user}
-            userReserve={userReserve}
-            walletBalance={walletBalance}
-            poolReserve={poolReserve}
-          />
+          <LockConfirmation amount={amount} maxAmount={valueToBigNumber(maxAmount)} />
         ) : (
           <>
             <div className="ManageRadiant__form-legend">

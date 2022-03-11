@@ -175,6 +175,7 @@ export default function TxConfirmationView({
           'DLP_ACTION',
           'GOVERNANCE_ACTION',
           'STAKE_ACTION',
+          'LOCK_ACTION',
           'GOV_DELEGATION_ACTION',
           'REWARD_ACTION',
           mainTxType,

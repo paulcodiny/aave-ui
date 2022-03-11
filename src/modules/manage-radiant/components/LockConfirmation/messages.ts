@@ -1,16 +1,15 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  errorWalletBalanceNotEnough: `Your {poolReserveSymbol} wallet balance is not enough`,
+  title: 'Lock overview',
+  description:
+    'These are your transaction details for staking {asset} to the {module}. Make sure to check if this is correct before submitting.',
+  safetyModule: 'Safety Module',
+  amount: 'Amount',
+  stake: 'Lock {asset}',
   boxDescription: 'Please submit to lock',
-  approveDescription: 'Please approve before locking',
-  valueRowTitle: 'Amount',
-  newHealthFactor: 'New health factor',
+  backToStaking: 'Back to lock',
 
-  connectWallet: 'Please connect a wallet',
-  connectWalletDescription:
-    'We couldn’t detect a wallet. Connect a wallet to lock and see your balance grow.',
-  collateral: 'Collateral Usage',
-  yes: 'Yes',
-  no: 'No',
+  notEnoughBalance: 'Not enough {asset} to lock',
+  buttonTitle: 'Lock',
 });
