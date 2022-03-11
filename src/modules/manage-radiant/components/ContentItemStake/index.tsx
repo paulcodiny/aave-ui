@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
-import { BigNumber } from '@aave/protocol-js';
+import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
 import { ComputedUserReserve } from '@aave/math-utils';
 
 import {
@@ -55,7 +55,7 @@ export function ContentItemStake({
         description={<p>Stake RADIANT and earn platform fees with on lockup period</p>}
       >
         {!!amount ? (
-          <StakeConfirmation amount={amount} />
+          <StakeConfirmation amount={amount} maxAmount={valueToBigNumber(maxAmount)} />
         ) : (
           <>
             <div className="ManageRadiant__form-legend">

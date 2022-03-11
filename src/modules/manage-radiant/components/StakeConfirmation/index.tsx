@@ -2,38 +2,40 @@ import React from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber } from '@aave/protocol-js';
 
-import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
+import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MultiFeeDistributionContract';
+import { getProvider } from '../../../../helpers/config/markets-and-network-config';
+import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
+
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
-import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
 import Row from '../../../../components/basic/Row';
 import Value from '../../../../components/basic/Value';
 import StakeTxConfirmationView from '../../../staking/components/StakeTxConfirmationView';
 
 import stakeMessages from '../../../staking/screens/StakeWithApprovalConfirmation/messages';
+import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 
 interface StakeConfirmationProps {
   amount: BigNumber;
+  maxAmount: BigNumber;
 }
 
-function StakeConfirmation({ amount }: StakeConfirmationProps) {
-  debugger;
+function StakeConfirmation({ amount, maxAmount }: StakeConfirmationProps) {
   const intl = useIntl();
+  const { selectedStake } = useStakeDataContext();
+  const { chainId } = useProtocolDataContext();
   const { userId } = useStaticPoolDataContext();
-  const { selectedStake, selectedStakeData, stakingService } = useStakeDataContext();
   // todo:pavlik selectedStake and selectedStakeData should be adjusted to RDNT
 
-  const aTokenData = getAtokenInfo({
-    address: stakingService.stakingContractAddress,
-    symbol: selectedStake.toUpperCase(),
-    decimals: 18,
-    prefix: 'stk',
-  });
+  if (!amount || !userId) {
+    return null;
+  }
 
-  const handleGetTransactions = async () =>
-    await stakingService.stake(userId as string, amount.toString());
+  const multiFeeDistributionService = new MultiFeeDistributionService(getProvider(chainId));
+  const handleGetTransactions = () =>
+    multiFeeDistributionService.stake(userId, amount.toString(), false);
 
   let blockingError = '';
-  if (amount.gt(selectedStakeData.underlyingTokenUserBalance)) {
+  if (amount.gt(maxAmount)) {
     blockingError = intl.formatMessage(stakeMessages.notEnoughBalance, {
       asset: selectedStake.toUpperCase(),
     });
@@ -50,7 +52,6 @@ function StakeConfirmation({ amount }: StakeConfirmationProps) {
       goToAfterSuccess="/manage-radiant"
       successButtonTitle={intl.formatMessage(stakeMessages.backToStaking)}
       buttonTitle={intl.formatMessage(stakeMessages.buttonTitle)}
-      aTokenData={aTokenData}
     >
       <Row title={intl.formatMessage(stakeMessages.amount)}>
         <Value
