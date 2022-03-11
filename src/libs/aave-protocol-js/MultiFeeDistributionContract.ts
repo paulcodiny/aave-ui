@@ -58,7 +58,6 @@ export class MultiFeeDistributionService
     amount: string,
     isLock: boolean
   ): Promise<EthereumTransactionTypeExtended[]> {
-    debugger;
     const txs: EthereumTransactionTypeExtended[] = [];
     const { decimalsOf, isApproved, approve } = this.erc20Service;
 
