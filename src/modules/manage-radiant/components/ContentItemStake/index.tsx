@@ -11,11 +11,11 @@ import {
 import BasicForm from '../../../../components/forms/BasicForm';
 import Value from '../../../../components/basic/Value';
 import ContentItem from '../ContentItem';
+import StakeConfirmation from '../StakeConfirmation';
 
 import defaultMessages from '../../../../defaultMessages';
 import iconCoins from '../../images/icon-coins.svg';
 import staticStyles from './style';
-import StakeConfirmation from '../StakeConfirmation';
 
 interface ContentItemStakeProps {
   maxAmount: string;
@@ -55,7 +55,13 @@ export function ContentItemStake({
         description={<p>Stake RADIANT and earn platform fees with on lockup period</p>}
       >
         {!!amount ? (
-          <StakeConfirmation amount={amount} maxAmount={valueToBigNumber(maxAmount)} />
+          <StakeConfirmation
+            amount={amount}
+            maxAmount={valueToBigNumber(maxAmount)}
+            onAfterSuccessClick={() => {
+              setAmount(null);
+            }}
+          />
         ) : (
           <>
             <div className="ManageRadiant__form-legend">

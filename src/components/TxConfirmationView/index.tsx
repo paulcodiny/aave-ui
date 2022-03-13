@@ -1,4 +1,4 @@
-import React, { ReactNode, ReactNodeArray, useEffect, useState } from 'react';
+import React, { ChangeEvent, ReactNode, ReactNodeArray, useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
 import { EthereumTransactionTypeExtended } from '@aave/protocol-js';
@@ -52,6 +52,7 @@ export interface TxConfirmationViewProps {
   goToAfterSuccess?: string;
   successButtonTitle?: string;
   buttonTitle?: string;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 
   warningMessage?: string;
   dangerousMessage?: string | null | {} | ReactNodeArray;
@@ -83,6 +84,7 @@ export default function TxConfirmationView({
 
   goToAfterSuccess,
   successButtonTitle,
+  onAfterSuccessClick = () => {},
   buttonTitle,
 
   warningMessage,
@@ -345,6 +347,7 @@ export default function TxConfirmationView({
                     }}
                     successButtonTitle={successButtonTitle}
                     goToAfterSuccess={goToAfterSuccess}
+                    onAfterSuccessClick={onAfterSuccessClick}
                     buttonTitle={buttonTitle || boxTitle}
                     txStatus={actionTxData.txStatus}
                     loading={actionTxData.loading}

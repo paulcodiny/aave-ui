@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { MessageDescriptor, useIntl } from 'react-intl';
 import classNames from 'classnames';
 
@@ -16,14 +16,16 @@ interface TextStatusProps {
   successButtonTitle?: string;
   submitted?: boolean;
   numberOfSteps?: number;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 }
 
 export default function TextStatus({
   txStatus,
-  goToAfterSuccess,
+  goToAfterSuccess = '/dashboard',
   successButtonTitle,
   submitted,
   numberOfSteps,
+  onAfterSuccessClick = () => {},
 }: TextStatusProps) {
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
@@ -39,6 +41,23 @@ export default function TextStatus({
 
   const step = (numberOfSteps || 1) + 1;
 
+  const afterClickButton = (
+    <DefaultButton
+      className="TextStatus__button"
+      title={successButtonTitle || intl.formatMessage(messages.dashboard)}
+      color="purple"
+      onClick={onAfterSuccessClick}
+    />
+  );
+
+  const afterClick = goToAfterSuccess ? (
+    <Link to={goToAfterSuccess} className="ButtonLink">
+      {afterClickButton}
+    </Link>
+  ) : (
+    afterClickButton
+  );
+
   return (
     <div className={classNames('TextStatus', `TextStatus__${txStatus}`)}>
       {statusTitle && (
@@ -49,15 +68,7 @@ export default function TextStatus({
         </p>
       )}
 
-      {txStatus === 'confirmed' && (
-        <Link to={goToAfterSuccess || '/dashboard'} className="ButtonLink">
-          <DefaultButton
-            className="TextStatus__button"
-            title={successButtonTitle || intl.formatMessage(messages.dashboard)}
-            color="purple"
-          />
-        </Link>
-      )}
+      {txStatus === 'confirmed' && afterClick}
 
       <style jsx={true} global={true}>
         {staticStyles}

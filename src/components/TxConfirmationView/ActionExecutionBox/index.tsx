@@ -1,4 +1,4 @@
-import React, { FormEvent } from 'react';
+import React, { ChangeEvent, FormEvent } from 'react';
 import { useIntl } from 'react-intl';
 
 import { TxStatusType } from '../../../helpers/send-ethereum-tx';
@@ -18,6 +18,7 @@ export interface ActionExecutionBoxProps {
   failed?: string;
   error?: boolean;
   numberOfSteps?: number;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 }
 
 export default function ActionExecutionBox({
@@ -32,6 +33,7 @@ export default function ActionExecutionBox({
   failed,
   error,
   numberOfSteps,
+  onAfterSuccessClick = () => {},
 }: ActionExecutionBoxProps) {
   const intl = useIntl();
 
@@ -55,6 +57,7 @@ export default function ActionExecutionBox({
         error={error}
         failed={failed}
         numberOfSteps={numberOfSteps}
+        onAfterSuccessClick={onAfterSuccessClick}
       />
     </form>
   );

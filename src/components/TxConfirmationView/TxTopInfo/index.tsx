@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ChangeEvent, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useIntl } from 'react-intl';
 import classNames from 'classnames';
@@ -28,6 +28,7 @@ interface TxTopInfoProps {
   loading?: boolean;
   failed?: string;
   numberOfSteps?: number;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 }
 
 export default function TxTopInfo({
@@ -41,6 +42,7 @@ export default function TxTopInfo({
   error,
   failed,
   numberOfSteps,
+  onAfterSuccessClick = () => {},
 }: TxTopInfoProps) {
   const intl = useIntl();
   const history = useHistory();
@@ -125,6 +127,7 @@ export default function TxTopInfo({
           successButtonTitle={successButtonTitle}
           goToAfterSuccess={goToAfterSuccess}
           numberOfSteps={numberOfSteps}
+          onAfterSuccessClick={onAfterSuccessClick}
         />
       )}
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber } from '@aave/protocol-js';
 
@@ -17,9 +17,14 @@ import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 interface StakeConfirmationProps {
   amount: BigNumber;
   maxAmount: BigNumber;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 }
 
-function StakeConfirmation({ amount, maxAmount }: StakeConfirmationProps) {
+function StakeConfirmation({
+  amount,
+  maxAmount,
+  onAfterSuccessClick = () => {},
+}: StakeConfirmationProps) {
   const intl = useIntl();
   const { selectedStake } = useStakeDataContext();
   const { chainId } = useProtocolDataContext();
@@ -49,7 +54,8 @@ function StakeConfirmation({ amount, maxAmount }: StakeConfirmationProps) {
       mainTxName={intl.formatMessage(stakeMessages.stake, { asset: selectedStake.toUpperCase() })}
       mainTxType="STAKE_ACTION"
       blockingError={blockingError}
-      goToAfterSuccess="/manage-radiant"
+      goToAfterSuccess={''}
+      onAfterSuccessClick={onAfterSuccessClick}
       successButtonTitle={intl.formatMessage(stakeMessages.backToStaking)}
       buttonTitle={intl.formatMessage(stakeMessages.buttonTitle)}
     >

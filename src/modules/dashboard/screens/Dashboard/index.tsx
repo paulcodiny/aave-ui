@@ -222,7 +222,7 @@ export default function Dashboard() {
       {/*  <IncentiveWrapper />*/}
       {/*</div>*/}
 
-      {user && <DepositBorrowTopPanel />}
+      {user && !!depositedPositions.length && <DepositBorrowTopPanel />}
 
       {user && !!depositedPositions.length && !isBorrow && (
         <MobileTopPanelWrapper

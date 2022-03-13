@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber } from '@aave/protocol-js';
 
@@ -19,9 +19,14 @@ import stakeMessages from '../../../staking/screens/StakeWithApprovalConfirmatio
 interface LockConfirmationProps {
   amount: BigNumber;
   maxAmount: BigNumber;
+  onAfterSuccessClick?: (e: ChangeEvent) => void;
 }
 
-function LockConfirmation({ amount, maxAmount }: LockConfirmationProps) {
+function LockConfirmation({
+  amount,
+  maxAmount,
+  onAfterSuccessClick = () => {},
+}: LockConfirmationProps) {
   const intl = useIntl();
   const { selectedStake } = useStakeDataContext();
   const { chainId } = useProtocolDataContext();
@@ -51,7 +56,8 @@ function LockConfirmation({ amount, maxAmount }: LockConfirmationProps) {
       mainTxName={intl.formatMessage(defaultMessages.lock, { asset: selectedStake.toUpperCase() })}
       mainTxType="LOCK_ACTION"
       blockingError={blockingError}
-      goToAfterSuccess="/manage-radiant"
+      goToAfterSuccess={''}
+      onAfterSuccessClick={onAfterSuccessClick}
       successButtonTitle={intl.formatMessage(messages.backToStaking)}
       buttonTitle={intl.formatMessage(messages.buttonTitle)}
     >

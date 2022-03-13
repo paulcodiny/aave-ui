@@ -71,7 +71,13 @@ function ContentItemLock({
         }
       >
         {!!amount ? (
-          <LockConfirmation amount={amount} maxAmount={valueToBigNumber(maxAmount)} />
+          <LockConfirmation
+            amount={amount}
+            maxAmount={valueToBigNumber(maxAmount)}
+            onAfterSuccessClick={() => {
+              setAmount(null);
+            }}
+          />
         ) : (
           <>
             <div className="ManageRadiant__form-legend">
