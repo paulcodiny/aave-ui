@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
 import { useThemeContext } from '@aave/aave-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
 import { valueToBigNumber } from '@aave/protocol-js';
 
+import rdntConfig from '../../../../ui-config/rdnt';
 import { Stake } from '../../../../libs/aave-protocol-js';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
@@ -27,6 +28,8 @@ import { MainStats } from '../../components/MainStats';
 import depositConfirmationMessages from '../../../deposit/screens/DepositConfirmation/messages';
 import messages from './messages';
 import staticStyles from './style';
+import { ethers } from 'ethers';
+import GeistToken from '../../../../libs/aave-protocol-js/GeistToken.json';
 
 interface ContentItemLockProps
   extends Pick<
@@ -45,6 +48,15 @@ export function ManageRadiantMain({
   const intl = useIntl();
   const { currentTheme } = useThemeContext();
   const { data, cooldownStep, setCooldownStep, usdPriceEth, selectedStake } = useStakeDataContext();
+  const [contract, setContract] = useState(rdntConfig.multiFeeDistribution);
+  useEffect(() => {
+    // @ts-ignore
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    // @ts-ignore
+    window.$contract = new ethers.Contract(contract, GeistToken.abi, signer);
+  }, [contract]);
 
   const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.rdnt);
 
@@ -220,6 +232,25 @@ export function ManageRadiantMain({
                   className="StakingWrapper__row"
                 >
                   <ValuePercent value={0.3} color="red" percentColor={currentTheme.red.hex} />
+                </Row>
+
+                <Row
+                  title={intl.formatMessage(messages.currentMaxSlashing)}
+                  className="StakingWrapper__row"
+                >
+                  <select onChange={(e) => setContract(e.target.value)}>
+                    {[
+                      'walletBalanceProvider',
+                      'uiPoolDataProvider',
+                      'multiFeeDistribution',
+                      'lendingPoolAddressProvider',
+                      'lendingPool',
+                      'wethGateway',
+                    ].map((contractName) => (
+                      /* @ts-ignore */
+                      <option value={rdntConfig[contractName]}>{contractName}</option>
+                    ))}
+                  </select>
                 </Row>
               </div>
             </div>
