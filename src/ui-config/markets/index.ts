@@ -1,5 +1,6 @@
 import { ChainId } from '@aave/contract-helpers';
 import { MarketDataType } from '../../helpers/config/types';
+import rdntConfig from '../../ui-config/rdnt';
 
 import * as logos from './images';
 
@@ -151,15 +152,15 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
     logo: logos.radiant,
     activeLogo: logos.radiantActive,
     subLogo: logos.arbitrum,
-    aTokenPrefix: '',
+    aTokenPrefix: 'R', // not sure how this works
     enabledFeatures: {
       faucet: true,
       incentives: false,
     },
     addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xE28A80484125EF6a0b2018e17856eFFE4b89126A'.toLowerCase(),
-      LENDING_POOL: '0x89193d0E4D03278749b1216aea3Ec8D2ee78B896',
-      WETH_GATEWAY: '0x0841aD788Dd7a437a89D3CaD78F7Cc1C77E9b5f1',
+      LENDING_POOL_ADDRESS_PROVIDER: rdntConfig.lendingPoolAddressProvider,
+      LENDING_POOL: rdntConfig.lendingPool,
+      WETH_GATEWAY: rdntConfig.wethGateway,
       FAUCET: '0x0655591f8cC6026e1Cb186fBc2E4016b142aB68c',
     },
   },

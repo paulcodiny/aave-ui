@@ -1,8 +1,9 @@
 import { API_ETH_MOCK_ADDRESS } from '@aave/protocol-js';
+import { ChainId } from '@aave/contract-helpers';
 import { BaseNetworkConfig } from '../helpers/config/types';
 import polygonBridgeLogo from './branding/images/polygonLogo.svg';
 import avalancheBridgeLogo from './branding/images/avalancheLogo.svg';
-import { ChainId } from '@aave/contract-helpers';
+import rdntConfig from './rdnt';
 
 export const networkConfigs: Record<string, BaseNetworkConfig> = {
   [ChainId.kovan]: {
@@ -134,8 +135,8 @@ export const networkConfigs: Record<string, BaseNetworkConfig> = {
     publicJsonRPCUrl: ['https://rinkeby.arbitrum.io/rpc'],
     publicJsonRPCWSUrl: 'wss://rinkeby.arbitrum.io/rpc',
     addresses: {
-      walletBalanceProvider: '0x3092e3557521C186c44fB4D802007f2B4126b9b3',
-      uiPoolDataProvider: '0x01f7e505e43dA50e99f2F6841c3E8183c86E8432',
+      walletBalanceProvider: rdntConfig.walletBalanceProvider,
+      uiPoolDataProvider: rdntConfig.uiPoolDataProvider,
       // uiIncentiveDataProvider: '0xD0fbc73f1E3be7267AA23D8d74194887a862e02e',
     },
     protocolDataUrl: '',

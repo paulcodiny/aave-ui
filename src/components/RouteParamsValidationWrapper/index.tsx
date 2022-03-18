@@ -3,6 +3,7 @@ import { Redirect, RouteComponentProps } from 'react-router-dom';
 import queryString from 'query-string';
 import { useIntl } from 'react-intl';
 import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
+import { ComputedUserReserve } from '@aave/math-utils';
 
 import {
   ComputedReserveData,
@@ -10,13 +11,13 @@ import {
   UserSummary,
   useStaticPoolDataContext,
 } from '../../libs/pool-data-provider';
+import { useWalletBalanceProviderContext } from '../../libs/wallet-balance-provider/WalletBalanceProvider';
+import rdntConfig from '../../ui-config/rdnt';
 import { CurrencyRouteParamsInterface } from '../../helpers/router-types';
 import Preloader from '../basic/Preloader';
 import ErrorPage from '../ErrorPage';
 
 import messages from './messages';
-import { useWalletBalanceProviderContext } from '../../libs/wallet-balance-provider/WalletBalanceProvider';
-import { ComputedUserReserve } from '@aave/math-utils';
 
 export interface ValidationWrapperComponentProps
   extends Pick<RouteComponentProps, 'history' | 'location'> {
@@ -48,17 +49,7 @@ export default function routeParamValidationHOC({
       const intl = useIntl();
 
       // todo:pavlik:staking default asset RDNT
-      // const ARBITRUM_AAVE = '0x2e2994cf25a177bd8c9c8dd36b1dd3f331806a57';
-      // const ARBITRUM_RDNT = '0xe24054e9eB120c5C8d812378f41C6EB0b942A3e5';
-      // const ARBITRUM_RINKEBY_DAI = '0xac18c05990171fc83a67fe4282665cd38ed050c7';
-      const ARBITRUM_ETH = '0xeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee';
-      // const GEIST_TOKEN = '0x69d6CB6c9c447A9a7c88b71D9C1b078Fba1432f3';
-      // const KOVAN_DAI = '0x001b3b4d0f3714ca98ba10f6042daebf0b1b7b6f';
-      const underlyingAsset = (
-        match.params.underlyingAsset ||
-        localStorage.getItem('stakeToken') ||
-        ARBITRUM_ETH
-      ).toUpperCase();
+      const underlyingAsset = (match.params.underlyingAsset || rdntConfig.rdntToken).toUpperCase();
       const reserveId = match.params.id;
 
       const { marketRefPriceInUsd } = useStaticPoolDataContext();

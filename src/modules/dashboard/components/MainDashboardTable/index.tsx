@@ -8,6 +8,8 @@ import BorrowDashboardTable from '../../../borrow/components/BorrowDashboardTabl
 import { BorrowTableItem } from '../../../borrow/components/BorrowDashboardTable/types';
 import DepositDashboardTable from '../../../deposit/components/DepositDashboardTable';
 import { DepositTableItem } from '../../../deposit/components/DepositDashboardTable/types';
+import TableHeader from '../../../dashboard/components/DashboardTable/TableHeader';
+import RdntTableItem from '../RdntTableItem';
 
 import messages from './messages';
 import staticStyles from './style';
@@ -32,6 +34,22 @@ export default function MainDashboardTable({
         MainDashboardTable__noBorrows: !borrowedPositions.length,
       })}
     >
+      <div>
+        <TableHeader
+          head={[
+            'Lend or borrow to earn RDNT rewards',
+            'Earned',
+            'APR',
+            'Your staked balance',
+            'Your earned balance',
+          ]}
+          colWidth={[300, 120, 210, 150, 150]}
+          skipActions={true}
+        ></TableHeader>
+
+        <RdntTableItem />
+      </div>
+
       <div className="MainDashboardTable__left-inner">
         {!!depositedPositions.length && <DepositDashboardTable listData={depositedPositions} />}
       </div>

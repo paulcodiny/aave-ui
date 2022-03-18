@@ -12,9 +12,16 @@ type TableHeaderProps = {
   colWidth: (string | number)[];
   isDeposit?: boolean;
   className?: string;
+  skipActions?: boolean;
 };
 
-export default function TableHeader({ head, colWidth, isDeposit, className }: TableHeaderProps) {
+export default function TableHeader({
+  head,
+  colWidth,
+  isDeposit,
+  className,
+  skipActions = false,
+}: TableHeaderProps) {
   const { currentTheme, sm } = useThemeContext();
 
   return (
@@ -43,7 +50,7 @@ export default function TableHeader({ head, colWidth, isDeposit, className }: Ta
             )}
           </div>
         ))}
-        {!sm && (
+        {!sm && !skipActions && (
           <>
             <div className="TableHeader__item" />
             <div className="TableHeader__item" />

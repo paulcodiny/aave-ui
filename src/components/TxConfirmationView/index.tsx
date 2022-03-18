@@ -240,6 +240,8 @@ export default function TxConfirmationView({
     return <Preloader withText={true} />;
   }
 
+  console.log({ blockingError, approveTxData });
+
   const numberOfSteps = approveTxData ? 2 : actionTxData ? 1 : 0;
   const mainTxConfirmed = actionTxData?.txStatus === TxStatusType.confirmed;
   const mainTxPending = actionTxData?.txStatus === TxStatusType.submitted;
