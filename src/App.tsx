@@ -9,6 +9,8 @@ import { useMenuContext } from './libs/menu';
 import { CURRENCY_ROUTE_PARAMS } from './helpers/router-types';
 import ScreensWrapper from './components/wrappers/ScreensWrapper';
 
+// trigger server restart
+
 import {
   Markets,
   ReserveOverview,
