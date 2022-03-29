@@ -13,6 +13,7 @@ type TableButtonColProps = {
   linkTo: string;
   disabled?: boolean;
   withoutBorder?: boolean;
+  onClick?: (event: any) => void;
 };
 
 export default function TableButtonCol({
@@ -20,6 +21,7 @@ export default function TableButtonCol({
   linkTo,
   disabled,
   withoutBorder,
+  onClick = () => {},
 }: TableButtonColProps) {
   const { currentTheme } = useThemeContext();
 
@@ -36,6 +38,7 @@ export default function TableButtonCol({
             color="purple"
             title={title}
             disabled={disabled}
+            onClick={onClick}
           />
         )}
       </Link>

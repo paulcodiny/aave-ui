@@ -1,9 +1,9 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
-  title: 'Manage RADIANT locks and stakes',
+  title: 'Manage RDNT locks and stakes',
   subTitle:
-    'Stake RADIANT to share platform fees, or lock it for 3 months to receive platform fees AND exit penalties',
+    'Stake RDNT to share platform fees, or lock it for 3 months to receive platform fees AND exit penalties',
   walletDashboard: 'Your Wallet Dashboard',
   lockedStakedGeist: 'Locked + Staked GEIST',
   dailyRevenue: 'Daily revenue',

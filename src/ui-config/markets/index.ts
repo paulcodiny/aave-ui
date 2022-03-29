@@ -8,11 +8,11 @@ export enum CustomMarket {
   // proto_kovan = 'proto_kovan', // todo:pavlik testing
   // proto_mainnet = 'proto_mainnet',
   // proto_avalanche = 'proto_avalanche',
-  proto_matic = 'proto_matic',
-  proto_mumbai = 'proto_mumbai',
+  // proto_matic = 'proto_matic',
+  // proto_mumbai = 'proto_mumbai',
   // amm_kovan = 'amm_kovan',
   // amm_mainnet = 'amm_mainnet',
-  proto_fuji = 'proto_fuji',
+  // proto_fuji = 'proto_fuji',
   proto_arbitrum_rinkeby = 'proto_arbitrum_rinkeby',
 }
 
@@ -79,57 +79,57 @@ export const marketsData: { [key in keyof typeof CustomMarket]: MarketDataType }
   //     WETH_GATEWAY: '0xcc9a0B7c43DC2a5F023Bb9b738E45B0Ef6B06E04',
   //   },
   // },
-  [CustomMarket.proto_mumbai]: {
-    chainId: ChainId.mumbai,
-    logo: logos.radiant,
-    activeLogo: logos.radiantActive,
-    subLogo: logos.polygon,
-    aTokenPrefix: 'AM',
-    enabledFeatures: {
-      incentives: true,
-      faucet: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x178113104fEcbcD7fF8669a0150721e231F0FD4B'.toLowerCase(),
-      LENDING_POOL: '0x9198F13B08E299d85E096929fA9781A1E3d5d827',
-      WETH_GATEWAY: '0xee9eE614Ad26963bEc1Bec0D2c92879ae1F209fA',
-      FAUCET: '0x0b3C23243106A69449e79C14c58BB49E358f9B10',
-    },
-  },
-  [CustomMarket.proto_matic]: {
-    chainId: ChainId.polygon,
-    logo: logos.radiant,
-    activeLogo: logos.radiantActive,
-    subLogo: logos.polygon,
-    aTokenPrefix: 'AM',
-    enabledFeatures: {
-      liquiditySwap: true,
-      incentives: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0xd05e3E715d945B59290df0ae8eF85c1BdB684744'.toLowerCase(),
-      LENDING_POOL: '0x8dFf5E27EA6b7AC08EbFdf9eB090F32ee9a30fcf',
-      WETH_GATEWAY: '0xbEadf48d62aCC944a06EEaE0A9054A90E5A7dc97',
-      SWAP_COLLATERAL_ADAPTER: '0x35784a624D4FfBC3594f4d16fA3801FeF063241c',
-    },
-  },
-  [CustomMarket.proto_fuji]: {
-    chainId: ChainId.fuji,
-    logo: logos.radiant,
-    activeLogo: logos.radiantActive,
-    subLogo: logos.avalanche,
-    aTokenPrefix: 'AAVA',
-    enabledFeatures: {
-      faucet: true,
-      incentives: true,
-    },
-    addresses: {
-      LENDING_POOL_ADDRESS_PROVIDER: '0x7fdC1FdF79BE3309bf82f4abdAD9f111A6590C0f'.toLowerCase(),
-      LENDING_POOL: '0x76cc67FF2CC77821A70ED14321111Ce381C2594D',
-      WETH_GATEWAY: '0x1648C14DbB6ccdd5846969cE23DeEC4C66a03335',
-      FAUCET: '0x90E5BAc5A98fff59617080848959f44eACB4Cd7B',
-    },
-  },
+  // [CustomMarket.proto_mumbai]: {
+  //   chainId: ChainId.mumbai,
+  //   logo: logos.radiant,
+  //   activeLogo: logos.radiantActive,
+  //   subLogo: logos.polygon,
+  //   aTokenPrefix: 'AM',
+  //   enabledFeatures: {
+  //     incentives: true,
+  //     faucet: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0x178113104fEcbcD7fF8669a0150721e231F0FD4B'.toLowerCase(),
+  //     LENDING_POOL: '0x9198F13B08E299d85E096929fA9781A1E3d5d827',
+  //     WETH_GATEWAY: '0xee9eE614Ad26963bEc1Bec0D2c92879ae1F209fA',
+  //     FAUCET: '0x0b3C23243106A69449e79C14c58BB49E358f9B10',
+  //   },
+  // },
+  // [CustomMarket.proto_matic]: {
+  //   chainId: ChainId.polygon,
+  //   logo: logos.radiant,
+  //   activeLogo: logos.radiantActive,
+  //   subLogo: logos.polygon,
+  //   aTokenPrefix: 'AM',
+  //   enabledFeatures: {
+  //     liquiditySwap: true,
+  //     incentives: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0xd05e3E715d945B59290df0ae8eF85c1BdB684744'.toLowerCase(),
+  //     LENDING_POOL: '0x8dFf5E27EA6b7AC08EbFdf9eB090F32ee9a30fcf',
+  //     WETH_GATEWAY: '0xbEadf48d62aCC944a06EEaE0A9054A90E5A7dc97',
+  //     SWAP_COLLATERAL_ADAPTER: '0x35784a624D4FfBC3594f4d16fA3801FeF063241c',
+  //   },
+  // },
+  // [CustomMarket.proto_fuji]: {
+  //   chainId: ChainId.fuji,
+  //   logo: logos.radiant,
+  //   activeLogo: logos.radiantActive,
+  //   subLogo: logos.avalanche,
+  //   aTokenPrefix: 'AAVA',
+  //   enabledFeatures: {
+  //     faucet: true,
+  //     incentives: true,
+  //   },
+  //   addresses: {
+  //     LENDING_POOL_ADDRESS_PROVIDER: '0x7fdC1FdF79BE3309bf82f4abdAD9f111A6590C0f'.toLowerCase(),
+  //     LENDING_POOL: '0x76cc67FF2CC77821A70ED14321111Ce381C2594D',
+  //     WETH_GATEWAY: '0x1648C14DbB6ccdd5846969cE23DeEC4C66a03335',
+  //     FAUCET: '0x90E5BAc5A98fff59617080848959f44eACB4Cd7B',
+  //   },
+  // },
   // [CustomMarket.proto_avalanche]: {
   //   chainId: ChainId.avalanche,
   //   logo: logos.aaveLogo,

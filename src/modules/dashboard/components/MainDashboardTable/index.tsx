@@ -34,14 +34,14 @@ export default function MainDashboardTable({
         MainDashboardTable__noBorrows: !borrowedPositions.length,
       })}
     >
-      <div>
+      <div className="MainDashboardTable__rdnt">
         <TableHeader
           head={[
             'Lend or borrow to earn RDNT rewards',
             'Earned',
             'APR',
             'Your staked balance',
-            'Your earned balance',
+            'Your locked balance',
           ]}
           colWidth={[300, 120, 210, 150, 150]}
           skipActions={true}
@@ -50,23 +50,25 @@ export default function MainDashboardTable({
         <RdntTableItem />
       </div>
 
-      <div className="MainDashboardTable__left-inner">
-        {!!depositedPositions.length && <DepositDashboardTable listData={depositedPositions} />}
-      </div>
+      <div className="MainDashboardTable__inner">
+        <div className="MainDashboardTable__left-inner">
+          {!!depositedPositions.length && <DepositDashboardTable listData={depositedPositions} />}
+        </div>
 
-      <div className="MainDashboardTable__right-inner">
-        {!!borrowedPositions.length ? (
-          <BorrowDashboardTable listData={borrowedPositions} />
-        ) : (
-          <ContentWrapper withFullHeight={true}>
-            <NoDataPanel
-              title={intl.formatMessage(messages.nothingBorrowed)}
-              description={intl.formatMessage(messages.nothingBorrowedDescription)}
-              buttonTitle={intl.formatMessage(messages.borrowNow)}
-              linkTo="/borrow"
-            />
-          </ContentWrapper>
-        )}
+        <div className="MainDashboardTable__right-inner">
+          {!!borrowedPositions.length ? (
+            <BorrowDashboardTable listData={borrowedPositions} />
+          ) : (
+            <ContentWrapper withFullHeight={true}>
+              <NoDataPanel
+                title={intl.formatMessage(messages.nothingBorrowed)}
+                description={intl.formatMessage(messages.nothingBorrowedDescription)}
+                buttonTitle={intl.formatMessage(messages.borrowNow)}
+                linkTo="/borrow"
+              />
+            </ContentWrapper>
+          )}
+        </div>
       </div>
 
       <style jsx={true} global={true}>

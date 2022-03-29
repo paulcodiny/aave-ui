@@ -17,6 +17,7 @@ import routeParamValidationHOC, {
   ValidationWrapperComponentProps,
 } from '../../../../components/RouteParamsValidationWrapper';
 import { getAssetInfo } from '../../../../helpers/config/assets-config';
+import { BorrowRateMode } from '../../../../libs/pool-data-provider/graphql';
 
 enum BorrowStep {
   AmountForm,
@@ -60,14 +61,14 @@ function BorrowAmount({
   const formattedMaxAmountToBorrow = maxAmountToBorrow.toString(10);
 
   const handleSetAmountSubmit = (amount: string) => {
-    setAmountToBorrow(amount);
-    setBorrowStep(BorrowStep.RateModeSelection);
-  };
-
-  const handleInterestModeSubmit = (rateMode: string) => {
-    const query = queryString.stringify({ rateMode, amount: amountToBorrow });
+    const query = queryString.stringify({
+      rateMode: BorrowRateMode.Variable,
+      amount,
+    });
     history.push(`${history.location.pathname}/confirmation?${query}`);
   };
+
+  const handleInterestModeSubmit = (rateMode: string) => {};
 
   const goBack = () => setBorrowStep(BorrowStep.AmountForm);
 

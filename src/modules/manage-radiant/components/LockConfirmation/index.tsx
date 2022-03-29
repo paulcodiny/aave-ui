@@ -5,7 +5,7 @@ import { BigNumber } from '@aave/protocol-js';
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
-import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MultiFeeDistributionContract';
+import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MulteFeeDistribution/MultiFeeDistributionContract';
 import { getProvider } from '../../../../helpers/config/markets-and-network-config';
 
 import Row from '../../../../components/basic/Row';

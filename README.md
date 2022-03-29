@@ -7,11 +7,15 @@ graph TD
     Dashboard[My Dashboard] --> Withdraw
 ```
 
-# Installation
+# Installation RDNT
 ```shell
 $ npm i --legacy-peer-deps --unsafe-perm --ignore-scripts --verbose
 $ npm rebuild node-sass
 ```
+
+# Preparation
+Update file src/ui-config/rdnt.ts accordint to your contracts.
+To simplify testing, you can always set a contract name in the local storage.
 
 # Aave protocol interface :ghost:
 

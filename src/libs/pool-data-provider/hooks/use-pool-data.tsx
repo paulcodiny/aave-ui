@@ -52,6 +52,7 @@ export function usePoolData(
       setLoadingReserves(true);
       const reservesResponse: ReservesDataHumanized =
         await poolDataProviderContract.getReservesHumanized(lendingPoolAddressProvider);
+      reservesResponse.reservesData.forEach((r) => (r.stableBorrowRateEnabled = false));
       console.log('reserves: ', reservesResponse);
       setReserves(reservesResponse);
       setErrorReserves(false);

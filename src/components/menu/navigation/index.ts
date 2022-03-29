@@ -46,11 +46,11 @@ const navigation: Navigation[] = [
     title: messages.swap,
     isVisible: isFeatureEnabled.liquiditySwap,
   },
-  {
-    link: '/staking',
-    title: messages.stake,
-    isVisible: () => !!stakeConfig,
-  },
+  // {
+  //   link: '/staking',
+  //   title: messages.stake,
+  //   isVisible: () => !!stakeConfig,
+  // },
   // todo:pavlik PODL link from the design
   // {
   //   link: '/governance',

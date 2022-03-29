@@ -6,9 +6,12 @@ import staticStyles from './style';
 
 interface TableProps {
   title: string;
+  value?: string;
+  action?: string;
+  table?: { amount: string; expiryDate: Date }[];
 }
 
-export function Table({ title }: TableProps) {
+export function Table({ title, value = '', action = 'Vesting', table = [] }: TableProps) {
   return (
     <>
       <div className="Table">
@@ -24,19 +27,23 @@ export function Table({ title }: TableProps) {
 
         <div className="Table__body">
           <div className="Table__row">
-            <div className="Table__column">Total RADIANT Vesting</div>
-            <div className="Table__column">
-              <strong>12.00</strong> RADIANT
-            </div>
-            <div className="Table__column">3 day 1 month</div>
+            {table.map((record) => (
+              <>
+                <div className="Table__column">Total RADIANT {action}</div>
+                <div className="Table__column">
+                  <strong>{record.amount}</strong> RDNT
+                </div>
+                <div className="Table__column">{record.expiryDate.toLocaleString('en-GB')}</div>
+              </>
+            ))}
           </div>
-          <div className="Table__row">
-            <div className="Table__column">Total value</div>
-            <div className="Table__column">
-              <strong>$ 14.21</strong> USD
-            </div>
-            <div className="Table__column" />
-          </div>
+          {/*<div className="Table__row">*/}
+          {/*  <div className="Table__column">Total value</div>*/}
+          {/*  <div className="Table__column">*/}
+          {/*    <strong>$ 14.21</strong> USD*/}
+          {/*  </div>*/}
+          {/*  <div className="Table__column" />*/}
+          {/*</div>*/}
         </div>
       </div>
 

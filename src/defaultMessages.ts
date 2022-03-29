@@ -9,4 +9,5 @@ export default defineMessages({
   swap: 'Swap',
   stake: 'Stake',
   claim: 'Claim',
+  vest: 'Vest {amount} RDNT',
 });

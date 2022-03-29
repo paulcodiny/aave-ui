@@ -1,5 +1,6 @@
 import { ChainId } from '@aave/contract-helpers';
 import { Stake } from '../libs/aave-protocol-js';
+import rdntConfig from './rdnt';
 
 export interface StakeConfig {
   chainId: ChainId;
@@ -21,11 +22,8 @@ export const stakeConfig: StakeConfig | undefined = {
   tokens: {
     // todo:pavlik:staking stake config
     [Stake.rdnt]: {
-      TOKEN_STAKING:
-        localStorage.getItem('stakeTokenStaking') || '0x4da27a545c0c5b758a6ba100e3a049001de870f5',
-      STAKING_REWARD_TOKEN:
-        localStorage.getItem('stakeStakingRewardToken') ||
-        '0x7fc66500c84a76ad7e9c93437bfc5ac33e2ddae9',
+      TOKEN_STAKING: rdntConfig.rdntToken,
+      STAKING_REWARD_TOKEN: rdntConfig.rdntToken,
       STAKING_HELPER: '0xce0424653fb2fd48ed1b621bdbd60db16b2e388a',
     },
   },

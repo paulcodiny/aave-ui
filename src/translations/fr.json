@@ -994,5 +994,6 @@
   "ui-config.branding.UnlockWalletExtraText.unlockWalletExtraText": "",
   "ui-config.menu-items.faq": "",
   "ui-config.menu-items.faucet": "",
+  "vest": "",
   "withdraw": "Retirer"
 }

@@ -2,7 +2,7 @@ import React, { ChangeEvent } from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber } from '@aave/protocol-js';
 
-import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MultiFeeDistributionContract';
+import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MulteFeeDistribution/MultiFeeDistributionContract';
 import { getProvider } from '../../../../helpers/config/markets-and-network-config';
 import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 

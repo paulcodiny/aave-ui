@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import { useIntl } from 'react-intl';
+import { BigNumberish } from 'ethers';
 import { useThemeContext } from '@aave/aave-ui-kit';
 import { PERMISSION } from '@aave/contract-helpers';
-import { valueToBigNumber } from '@aave/protocol-js';
+import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
 
 import rdntConfig from '../../../../ui-config/rdnt';
+import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
+import { getProvider } from '../../../../helpers/config/markets-and-network-config';
 import { Stake } from '../../../../libs/aave-protocol-js';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
-import PermissionWarning from '../../../../ui-config/branding/PermissionWarning';
-import routeParamValidationHOC, {
-  ValidationWrapperComponentProps,
-} from '../../../../components/RouteParamsValidationWrapper';
+import { MultiFeeDistributionService } from '../../../../libs/aave-protocol-js/MulteFeeDistribution/MultiFeeDistributionContract';
+import { GeistTokenContract } from '../../../../libs/aave-protocol-js/GeistToken/GeistTokenContract';
+import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
+import { useDynamicPoolDataContext } from '../../../../libs/pool-data-provider';
+
 import ScreenWrapper from '../../../../components/wrappers/ScreenWrapper';
 import NoDataPanel from '../../../../components/NoDataPanel';
 import ContentWrapperWithTopLine from '../../../../components/wrappers/ContentWrapperWithTopLine';
@@ -28,37 +32,32 @@ import { MainStats } from '../../components/MainStats';
 import depositConfirmationMessages from '../../../deposit/screens/DepositConfirmation/messages';
 import messages from './messages';
 import staticStyles from './style';
-import { ethers } from 'ethers';
-import GeistToken from '../../../../libs/aave-protocol-js/GeistToken.json';
 
-interface ContentItemLockProps
-  extends Pick<
-    ValidationWrapperComponentProps,
-    'userReserve' | 'poolReserve' | 'user' | 'currencySymbol' | 'walletBalance' | 'walletBalanceUSD'
-  > {}
-
-export function ManageRadiantMain({
-  currencySymbol,
-  poolReserve,
-  userReserve,
-  user,
-  walletBalance,
-  walletBalanceUSD,
-}: ContentItemLockProps) {
+export function ManageRadiantMain() {
   const intl = useIntl();
+  const { chainId } = useProtocolDataContext();
   const { currentTheme } = useThemeContext();
   const { data, cooldownStep, setCooldownStep, usdPriceEth, selectedStake } = useStakeDataContext();
-  const [contract, setContract] = useState(rdntConfig.multiFeeDistribution);
-  useEffect(() => {
-    // @ts-ignore
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
+  const { user } = useDynamicPoolDataContext();
 
-    // @ts-ignore
-    window.$contract = new ethers.Contract(contract, GeistToken.abi, signer);
-  }, [contract]);
-
+  const [tokenInfo, setTokenInfo] = useState<{
+    walletBalance: BigNumber;
+    currencySymbol: string;
+    totalSupply: BigNumber;
+  }>({
+    walletBalance: valueToBigNumber(0),
+    currencySymbol: 'RDNT',
+    totalSupply: valueToBigNumber(0),
+  });
+  const [locked, setLocked] = useState<BigNumber>(valueToBigNumber(0));
+  const [total, setTotal] = useState<BigNumber>(valueToBigNumber(0));
+  const [earned, setEarned] = useState<BigNumber>(valueToBigNumber(0));
+  const [lockedTable, setLockedTable] = useState<{ amount: string; expiryDate: Date }[]>([]);
+  const [earnedTable, setEarnedTable] = useState<{ amount: string; expiryDate: Date }[]>([]);
   const [currentAsset, setCurrentAsset] = useState<Stake>(Stake.rdnt);
+
+  // todo: pavlik
+  const priceInMarketReferenceCurrency = 0;
 
   if (!user) {
     return (
@@ -70,24 +69,74 @@ export function ManageRadiantMain({
     );
   }
 
-  const currencyName = selectedStake.toUpperCase();
-  const selectedStakeData = data[currentAsset];
+  useEffect(() => {
+    (async () => {
+      const contract = new GeistTokenContract(getProvider(chainId));
+      const rdntInfo = await contract.getInfo(user.id);
+      console.log(rdntInfo);
+      setTokenInfo(rdntInfo);
+    })();
+  }, []);
 
-  const rewardTokenPriceInUsd = valueToBigNumber(selectedStakeData.rewardTokenPriceEth).dividedBy(
-    usdPriceEth
-  );
+  useEffect(() => {
+    (async () => {
+      // todo: pavlik extract this to a separate context
+      const multiFeeDistributionService = new MultiFeeDistributionService(getProvider(chainId));
 
-  const stakeCooldownDays = selectedStakeData.stakeCooldownSeconds / 60 / 60 / 24;
+      try {
+        const [totalBalance, unlocked, earned] = await multiFeeDistributionService.getBalances(
+          user.id
+        );
+        setTotal(totalBalance);
+        setLocked(totalBalance.minus(unlocked));
+        setEarned(earned);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
 
-  const userEarningsPerDay = valueToBigNumber(selectedStakeData.userEarningsPerDay);
-  const userEarningsPerMonth = userEarningsPerDay.multipliedBy(30).toString();
-  const userEarningsPerMonthInUSD = rewardTokenPriceInUsd
-    .multipliedBy(userEarningsPerMonth)
-    .toString();
+  useEffect(() => {
+    (async () => {
+      // todo: pavlik extract this to a separate context
+      const multiFeeDistributionService = new MultiFeeDistributionService(getProvider(chainId));
 
-  const handleSubmit = () => {};
-  const handleMaxButtonClick = () => {};
-  const error = '';
+      try {
+        const lockedTable = await multiFeeDistributionService.getLockedBalances(user.id);
+        setLockedTable(lockedTable);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      // todo: pavlik extract this to a separate context
+      const multiFeeDistributionService = new MultiFeeDistributionService(getProvider(chainId));
+
+      try {
+        const earnedTable = await multiFeeDistributionService.getEarnedBalances(user.id);
+        setEarnedTable(earnedTable);
+      } catch (e) {
+        console.log(e);
+      }
+    })();
+  }, []);
+
+  // const selectedStakeData = data[currentAsset];
+  //
+  // const rewardTokenPriceInUsd = valueToBigNumber(selectedStakeData.rewardTokenPriceEth).dividedBy(
+  //   usdPriceEth
+  // );
+  //
+  // const stakeCooldownDays = selectedStakeData.stakeCooldownSeconds / 60 / 60 / 24;
+  //
+  // const userEarningsPerDay = valueToBigNumber(selectedStakeData.userEarningsPerDay);
+  // const userEarningsPerMonth = userEarningsPerDay.multipliedBy(30).toString();
+  // const userEarningsPerMonthInUSD = rewardTokenPriceInUsd
+  //   .multipliedBy(userEarningsPerMonth)
+  //   .toString();
 
   return (
     <>
@@ -105,10 +154,13 @@ export function ManageRadiantMain({
               className="ManageRadiantMain__top-revenue"
             >
               <div className="ManageRadiantMain__revenue-item">
-                <TopStats title={intl.formatMessage(messages.lockedStakedGeist)} value="$432">
+                <TopStats
+                  title={intl.formatMessage(messages.lockedStakedGeist)}
+                  value={total.toString()}
+                >
                   <p>
-                    Locked: 2 RADIANT <br />
-                    Staked: 4 RADIANT
+                    Locked: {locked.toString()} RDNT <br />
+                    Staked: {total.minus(locked).toString()} RDNT
                   </p>
                 </TopStats>
               </div>
@@ -116,16 +168,16 @@ export function ManageRadiantMain({
               <GradientLine size={1} direction="vertical" />
 
               <div className="ManageRadiantMain__revenue-item">
-                <TopStats title={intl.formatMessage(messages.dailyRevenue)} value="$0,43" />
+                <TopStats title={intl.formatMessage(messages.dailyRevenue)} value="$X,XX" />
               </div>
 
               <GradientLine size={1} direction="vertical" />
 
               <div className="ManageRadiantMain__revenue-item">
-                <TopStats title={intl.formatMessage(messages.weeklyRevenue)} value="$3,01">
+                <TopStats title={intl.formatMessage(messages.weeklyRevenue)} value="$X,XX">
                   <p>
-                    Month: $ 90.3 <br />
-                    Year: $ 1 083
+                    Month: $ XX.X <br />
+                    Year: $ X XXX
                   </p>
                 </TopStats>
               </div>
@@ -133,13 +185,13 @@ export function ManageRadiantMain({
 
             <ContentWrapperWithTopLine title="&nbsp;" className="ManageRadiantMain__top-fee">
               <div className="ManageRadiantMain__fee-item">
-                <TopStats title={intl.formatMessage(messages.dailyPlatformFees)} value="$0,2" />
+                <TopStats title={intl.formatMessage(messages.dailyPlatformFees)} value="$X,X" />
               </div>
 
               <GradientLine size={1} direction="vertical" />
 
               <div className="ManageRadiantMain__fee-item">
-                <TopStats title={intl.formatMessage(messages.dailyPenaltyFees)} value="$0,1" />
+                <TopStats title={intl.formatMessage(messages.dailyPenaltyFees)} value="$X,X" />
               </div>
             </ContentWrapperWithTopLine>
           </div>
@@ -147,25 +199,17 @@ export function ManageRadiantMain({
           <div className="ManageRadiant__content">
             <div className="ManageRadiant__left-column">
               <ContentItemStake
-                maxAmount={walletBalance.toString(10)}
-                currencySymbol={currencySymbol}
-                onSubmit={handleSubmit}
-                walletBalance={walletBalance}
-                walletBalanceUSD={walletBalanceUSD}
-                poolReserve={poolReserve}
-                userReserve={userReserve}
-                user={user}
+                maxAmount={tokenInfo.walletBalance.toString()}
+                currencySymbol={tokenInfo.currencySymbol}
+                walletBalance={tokenInfo.walletBalance}
+                priceInMarketReferenceCurrency={priceInMarketReferenceCurrency.toString(10)}
               />
 
               <ContentItemLock
-                maxAmount={walletBalance.toString(10)}
-                currencySymbol={currencySymbol}
-                onSubmit={handleSubmit}
-                walletBalance={walletBalance}
-                walletBalanceUSD={walletBalanceUSD}
-                poolReserve={poolReserve}
-                userReserve={userReserve}
-                user={user}
+                maxAmount={tokenInfo.walletBalance.toString()}
+                currencySymbol={tokenInfo.currencySymbol}
+                walletBalance={tokenInfo.walletBalance}
+                priceInMarketReferenceCurrency={priceInMarketReferenceCurrency.toString(10)}
               />
 
               <ContentItemHelp />
@@ -173,86 +217,72 @@ export function ManageRadiantMain({
 
             <div className="ManageRadiant__right-column">
               <div className="ManageRadiant__content-item">
-                <MainStats />
+                <MainStats staked={total.minus(locked).toString()} />
               </div>
 
               <div className="ManageRadiant__content-item">
-                <Table title="Stake RADIANT" />
+                <Table title="RDNT vests" value={earned.toString()} table={earnedTable} />
               </div>
 
               <div className="ManageRadiant__content-item">
-                <Table title="RADIANT vents" />
+                <Table
+                  title="RDNT locks"
+                  action="Locked"
+                  value={locked.toString()}
+                  table={lockedTable}
+                />
               </div>
 
-              <div className="ManageRadiant__content-item">
-                <Row
-                  title={intl.formatMessage(messages.incentivesPerMonth)}
-                  className="StakingWrapper__row"
-                >
-                  <Value
-                    value={userEarningsPerMonth}
-                    symbol="RDNT"
-                    withoutSymbol={true}
-                    subSymbol="USD"
-                    subValue={userEarningsPerMonthInUSD !== '0' ? userEarningsPerMonthInUSD : '0'}
-                  />
-                </Row>
+              {/*<div className="ManageRadiant__content-item">*/}
+              {/*  <Row*/}
+              {/*    title={intl.formatMessage(messages.incentivesPerMonth)}*/}
+              {/*    className="StakingWrapper__row"*/}
+              {/*  >*/}
+              {/*    <Value*/}
+              {/*      value={userEarningsPerMonth}*/}
+              {/*      symbol="RDNT"*/}
+              {/*      withoutSymbol={true}*/}
+              {/*      subSymbol="USD"*/}
+              {/*      subValue={userEarningsPerMonthInUSD !== '0' ? userEarningsPerMonthInUSD : '0'}*/}
+              {/*    />*/}
+              {/*  </Row>*/}
 
-                <GradientLine size={2} />
+              {/*  <GradientLine size={2} />*/}
 
-                <Row
-                  title={intl.formatMessage(messages.cooldownPeriod)}
-                  className="StakingWrapper__row"
-                >
-                  <strong className="StakingWrapper__cooldownPeriodTime">
-                    {intl.formatNumber(
-                      stakeCooldownDays < 1
-                        ? selectedStakeData.stakeCooldownSeconds
-                        : stakeCooldownDays
-                    )}{' '}
-                    <span>
-                      {intl.formatMessage(stakeCooldownDays < 1 ? messages.seconds : messages.days)}
-                    </span>
-                  </strong>
-                </Row>
+              {/*  <Row*/}
+              {/*    title={intl.formatMessage(messages.cooldownPeriod)}*/}
+              {/*    className="StakingWrapper__row"*/}
+              {/*  >*/}
+              {/*    <strong className="StakingWrapper__cooldownPeriodTime">*/}
+              {/*      {intl.formatNumber(*/}
+              {/*        stakeCooldownDays < 1*/}
+              {/*          ? selectedStakeData.stakeCooldownSeconds*/}
+              {/*          : stakeCooldownDays*/}
+              {/*      )}{' '}*/}
+              {/*      <span>*/}
+              {/*        {intl.formatMessage(stakeCooldownDays < 1 ? messages.seconds : messages.days)}*/}
+              {/*      </span>*/}
+              {/*    </strong>*/}
+              {/*  </Row>*/}
 
-                <GradientLine size={2} />
+              {/*  <GradientLine size={2} />*/}
 
-                <Row
-                  title={intl.formatMessage(messages.stakingAPY)}
-                  className="StakingWrapper__row"
-                >
-                  <ValuePercent value={+selectedStakeData.stakeApy} />
-                </Row>
+              {/*  <Row*/}
+              {/*    title={intl.formatMessage(messages.stakingAPY)}*/}
+              {/*    className="StakingWrapper__row"*/}
+              {/*  >*/}
+              {/*    <ValuePercent value={+selectedStakeData.stakeApy} />*/}
+              {/*  </Row>*/}
 
-                <GradientLine size={2} />
+              {/*  <GradientLine size={2} />*/}
 
-                <Row
-                  title={intl.formatMessage(messages.currentMaxSlashing)}
-                  className="StakingWrapper__row"
-                >
-                  <ValuePercent value={0.3} color="red" percentColor={currentTheme.red.hex} />
-                </Row>
-
-                <Row
-                  title={intl.formatMessage(messages.currentMaxSlashing)}
-                  className="StakingWrapper__row"
-                >
-                  <select onChange={(e) => setContract(e.target.value)}>
-                    {[
-                      'walletBalanceProvider',
-                      'uiPoolDataProvider',
-                      'multiFeeDistribution',
-                      'lendingPoolAddressProvider',
-                      'lendingPool',
-                      'wethGateway',
-                    ].map((contractName) => (
-                      /* @ts-ignore */
-                      <option value={rdntConfig[contractName]}>{contractName}</option>
-                    ))}
-                  </select>
-                </Row>
-              </div>
+              {/*  <Row*/}
+              {/*    title={intl.formatMessage(messages.currentMaxSlashing)}*/}
+              {/*    className="StakingWrapper__row"*/}
+              {/*  >*/}
+              {/*    <ValuePercent value={0.3} color="red" percentColor={currentTheme.red.hex} />*/}
+              {/*  </Row>*/}
+              {/*</div>*/}
             </div>
           </div>
         </ScreenWrapper>
@@ -265,4 +295,4 @@ export function ManageRadiantMain({
   );
 }
 
-export default routeParamValidationHOC({ withWalletBalance: true })(ManageRadiantMain);
+export default ManageRadiantMain;

@@ -36,10 +36,6 @@ export default function BorrowAssetTable({
       title: messages.variableAPY,
       sortKey: 'variableBorrowRate',
     },
-    {
-      title: messages.stableAPY,
-      sortKey: 'stableBorrowRate',
-    },
   ];
 
   return (

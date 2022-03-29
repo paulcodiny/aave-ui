@@ -127,19 +127,6 @@ export default function MarketTableItem({
               <NoData color="dark" />
             )}
           </TableColumn>
-
-          <TableColumn className="MarketTableItem__column">
-            {stableBorrowRateEnabled && borrowingEnabled && stableBorrowRate >= 0 ? (
-              <LiquidityMiningCard
-                value={stableBorrowRate}
-                liquidityMiningValue={sincentivesAPR}
-                symbol={currencySymbol}
-                type="borrow-stable"
-              />
-            ) : (
-              <NoData color="dark" />
-            )}
-          </TableColumn>
         </>
       )}
 

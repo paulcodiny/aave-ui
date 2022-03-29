@@ -5,6 +5,7 @@ import BigNumber from 'bignumber.js';
 import queryString from 'query-string';
 
 import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
+import rdntConfig from '../../../../ui-config/rdnt';
 import { useStakeDataContext } from '../../../../libs/pool-data-provider/hooks/use-stake-data-context';
 import { getAtokenInfo } from '../../../../helpers/get-atoken-info';
 import Row from '../../../../components/basic/Row';
@@ -12,17 +13,21 @@ import StakeTxConfirmationView from '../../components/StakeTxConfirmationView';
 import Value from '../../../../components/basic/Value';
 
 import messages from './messages';
+import { ChefIncentivesService } from '../../../../libs/aave-protocol-js/ChefIncentivesContract/ChefIncentivesContract';
+import { getProvider } from '../../../../helpers/config/markets-and-network-config';
+import { useProtocolDataContext } from '../../../../libs/protocol-data-provider';
 
 export default function StakingClaimConfirmation() {
   const intl = useIntl();
   const location = useLocation();
   const { userId } = useStaticPoolDataContext();
+  const { chainId } = useProtocolDataContext();
   const { selectedStakeData, stakingService, selectedStake, STAKING_REWARD_TOKEN } =
     useStakeDataContext();
 
   const aTokenData = getAtokenInfo({
     address: STAKING_REWARD_TOKEN,
-    symbol: 'AAVE',
+    symbol: 'RDNT',
     decimals: 18,
     withFormattedSymbol: true,
   });
@@ -33,7 +38,10 @@ export default function StakingClaimConfirmation() {
   if ((amount.lt(0) && !amount.eq(-1)) || !userId) {
     return null;
   }
-  const handleGetTransactions = async () => stakingService.claimRewards(userId, amount.toString());
+  const chefIncentivesService = new ChefIncentivesService(getProvider(chainId));
+  // todo: pavlik vest???
+  const handleGetTransactions = async () =>
+    chefIncentivesService.claim(userId, [rdntConfig.rdntToken]);
 
   let blockingError = '';
   if (selectedStakeData.userIncentivesToClaim === '0') {
@@ -62,7 +70,7 @@ export default function StakingClaimConfirmation() {
       aTokenData={aTokenData}
     >
       <Row title={intl.formatMessage(messages.claim, { asset: selectedStake.toUpperCase() })}>
-        <Value symbol="AAVE" value={formattedAmount} tokenIcon={true} tooltipId="AAVE" />
+        <Value symbol="RDNT" value={formattedAmount} tokenIcon={true} tooltipId="RDNT" />
       </Row>
     </StakeTxConfirmationView>
   );

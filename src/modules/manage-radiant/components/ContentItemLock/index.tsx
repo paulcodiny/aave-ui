@@ -1,71 +1,48 @@
 import React, { useState } from 'react';
-import { useIntl } from 'react-intl';
 import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
 
+import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
+
 import BasicForm from '../../../../components/forms/BasicForm';
+import Value from '../../../../components/basic/Value';
 import ContentItem from '../ContentItem';
+import LockConfirmation from '../LockConfirmation';
 
 import iconLock from '../../images/icon-lock.svg';
 
 import staticStyles from './style';
-import depositConfirmationMessages from '../../../deposit/screens/DepositConfirmation/messages';
-import Value from '../../../../components/basic/Value';
-import {
-  ComputedReserveData,
-  UserSummary,
-  useStaticPoolDataContext,
-} from '../../../../libs/pool-data-provider';
-import NoDataPanel from '../../../../components/NoDataPanel';
-import { ComputedUserReserve } from '@aave/math-utils';
-import { getAssetInfo } from '../../../../helpers/config/assets-config';
-import LockConfirmation from '../LockConfirmation';
 
 interface ContentItemLockProps {
   maxAmount: string;
   currencySymbol: string;
-  onSubmit: () => void;
-  amount?: BigNumber;
   walletBalance: BigNumber;
-  walletBalanceUSD: BigNumber;
-  user: UserSummary;
-  poolReserve: ComputedReserveData;
-  userReserve?: ComputedUserReserve;
+  priceInMarketReferenceCurrency: string;
 }
 
 function ContentItemLock({
   maxAmount,
   currencySymbol,
-  onSubmit = () => {},
-  poolReserve,
-  userReserve,
-  user,
-  // amount,
+  priceInMarketReferenceCurrency,
   walletBalance,
 }: ContentItemLockProps) {
-  // todo:pavlik
-
-  // const amount = new BigNumber('100');
-
-  const intl = useIntl();
   const { marketRefPriceInUsd } = useStaticPoolDataContext();
   const [amount, setAmount] = useState<BigNumber | null>(null);
-  const assetDetails = getAssetInfo(poolReserve.symbol);
 
-  const amountIntEth = walletBalance.multipliedBy(poolReserve.priceInMarketReferenceCurrency);
+  const amountIntEth = walletBalance.multipliedBy(priceInMarketReferenceCurrency);
   const amountInUsd = amountIntEth.multipliedBy(marketRefPriceInUsd);
 
   return (
     <>
       <ContentItem
         className="ManageRadiant__content-lock"
-        title="Lock RADIANT"
-        apr="189.42%"
+        title="Lock RDNT"
+        apr="XXX.XX%"
         description={
           <>
-            <p>Lock RADIANT and earn platform fees and penalty fees in unlocked RADIANT</p>
+            <p>Lock RDNT and earn platform fees and penalty fees in unlocked RDNT.</p>
             <p>
-              Locked is subject to a a three month lock and will continue to earn after locks expire
-              if you do not withdraw
+              Locked RDNT is subject to a three month lock and will continue to earn fees after the
+              locks expire if you do not withdraw.
             </p>
           </>
         }
@@ -88,7 +65,6 @@ function ContentItemLock({
                 symbol={currencySymbol}
                 value={walletBalance.toString()}
                 tokenIcon={true}
-                subValue={amountInUsd.toString()}
                 subSymbol="USD"
                 tooltipId={currencySymbol}
               />

@@ -7,15 +7,19 @@ const staticStyles = css.global`
 
   .MainDashboardTable {
     margin-top: 45px;
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
     margin-bottom: 10px;
-    flex: 1;
-    @include respond-to(lg) {
-      flex-direction: column;
-      justify-content: flex-start;
-      display: block;
+
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex: 1;
+
+      @include respond-to(lg) {
+        flex-direction: column;
+        justify-content: flex-start;
+        display: block;
+      }
     }
 
     &__left-inner,

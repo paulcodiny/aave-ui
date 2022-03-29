@@ -49,10 +49,6 @@ export default function MarketTable({
       title: messages.variable,
       sortKey: 'variableBorrowRate',
     },
-    {
-      title: messages.stable,
-      sortKey: 'stableBorrowRate',
-    },
   ];
 
   return (

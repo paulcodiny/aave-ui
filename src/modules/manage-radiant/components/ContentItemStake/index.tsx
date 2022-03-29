@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { useIntl } from 'react-intl';
 import { BigNumber, valueToBigNumber } from '@aave/protocol-js';
-import { ComputedUserReserve } from '@aave/math-utils';
 
-import {
-  ComputedReserveData,
-  UserSummary,
-  useStaticPoolDataContext,
-} from '../../../../libs/pool-data-provider';
+import { useStaticPoolDataContext } from '../../../../libs/pool-data-provider';
 import BasicForm from '../../../../components/forms/BasicForm';
 import Value from '../../../../components/basic/Value';
 import ContentItem from '../ContentItem';
@@ -20,22 +15,14 @@ import staticStyles from './style';
 interface ContentItemStakeProps {
   maxAmount: string;
   currencySymbol: string;
-  onSubmit: () => void;
-  amount?: BigNumber;
   walletBalance: BigNumber;
-  walletBalanceUSD: BigNumber;
-  user?: UserSummary;
-  poolReserve: ComputedReserveData;
-  userReserve?: ComputedUserReserve;
+  priceInMarketReferenceCurrency: string;
 }
 
 export function ContentItemStake({
   maxAmount,
   currencySymbol,
-  poolReserve,
-  userReserve,
-  user,
-  onSubmit,
+  priceInMarketReferenceCurrency,
   walletBalance,
 }: ContentItemStakeProps) {
   const intl = useIntl();
@@ -43,16 +30,16 @@ export function ContentItemStake({
 
   const [amount, setAmount] = useState<BigNumber | null>(null);
 
-  const amountIntEth = walletBalance.multipliedBy(poolReserve.priceInMarketReferenceCurrency);
+  const amountIntEth = walletBalance.multipliedBy(priceInMarketReferenceCurrency);
   const amountInUsd = amountIntEth.multipliedBy(marketRefPriceInUsd);
 
   return (
     <>
       <ContentItem
         className="ManageRadiant__content-stake"
-        title="Stake RADIANT"
-        apr="72.53%"
-        description={<p>Stake RADIANT and earn platform fees with on lockup period</p>}
+        title="Stake RDNT"
+        apr="XXX.XX%"
+        description={<p>Stake RDNT and earn platform fees with no lockup period</p>}
       >
         {!!amount ? (
           <StakeConfirmation
@@ -72,7 +59,6 @@ export function ContentItemStake({
                 symbol={currencySymbol}
                 value={walletBalance.toString()}
                 tokenIcon={true}
-                subValue={amountInUsd.toString()}
                 subSymbol="USD"
                 tooltipId={currencySymbol}
               />

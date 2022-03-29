@@ -994,5 +994,6 @@
   "ui-config.branding.UnlockWalletExtraText.unlockWalletExtraText": "",
   "ui-config.menu-items.faq": "常见问题",
   "ui-config.menu-items.faucet": "水龙头",
+  "vest": "",
   "withdraw": "取款"
 }
