@@ -18,7 +18,7 @@ export function Table({ title, value = '', action = 'Vesting', table = [] }: Tab
         <h3>{title}</h3>
 
         <div className="Table__header">
-          <div className="Table__header-column">Vesting</div>
+          <div className="Table__header-column">{action}</div>
           <div className="Table__header-column">Sum</div>
           <div className="Table__header-column">Expiry</div>
         </div>
@@ -29,7 +29,6 @@ export function Table({ title, value = '', action = 'Vesting', table = [] }: Tab
           <div className="Table__row">
             {table.map((record) => (
               <>
-                <div className="Table__column">Total RADIANT {action}</div>
                 <div className="Table__column">
                   <strong>{record.amount}</strong> RDNT
                 </div>
@@ -37,10 +36,17 @@ export function Table({ title, value = '', action = 'Vesting', table = [] }: Tab
               </>
             ))}
           </div>
+          <div className="Table__row">
+            <div className="Table__column">Total RDNT {action}</div>
+            <div className="Table__column">
+              <strong>{value}</strong> RDNT
+            </div>
+            <div className="Table__column" />
+          </div>
           {/*<div className="Table__row">*/}
           {/*  <div className="Table__column">Total value</div>*/}
           {/*  <div className="Table__column">*/}
-          {/*    <strong>$ 14.21</strong> USD*/}
+          {/*    <strong>{value}</strong> RDNT*/}
           {/*  </div>*/}
           {/*  <div className="Table__column" />*/}
           {/*</div>*/}

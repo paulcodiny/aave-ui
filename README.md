@@ -10,8 +10,16 @@ graph TD
 # Installation RDNT
 ```shell
 $ npm i --legacy-peer-deps --unsafe-perm --ignore-scripts --verbose
+$ npm i node-sass
 $ npm rebuild node-sass
 ```
+
+# Troubleshooting
+- Error: warning Error from chokidar - Error: ENOSPC: System limit for number of file watchers reached #317
+  Solution: https://github.com/cypress-io/github-action/issues/317
+
+- Error message "error:0308010C:digital envelope routines::unsupported"
+  Solution: https://stackoverflow.com/questions/69692842/error-message-error0308010cdigital-envelope-routinesunsupported
 
 # Preparation
 Update file src/ui-config/rdnt.ts accordint to your contracts.

@@ -85,8 +85,6 @@ export class MultiFeeDistributionService extends BaseService<MultiFeeDistributio
     );
 
     const lockedBalances = await multiFeeDistributionContract.callStatic.lockedBalances(user);
-    console.log(lockedBalances);
-    debugger;
 
     return lockedBalances.lockData.map(({ amount, unlockTime }) => {
       return {

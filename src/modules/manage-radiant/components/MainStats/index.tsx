@@ -16,9 +16,10 @@ import { providers } from 'ethers';
 
 interface MainStatsProps {
   staked: string;
+  earned: string;
 }
 
-export function MainStats({ staked }: MainStatsProps) {
+export function MainStats({ earned, staked }: MainStatsProps) {
   const { chainId } = useProtocolDataContext();
   const { user } = useDynamicPoolDataContext();
   const { library: provider } = useWeb3React<providers.Web3Provider>();
@@ -84,7 +85,7 @@ export function MainStats({ staked }: MainStatsProps) {
               </p>
             </div>
             <div className="Table__column">
-              <strong>XX</strong> RDNT
+              <strong>{earned}</strong> RDNT
             </div>
             <div className="Table__column" />
           </div>

@@ -78,7 +78,7 @@ export default function RdntTableItem() {
 
   return (
     <TableItem tokenSymbol={'RDNT'}>
-      <TableValueCol value={Number(earned)} />
+      <TableValueCol value={Number(availableForVesting)} />
       <TableAprCol
         value={0}
         thirtyDaysAverage={'XXX'}

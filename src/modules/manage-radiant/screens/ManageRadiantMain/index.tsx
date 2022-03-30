@@ -217,7 +217,7 @@ export function ManageRadiantMain() {
 
             <div className="ManageRadiant__right-column">
               <div className="ManageRadiant__content-item">
-                <MainStats staked={total.minus(locked).toString()} />
+                <MainStats earned={earned.toString()} staked={total.minus(locked).toString()} />
               </div>
 
               <div className="ManageRadiant__content-item">
